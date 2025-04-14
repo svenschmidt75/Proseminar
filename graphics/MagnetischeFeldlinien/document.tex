@@ -2,11 +2,13 @@
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 
 \usepackage{amsmath}
 
 \begin{document}
+
 
 \begin{tikzpicture}
 
@@ -28,11 +30,15 @@
 \node at (A2) {\Large$\boldsymbol{\times}$};
 
 % magnetic field lines
-\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{<}}}] (2,8.5) arc (-180:0:3cm and 3cm);
-\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.75 with {\arrow{<}}}] (5,7) circle[radius=0.9];
-\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{>}}}] (8,5) -- (2,5);
-\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{<}}}] (2,1.5) arc (180:0:3cm and 3cm);
-\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.25 with {\arrow{>}}}] (5,3) circle[radius=0.9];
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrowreversed{Stealth}}}] (2,8.5) arc
+(-180:0:3cm and 3cm);
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.75 with {\arrowreversed{Stealth}}}] (5,7)
+circle[radius=0.9];
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrow{Stealth}}}] (8,5) -- (2,5);
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.5 with {\arrowreversed{Stealth}}}] (2,1.5) arc
+(180:0:3cm and 3cm);
+\draw[thick, postaction={decorate}, decoration={markings, mark=at position 0.25 with {\arrow{Stealth}}}] (5,3)
+circle[radius=0.9];
 
 \node at ($(A2)+(45:1.5)$) {$\textbf{H}$};
 
