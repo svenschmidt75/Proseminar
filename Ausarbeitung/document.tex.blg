@@ -1,5 +1,0 @@
-[0] Config.pm:307> INFO - This is Biber 2.19
-[0] Config.pm:310> INFO - Logfile is 'document.tex.blg'
-[28] biber-darwin:340> INFO - === Mon Apr 21, 2025, 15:57:31
-[105] Utils.pm:410> ERROR - Cannot find 'document.tex.bcf'!
-[105] Biber.pm:136> INFO - ERRORS: 1
