@@ -59,7 +59,6 @@ Aus den Gesetzen der Elektro- und Magnetostatik ist bekannt, dass sich beim Durc
 den Leiter ein magnetisches Feld ausbildet. Analog bildet die Potenzialdifferenz beider Leiter ein elektrisches Feld
 aus. Die folgende Abbildung~\ref{Felder} zeigt den Querschnitt eines Leiters mit eingezeichneten Feldlinien.
 
-
 \begin{figure}[!h]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{images/Felder.png}
@@ -68,7 +67,40 @@ aus. Die folgende Abbildung~\ref{Felder} zeigt den Querschnitt eines Leiters mit
     \end{center}
 \end{figure}
 
+Im Folgenden nehmen wir an, dass der Abstand $d$ zwischen den Leitern viel kleiner ist, als die Wellenlänge $\lambda$
+der auftretenden Signale,
+\[ d \ll \lambda = \frac{c_{0}}{f \sqrt{\epsilon_{r}}} \]
+wobei $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals und $\epsilon_{r}$ die relative
+Dielektrizitätskonstante bezeichnet. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine (konstante)
+Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
 
+Wir betrachten nun ein kleines, infinitesimales Leitungsstück $ds$,
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/Leitung1.png}
+        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \label{Leitung1}
+    \end{center}
+\end{figure}
+
+Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{s}$
+\[ \Phi_{s} = i \cdot L_{s} \], wobei $i$ der Strom ist.
+Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{s}$,
+die über die Spannung $u$ wie folgt zusammenhängt,
+\[ Q_{s} = C_{s} \cdot u . \]
+Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt vor wie auf Abbildung~\ref{Leitung2}
+dargestellt.
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/Leitung2.png}
+        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \label{Leitung2}
+    \end{center}
+\end{figure}
+Die führt auf die folgenden qualitativen Eigenschaften: Wir eine Spannung am Leitungsanfang angelegt, muss zunächst die
+erste Kapazität $Q_{s_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spannung an der Längsinduktivität $L_{s_{1}}$
+an. Der aufgebaute Strom wird nun $Q{s_{2}}$ aufladen etc., bis zum Leiterende. Die Ausbreitung des Einschaltvorgangs
+findet mit endlicher Geschwindigkeit statt.
 
 
 
