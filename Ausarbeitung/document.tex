@@ -10,6 +10,9 @@
 
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{xcolor}
 
 
 \begin{document}
@@ -74,7 +77,7 @@ wobei $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals u
 Dielektrizitätskonstante bezeichnet. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine (konstante)
 Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
 
-Wir betrachten nun ein kleines, infinitesimales Leitungsstück $ds$,
+Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}s$,
 \begin{figure}[!h]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{images/Leitung1.png}
@@ -102,6 +105,61 @@ erste Kapazität $Q_{s_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spann
 an. Der aufgebaute Strom wird nun $Q{s_{2}}$ aufladen etc., bis zum Leiterende. Die Ausbreitung des Einschaltvorgangs
 findet mit endlicher Geschwindigkeit statt.
 
+Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $R_{s}$ auf einer Strecke
+$\mathrm{d}s$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum leitend ist, dann bezeichnen wir dies mit
+dem Querleitwert
+$G_{s}$ auf der Strecke $\mathrm{d}s$. Die Abbildung~\ref{Leitung3}
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/Leitungsstueck.png}
+        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \label{Leitung3}
+    \end{center}
+\end{figure}
+
+
+
+\chapter{Die Telegraphenleitungen}
+Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\mathrm{d}s$ eines verlustbehafteten
+Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Leitungsende $i + \mathrm{d}i$ und $u +
+\mathrm{d}u$.
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{images/Leitungsstueck2.png}
+        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
+        aus~\cite{LeitungenUndFilter}.}
+        \label{Leitung4}
+    \end{center}
+\end{figure}
+
+Wir definieren auf einem Stück $\mathrm{d}s$
+
+\begin{tabular}{l l}
+    den Widerstandsbelag & $R^{\prime} = \frac{R_{s}}{s}$ \\
+\addlinespace
+    den Induktivitätsbelag & $L^{\prime} = \frac{L_{s}}{s}$ \\
+\addlinespace
+    den Kapazitätsbelag & $C^{\prime} = \frac{C_{s}}{s}$ \\
+\addlinespace
+    und den Leitungsbelag & $G^{\prime} = \frac{G_{s}}{s}$. \\
+\end{tabular}
+
+Der Widerstand $R^{\prime}$ und die Induktivität $L^{\prime}$ verursachen einen Spannungsabfall von
+\[
+i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d} z
+\]
+entlang von $\mathrm{d}s$. Mit der Kirchhoffschen Maschengleichung {\color{red}REF} folgt für die Spannung
+\begin{equation}
+u(z, t) = R^{\prime} \, i(z, t) + L^{\prime} \, \frac{\partial i(z, t)}{\partial t} + u(z + \Delta z, t).
+\end{equation}
+Durch Querleitwert $G_{s}$ und Querkapazität $C_{s}$ fließt der Strom
+\[
+u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d} z.
+\]
+Mit der Kirchhoffschen Knotenregel {\color{red}REF} folgt
+\begin{equation}
+    i(z, t) = G^{\prime} \, u(z, t) + C^{\prime} \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
+\end{equation}
 
 
 
@@ -110,7 +168,7 @@ findet mit endlicher Geschwindigkeit statt.
 
 \section{Verlustloses Model}
 
-\section{Verlustbehaftetest Model}
+\section{Verlustbehaftetes Model}
 
 \section{Abschlüsse}
 
