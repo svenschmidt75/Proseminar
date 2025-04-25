@@ -160,6 +160,69 @@ Mit der Kirchhoffschen Knotenregel {\color{red}REF} folgt
 \begin{equation}
     i(z, t) = G^{\prime} \, u(z, t) + C^{\prime} \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
 \end{equation}
+Wir formen nun beide Gleichungen um,
+\begin{align}
+\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= \frac{R^{\prime}}{\Delta z} \, i(z, t) + \frac{L^{\prime}}{\Delta z}
+\,
+\frac{\partial i(z, t)}{\partial t} \\
+\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &= \frac{G^{\prime}}{\Delta z} \, u(z, t) + \frac{C^{\prime}}{\Delta z}
+\, \frac{\partial u(z + \Delta z, t)}{\partial t}.
+\end{align}
+Mit
+\[
+\lim_{\Delta x \to 0} \frac{u(x+\Delta x, t)-u(x, t)}{\Delta x} = \frac{\partial u(x, t)}{\partial x} \quad \text{und}
+\quad \lim_{\Delta x \to 0} \frac{\Delta R}{\Delta x} = R' \quad \text{folgt}
+\]
+\begin{align}
+    \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
+    \\
+    \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u \label{eq:Dgl2}
+\end{align}
+Dies ist ein System partieller linearer Differentialgleichungen 1.~Ordnung mit konstanten Koeffizienten. Sie werden
+auch Differentialgleichungen der elektrischen Leitung genannt.
+Gleichung~\eqref{eq:Dgl1} beschreibt den Spannungsabfall verursacht durch den Leitungswiderstand $R^{\prime}$ und
+Induktivität $L^{\prime}$, siehe Abbildung~\ref{Leitung4}.
+Die zweite Gleichung~\eqref{eq:Dgl2} beschreibt den Stromfluss zwischen den Leitern, verursacht durch Kapazität
+$C^{\prime}$ und Querleitwert $G^{\prime}$.
+
+Oftmals werden diese Gleichungen in die sogenannten Telegraphenleitungen weiter umgeformt. Dazu leiten wir beide
+Gleichungen einmal nach $x$ und einmal nach $t$ ab,
+\begin{align}
+    \frac{\partial^{2} u}{\partial x^2} &= -R^{\prime} \, \frac{\partial i}{\partial x} - L^{\prime} \,
+    \frac{\partial^2 i}{\partial t \,
+    \partial x} \label{eq:Dgl3} \\[1.5ex]
+    \frac{\partial^{2} i}{\partial x^2} &= -G^{\prime} \, \frac{\partial u}{\partial x} - C^{\prime} \,
+    \frac{\partial^2 u}{\partial t \,
+    \partial x} \label{eq:Dgl4} \\[1.5ex]
+    \frac{\partial^{2} u}{\partial x \, \partial t} &= -R^{\prime} \, \frac{\partial i}{\partial t} - L^{\prime} \,
+    \frac{\partial^2
+    i}{\partial t^{2}} \label{eq:Dgl5} \\[1.5ex]
+    \frac{\partial^{2} i}{\partial x \, \partial t} &= -G^{\prime} \, \frac{\partial u}{\partial t} - C^{\prime} \,
+    \frac{\partial^2
+    u}{\partial t^{2}} \label{eq:Dgl6}
+\end{align}
+Wir setzen nun \eqref{eq:Dgl2} und \eqref{eq:Dgl6} in \eqref{eq:Dgl3} und \eqref{eq:Dgl1} und \eqref{eq:Dgl5} in
+\eqref{eq:Dgl4} ein und erhalten
+\begin{align}
+    \frac{\partial^{2} u}{\partial x^{2}} &= R^{\prime} G^{\prime} u(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial u(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(x,t)}{\partial t^{2}}
+    \\[1.5ex]
+    \frac{\partial^{2} i}{\partial x^{2}} &= R^{\prime} G^{\prime} i(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial i(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} i(x, t)}{\partial t^{2}}
+\end{align}
+Im Allgemeinen wird man diese partiellen Differentialgleichungen nur numerisch lösen können. Im Folgenden werden wir
+einige Spezialfälle betrachten, die es uns erlauben, das qualitative Verhalten der Signalausbreitung zu beschreiben.
+
+
+\subsection{Die Gleichungen der verlustlosen Leitung}
+Wir betrachten zunächst den Fall, dass die auftretenden Verlustterme $R^{\prime}$ und $G^{\prime}$ vernachlässigbar
+sind, Die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen zu
+\begin{align}
+    \frac{\partial u}{\partial z} &= - L^{\prime} \frac{\partial i}{\partial t} \label{eq:Dgl7} \\
+    \frac{\partial i}{\partial z} &= - C^{\prime} \frac{\partial u}{\partial t} \label{eq:Dgl8}
+\end{align}
+
+
 
 
 
