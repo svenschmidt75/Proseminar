@@ -13,6 +13,15 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{xcolor}
+\usepackage{standalone}
+
+% for aligned captions
+\usepackage{subcaption}
+
+\usepackage{tikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
 
 
 \begin{document}
@@ -59,23 +68,47 @@ Zweidrahtleitern (Paralleldraht), die schematisch in der folgenden Abbildung gez
 \end{figure}
 
 Aus den Gesetzen der Elektro- und Magnetostatik ist bekannt, dass sich beim Durchfließen eines elektrischen Stroms um
-den Leiter ein magnetisches Feld ausbildet. Analog bildet die Potenzialdifferenz beider Leiter ein elektrisches Feld
-aus. Die folgende Abbildung~\ref{Felder} zeigt den Querschnitt eines Leiters mit eingezeichneten Feldlinien.
-
-\begin{figure}[!h]
-    \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/Felder.png}
-        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
-        \label{Felder}
-    \end{center}
+einen Leiter ein magnetisches Feld ausbildet (Abbildung~\ref{Felder1}). Variiert dieser Strom zeitlich, dann
+verändert sich mit ihm das magnetische Feld und dies wiederum bewirkt die Ausbildung eines elektrischen Feldes, welches
+sich als induzierte Gegenspannung bemerkbar macht.
+\begin{figure}[!ht]
+%    \centering
+    \begin{subfigure}[b]{0.5\textwidth}
+        \centering
+%        \input{../graphics/MagnetischeFeldlinien/document}
+        \includegraphics[width=0.6\linewidth]{../graphics/MagnetischeFeldlinien/document}
+        \caption{\color{red}Caption for the first picture}
+        \label{Felder1}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+%        \input{../graphics/ElektrischeFeldlinien/document}
+        \includegraphics[width=0.9\linewidth]{../graphics/ElektrischeFeldlinien/document}
+        \caption{\color{red}Caption for the second picture}
+        \label{Felder2}
+    \end{subfigure}
+    \caption{\color{red}Overall caption for the figure}
 \end{figure}
+Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld einher (Abbildung~\ref{Felder2}).
+Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
+wechselwirkt.
 
-Im Folgenden nehmen wir an, dass der Abstand $d$ zwischen den Leitern viel kleiner ist, als die Wellenlänge $\lambda$
-der auftretenden Signale,
-\[ d \ll \lambda = \frac{c_{0}}{f \sqrt{\epsilon_{r}}} \]
-wobei $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals und $\epsilon_{r}$ die relative
+
+Im Folgenden nehmen wir an, dass der Leiter parallel verläuft, der Abstand $d$ zwischen den Leitern und der Querschnitt
+des Leiters viel kleiner ist, als die Wellenlänge $\lambda$ der auftretenden Signale,
+\[ d \ll \lambda = \frac{c_{0}}{f \sqrt{\epsilon_{r}}}. \]
+In diesem Fall müssen wir nicht die Maxwellschen Gleichungen
+lösen -- statt dessen können wir mit der Methode der Ersatzschaltbilder die Signalübertragung direkt mit den
+beteiligten Strömen und Spannungen beschreiben, ohne mit den elektrischen und magnetischen Feldern
+argumentieren zu müssen.
+
+Es ist $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals und $\epsilon_{r}$ die relative
 Dielektrizitätskonstante bezeichnet. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine (konstante)
 Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
+
+
+
 
 Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}s$,
 \begin{figure}[!h]
@@ -175,7 +208,7 @@ Mit
 \]
 \begin{align}
     \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
-    \\
+    \\[1ex]
     \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u \label{eq:Dgl2}
 \end{align}
 Dies ist ein System partieller linearer Differentialgleichungen 1.~Ordnung mit konstanten Koeffizienten. Sie werden
@@ -190,13 +223,13 @@ Gleichungen einmal nach $x$ und einmal nach $t$ ab,
 \begin{align}
     \frac{\partial^{2} u}{\partial x^2} &= -R^{\prime} \, \frac{\partial i}{\partial x} - L^{\prime} \,
     \frac{\partial^2 i}{\partial t \,
-    \partial x} \label{eq:Dgl3} \\[1.5ex]
+    \partial x} \label{eq:Dgl3} \\[1ex]
     \frac{\partial^{2} i}{\partial x^2} &= -G^{\prime} \, \frac{\partial u}{\partial x} - C^{\prime} \,
     \frac{\partial^2 u}{\partial t \,
-    \partial x} \label{eq:Dgl4} \\[1.5ex]
+    \partial x} \label{eq:Dgl4} \\[1ex]
     \frac{\partial^{2} u}{\partial x \, \partial t} &= -R^{\prime} \, \frac{\partial i}{\partial t} - L^{\prime} \,
     \frac{\partial^2
-    i}{\partial t^{2}} \label{eq:Dgl5} \\[1.5ex]
+    i}{\partial t^{2}} \label{eq:Dgl5} \\[1ex]
     \frac{\partial^{2} i}{\partial x \, \partial t} &= -G^{\prime} \, \frac{\partial u}{\partial t} - C^{\prime} \,
     \frac{\partial^2
     u}{\partial t^{2}} \label{eq:Dgl6}
@@ -215,12 +248,37 @@ einige Spezialfälle betrachten, die es uns erlauben, das qualitative Verhalten 
 
 
 \subsection{Die Gleichungen der verlustlosen Leitung}
-Wir betrachten zunächst den Fall, dass die auftretenden Verlustterme $R^{\prime}$ und $G^{\prime}$ vernachlässigbar
-sind, Die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen zu
+Da die Telegraphenleitungen i.A. nur nummerisch gelöst werden können, wollen wir hier eine vereinfachende Annahme
+machen: wir nehmen an, dass die Leitung verlustlos ist, d.h. wir setzen $R^{\prime} = G^{\prime} = 0$. Dies erlaubt es
+uns, die Gleichungen exakt zu lösen und somit das qualitative Verhalten der Signalausbreitung zu beschreiben. Die
+Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen sich zu
 \begin{align}
-    \frac{\partial u}{\partial z} &= - L^{\prime} \frac{\partial i}{\partial t} \label{eq:Dgl7} \\
-    \frac{\partial i}{\partial z} &= - C^{\prime} \frac{\partial u}{\partial t} \label{eq:Dgl8}
+    \frac{\partial u}{\partial z} &= - L^{\prime} \, \frac{\partial i}{\partial t} \label{eq:Dgl7} \\[1ex]
+    \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} \label{eq:Dgl8} .
 \end{align}
+Jede dieser Gleichungen hat die Form der Wellengleichung. Sie sind homogene partielle Differentialgleichungen, deren
+Lösung aus zwei Partiallösungen \[ u(x, t) = u_{v}(v t - x) + u_{r}(v t + x) \] und \[ i(x, t) = i_{v}(v t - x) +
+i_{r}(v t + x) \]. Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{v}$ bzw. $i_{v}$ um
+vorwärts laufende Wellen, bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu
+Abbildung~\ref{VorwaertsWelle}.
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[width=0.75\textwidth]{images/VorwaertsWelle.png}
+        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
+            aus~\cite{LeitungenUndFilter}.}
+        \label{VorwaertsWelle}
+    \end{center}
+\end{figure}
+Sei dazu $t_{0} = 0$, $t_{1} > 0$ und $x_{0} > 0$. Dann ist die Welle zum Zeitpunkt $t_{1} > 0$ die Strecke $x = x_{1}
+= v t_{1} + x_{0}$ vorangeschritten. Es gilt $u(x_{0}, t_{0}) = u_{v}(-x_{0})$ und
+\begin{align*}
+    u(x_{1}, t_{1}) &= u_{v}(v t_{1} - x_{1}) \\
+                    &= u_{v}(v t_{1} - (v t_{1} + x_{0})) \\
+                    &= u_{v}(- x_{0}) \\
+                    &= u(x_{0}, t_{0}).
+\end{align*}
+Wegen $x_{1} > x_{0}$ ist dies also die vorwärts laufende Welle. Analog beschreiben $u_{r}$ bzw. $i_{r}$ jeweils eine
+rücklaufende Welle.
 
 
 

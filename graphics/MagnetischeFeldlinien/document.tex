@@ -21,7 +21,11 @@
 }
 
 % grind lines
-\draw[help lines, dashed] grid (10,10);
+%\draw[help lines, dashed] grid (10,10);
+
+% zeige den Teil, der durch die Graphik benutzt wird
+\useasboundingbox (1.5,1.25) rectangle (8.5,8.75);
+
 
 %position of bottom wire
 \coordinate (A1) at (5,3);
@@ -48,7 +52,7 @@
 \draw[fieldline, arrow=0.25] (5,3) circle[radius=0.9];
 
 % Magnetic field label
-\node at ($(A2)+(45:1.5)$) {\textbf{H}};
+\node at ($(A2)+(45:1.5)$) {\large \textbf{H}};
 
 \end{tikzpicture}
 
