@@ -10,7 +10,7 @@
 \begin{document}
 
 
-\begin{tikzpicture}
+\begin{tikzpicture}[scale=0.8, transform shape]
 
 % Define styles
 \tikzset{
@@ -20,13 +20,15 @@
     reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealth}}}}
 }
 
+
+% zeige den Teil, der durch die Graphik benutzt wird
+\useasboundingbox (5.5,2) rectangle (15,8);
+
+
 \begin{scope}[xscale=2]
 
 % grind lines
 %\draw[help lines, dashed] grid (10,10);
-
-% zeige den Teil, der durch die Graphik benutzt wird
-\useasboundingbox (2.75,2) rectangle (7.5,8);
 
 %position of bottom wire
 \coordinate (A1) at (5,3);

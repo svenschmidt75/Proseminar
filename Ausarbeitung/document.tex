@@ -13,6 +13,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{xcolor}
+
 \usepackage{standalone}
 
 % for aligned captions
@@ -73,18 +74,20 @@ verändert sich mit ihm das magnetische Feld und dies wiederum bewirkt die Ausbi
 sich als induzierte Gegenspannung bemerkbar macht.
 \begin{figure}[!ht]
 %    \centering
-    \begin{subfigure}[b]{0.5\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \centering
-%        \input{../graphics/MagnetischeFeldlinien/document}
-        \includegraphics[width=0.6\linewidth]{../graphics/MagnetischeFeldlinien/document}
+        \input{../graphics/MagnetischeFeldlinien/document}
+
+%        \includegraphics[width=0.6\linewidth]{../graphics/MagnetischeFeldlinien/document}
         \caption{\color{red}Caption for the first picture}
         \label{Felder1}
     \end{subfigure}%
     \hfill
-    \begin{subfigure}[b]{0.45\textwidth}
+    \begin{subfigure}[b]{0.49\textwidth}
         \centering
-%        \input{../graphics/ElektrischeFeldlinien/document}
-        \includegraphics[width=0.9\linewidth]{../graphics/ElektrischeFeldlinien/document}
+        \input{../graphics/ElektrischeFeldlinien/document}
+
+%        \includegraphics[width=0.9\linewidth]{../graphics/ElektrischeFeldlinien/document}
         \caption{\color{red}Caption for the second picture}
         \label{Felder2}
     \end{subfigure}
@@ -257,8 +260,12 @@ Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen sich zu
     \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} \label{eq:Dgl8} .
 \end{align}
 Jede dieser Gleichungen hat die Form der Wellengleichung. Sie sind homogene partielle Differentialgleichungen, deren
-Lösung aus zwei Partiallösungen \[ u(x, t) = u_{v}(v t - x) + u_{r}(v t + x) \] und \[ i(x, t) = i_{v}(v t - x) +
-i_{r}(v t + x) \]. Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{v}$ bzw. $i_{v}$ um
+Lösung aus zwei Partiallösungen
+\begin{align}
+u(x, t) &= u_{v}(v t - x) + u_{r}(v t + x) \label{eq:AllgEq1} \\[1ex]
+i(x, t) &= i_{v}(v t - x) + i_{r}(v t + x) \label{eq:AllgEq2}.
+\end{align}
+Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{v}$ bzw. $i_{v}$ um
 vorwärts laufende Wellen, bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu
 Abbildung~\ref{VorwaertsWelle}.
 \begin{figure}[!h]
@@ -281,13 +288,51 @@ Wegen $x_{1} > x_{0}$ ist dies also die vorwärts laufende Welle. Analog beschre
 rücklaufende Welle.
 
 
+\subsubsection{Wellengeschwindigkeit}
+
+Setzen wir die allgemeine Lösung $u_{v}(v t - x)$ in die Gleichungen \eqref{eq:Dgl7} und \eqref{eq:Dgl8} ein, so
+erhalten wir mit
+\begin{equation*}
+    \frac{\partial u_{v}}{\partial x} = \frac{\partial u_{v}}{\partial w} \frac{\partial w}{\partial x} = -1
+    \quad \text{und} \quad
+    \frac{\partial u_{v}}{\partial t} = \frac{\partial u_{v}}{\partial w} \frac{\partial w}{\partial t} = v
+\end{equation*}
+\begin{equation*}
+    \frac{\partial^{2} u_{v}}{\partial x^{2}} = -1 \frac{\partial}{\partial x} \left( \frac{\partial u_{v}}{\partial w}
+    \right) = -1 \frac{\partial^{2} u_{v}}{\partial w^{2}} \frac{\partial w}{\partial x} = \frac{\partial^{2}
+    u_{v}}{\partial w^{2}}
+\end{equation*}
+und
+\begin{equation*}
+    \frac{\partial^{2} u_{v}}{\partial t^{2}} = v \frac{\partial}{\partial t} \left( \frac{\partial u_{v}}{\partial w}
+    \right) = v \frac{\partial^{2} u_{v}}{\partial w^{2}} \frac{\partial w}{\partial t} =v^{2} \frac{\partial^{2}
+        u_{v}}{\partial w^{2}}.
+\end{equation*}
+Es folgt somit
+\begin{equation*}
+    \frac{\partial^{2} u_{v}}{\partial x^{2}} = L^{\prime} \, C^{\prime} \, \frac{\partial^{2} u_{v}}{\partial t^{2}}
+    \Leftrightarrow
+    \frac{\partial^{2} u_{v}}{\partial w^{2}} = L^{\prime} \, C^{\prime} \, v^{2} \frac{\partial^{2} u_{v}}{\partial
+    w^{2}}.
+\end{equation*}
+Nachdem wir die partielle Ableitung herauskürzen, erhalten wir also
+\begin{equation}
+    v = \frac{1}{\sqrt{L^{\prime} \, C^{\prime}}} \label{eq:WellenGeschw1}.
+\end{equation}
+überraschend ist nun, dass die Ausbreitungsgeschwindigkeit des Signals im verlustlosen Leiter durch die Parameter
+$L^{\prime}$ und $C^{\prime}$ abhängt (und damit vom Isolatormaterial zwischen den Leitern), jedoch nicht vom
+Leitermaterial selbst!
+
+
+\subsubsection{Wellenwiderstand}
+
+Wir kommen nun zu einer weiteren wichtigen Größe, dem Wellenwiderstand.
+Setzen wir Gleichungen \eqref{eq:AllgEq1}, \eqref{eq:AllgEq2} und \eqref{eq:WellenGeschw1} in \eqref{eq:Dgl7} und
+\eqref{eq:Dgl8} ein, so folgt
 
 
 
 
-\chapter{Telegraphenleitungen}
-
-\section{Verlustloses Model}
 
 \section{Verlustbehaftetes Model}
 
