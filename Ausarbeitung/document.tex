@@ -21,6 +21,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{decorations.markings}
+\usepackage[europeanresistors]{circuitikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
 
@@ -77,8 +78,6 @@ sich als induzierte Gegenspannung bemerkbar macht.
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{../graphics/MagnetischeFeldlinien/document}
-
-%        \includegraphics[width=0.6\linewidth]{../graphics/MagnetischeFeldlinien/document}
         \caption{\color{red}Caption for the first picture}
         \label{Felder1}
     \end{subfigure}%
@@ -86,8 +85,6 @@ sich als induzierte Gegenspannung bemerkbar macht.
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{../graphics/ElektrischeFeldlinien/document}
-
-%        \includegraphics[width=0.9\linewidth]{../graphics/ElektrischeFeldlinien/document}
         \caption{\color{red}Caption for the second picture}
         \label{Felder2}
     \end{subfigure}
@@ -111,22 +108,21 @@ Dielektrizitätskonstante bezeichnet. Wir machen hier die vereinfachende Annahme
 Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
 
 
-
-
-Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}s$,
+Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}x$,
 \begin{figure}[!h]
     \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/Leitung1.png}
+        \input{../graphics/ErsatzDiagramm1/document}
+%        \includegraphics[width=0.5\textwidth]{images/Leitung1.png}
         \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
         \label{Leitung1}
     \end{center}
 \end{figure}
 
-Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{s}$
-\[ \Phi_{s} = i \cdot L_{s} \], wobei $i$ der Strom ist.
-Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{s}$,
+Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{x}$
+\[ \Phi_{x} = i \cdot L_{x} \], wobei $i$ der Strom ist.
+Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{x}$,
 die über die Spannung $u$ wie folgt zusammenhängt,
-\[ Q_{s} = C_{s} \cdot u . \]
+\[ Q_{x} = C_{x} \cdot u . \]
 Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt vor wie auf Abbildung~\ref{Leitung2}
 dargestellt.
 \begin{figure}[!h]
