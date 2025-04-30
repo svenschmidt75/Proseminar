@@ -329,8 +329,54 @@ Leitermaterial selbst!
 Wir kommen nun zu einer weiteren wichtigen Größe, dem Wellenwiderstand.
 Setzen wir Gleichungen \eqref{eq:AllgEq1}, \eqref{eq:AllgEq2} und \eqref{eq:WellenGeschw1} in \eqref{eq:Dgl7} und
 \eqref{eq:Dgl8} ein, so folgt
-
-
+\begin{align*}
+    \frac{\partial u}{\partial x} &= \frac{\partial u_{v}}{\partial w_{-}} \frac{\partial w_{-}}{\partial x}
+    + \frac{\partial u_{r}}{\partial w_{+}} \frac{\partial w_{+}}{\partial x}
+    =
+    \frac{\partial u_{v}}{\partial w_{-}} \left(- \frac{1}{v} \right) + \frac{\partial u_{r}}{\partial w_{+}}
+    \frac{1}{v} \\[1ex]
+    \frac{\partial i}{\partial t} &= \frac{\partial i_{v}}{\partial w_{-}} - \frac{\partial i_{r}}{\partial w_{+}}
+\end{align*}
+und
+\begin{align*}
+    \frac{\partial i}{\partial x} &= \frac{\partial i_{v}}{\partial w_{-}} \frac{\partial w_{-}}{\partial x}
+    + \frac{\partial i_{r}}{\partial w_{+}} \frac{\partial w_{+}}{\partial x}
+    =
+    \frac{\partial i_{v}}{\partial w_{-}} \left(- \frac{1}{v} \right) - \frac{\partial i_{r}}{\partial w_{+}}
+    \frac{1}{v} \\[1ex]
+    \frac{\partial u}{\partial t} &= \frac{\partial u_{v}}{\partial w_{-}}
+    \underbrace{\frac{\partial w_{-}}{\partial t} }_{=1}
+    -
+    \frac{\partial u_{r}}{\partial w_{+}} \underbrace{\frac{\partial w_{+}}{\partial t} }_{=1}
+\end{align*}
+und somit
+\begin{alignat*}{3}
+    \frac{\partial u}{\partial x} &= \frac{1}{v} \left( \frac{\partial u_{r}}{\partial w_{+}} -
+    \frac{\partial u_{v}}{\partial w_{-}} \right) &= - L^{\prime} \left( \frac{\partial i_{v}}{\partial w_{-}} -
+    \frac{\partial i_{r}}{\partial w_{+}} \right) &= L^{\prime} \, \frac{\partial i}{\partial t} \\[1ex]
+    \frac{\partial i}{\partial x} &= - \frac{1}{v} \left( \frac{\partial i_{r}}{\partial w_{+}} +
+    \frac{\partial i_{v}}{\partial w_{-}} \right) &= - C^{\prime} \left( \frac{\partial u_{v}}{\partial w_{+}} +
+    \frac{\partial u_{r}}{\partial w_{-}} \right) &= C^{\prime} \, \frac{\partial u}{\partial t}.
+\end{alignat*}
+Da die Funktionen $u_{v}$ und $u_{r}$ bzw. $i_{v}$ und $i_{r}$ unabhängig sind, folgt
+\begin{equation}
+    - \frac{1}{v} \, \frac{\text{d} u_{v}}{\text{d} w_{-}} = - L^{\prime} \, \frac{\text{d} i_{v}}{\text{d} w_{-}}.
+\end{equation}
+Integrieren beider Seiten liefert
+\begin{equation}
+    u_{v}(w_{-}) = v \, L^{\prime} \, i_{v}(w_{-}) + c_{v} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} \, i_{v}(w_{-}) +
+    c_{v},
+\end{equation}
+und
+\begin{equation}
+    u_{r}(w_{+}) = v \, L^{\prime} \, i_{r}(w_{+}) + c_{r} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} \, i_{r}(w_{+}) +
+    c_{r},
+\end{equation}
+wobei $c_{v}$ und $c_{r}$ Konstanten sind. Setzen wir $c_{v} = c_{r} = 0$, dann erhalten wir
+\begin{equation}
+    \frac{u_{v}(x, t)}{i_{v}(x, t)} = \frac{u_{r}(x, t)}{i_{r}(x, t)} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} = Z_{w}.
+\end{equation}
+Diese Konstante hat die Maßeinheit eines Widerstandes, wir nennen $Z_{w}$ folglich den Wellenwiderstand der Leitung.
 
 
 
