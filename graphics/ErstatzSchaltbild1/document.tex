@@ -8,10 +8,10 @@
 \begin{document}
 
 \begin{circuitikz}[scale=0.7, transform shape]
-% top conductor
+% top wire
 \draw[{Circle[open]}-{Circle[open]}] (0,7) -- (8,7);
 
-%bottom conductor
+%bottom wire
 \draw[{Circle[open]}-{Circle[open]}] (0,5) -- (8,5);
 
 %left verical line
@@ -24,7 +24,7 @@
 
 % resistor
 \draw[{Circle[open, fill=white]}-] ($(2,3) - (2pt,0)$) -- (3,3);
-\draw[-{Circle[open, fill=white]}] (5,3) -- ($(6,3) + (1.5pt,0)$);
+\draw[-{Circle[open, fill=white]}] (5,3) -- ($(6,3) + (2pt,0)$);
 % Resistor (no arrow)
 \draw (3,3) to[R, l=$R_{x}$, fill=black] (5,3);
 
@@ -32,7 +32,7 @@
 % capacitor
 \draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}] ($(2,0) - (2pt,0)$) -- ($(6,0) + (2pt,0)$);
 \draw[{Circle[open, fill=black]}-] ($(3,3) + (0, 2pt)$) -- (3,2);
-\draw[-{Circle[open, fill=black]}] (3,1) -- ($(3,0) - (0, 1.5pt)$);
+\draw[-{Circle[open, fill=black]}] (3,1) -- ($(3,0) - (0, 2pt)$);
 \draw (3,2) to[C, l=$C_{x}$] (3,1);
 
 \end{circuitikz}
