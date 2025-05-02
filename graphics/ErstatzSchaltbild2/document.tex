@@ -29,7 +29,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
     \tikzset{line style/.style={solid, black}}
 \tikzset{resistor label/.style={l=$R_{x}$}}
 \else
-\tikzset{line style/.style={dashed, black!30}}
+\tikzset{line style/.style={densely dashed, black!30}}
 \tikzset{resistor label/.style={}}
 \fi
 
@@ -54,7 +54,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \fi
 
 \draw[line style] (B1) -- (B2) node[pos=0.2] (B3) {};
-\draw[-{Circle[open, fill=white]}, line style] (B2) -- (D2);
+\draw[-{Circle[open, fill=white]}, line style] (B2) -- ($(D2) + (2pt, 0)$);
 
 \ifnum#1=\activeIndex
     \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
@@ -82,8 +82,8 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
     \draw[line style] (C2) to[C] (D2);
 \fi
 
-\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style] (C2) -- (E1);
-\draw[-{Circle[open, fill=white]}, line style] (D2) -- (E2);
+\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
+\draw[-{Circle[open, fill=white]}, line style] (D2) --  ($(E2) + (2pt, 0)$);
 
 % G
 \ifnum#1=\activeIndex
