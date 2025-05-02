@@ -24,6 +24,7 @@
 \usepackage[europeanresistors]{circuitikz}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+\usetikzlibrary{3d}
 
 
 \begin{document}
@@ -126,8 +127,7 @@ Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt 
 dargestellt.
 \begin{figure}[!h]
     \begin{center}
-%        \includegraphics[width=0.5\textwidth]{images/Leitung2.png}
-        \input{../graphics/ErstatzSchaltbild1/document}
+        \input{../graphics/ErstatzSchaltbild2/document}
         \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
         \label{Leitung2}
     \end{center}
@@ -238,7 +238,7 @@ Wir setzen nun \eqref{eq:Dgl2} und \eqref{eq:Dgl6} in \eqref{eq:Dgl3} und \eqref
 \begin{align}
     \frac{\partial^{2} u}{\partial x^{2}} &= R^{\prime} G^{\prime} u(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
     G^{\prime}) \frac{\partial u(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(x,t)}{\partial t^{2}}
-    \\[1.5ex]
+     \label{eq:Tele1} \\[1.5ex]
     \frac{\partial^{2} i}{\partial x^{2}} &= R^{\prime} G^{\prime} i(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
     G^{\prime}) \frac{\partial i(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} i(x, t)}{\partial t^{2}}
 \end{align}
@@ -246,7 +246,8 @@ Im Allgemeinen wird man diese partiellen Differentialgleichungen nur numerisch l
 einige Spezialfälle betrachten, die es uns erlauben, das qualitative Verhalten der Signalausbreitung zu beschreiben.
 
 
-\subsection{Die Gleichungen der verlustlosen Leitung}
+\section{Die Gleichungen der verlustlosen Leitung}
+\label{VerlustlosesModel}
 Da die Telegraphenleitungen i.A. nur nummerisch gelöst werden können, wollen wir hier eine vereinfachende Annahme
 machen: wir nehmen an, dass die Leitung verlustlos ist, d.h. wir setzen $R^{\prime} = G^{\prime} = 0$. Dies erlaubt es
 uns, die Gleichungen exakt zu lösen und somit das qualitative Verhalten der Signalausbreitung zu beschreiben. Die
@@ -373,10 +374,100 @@ wobei $c_{v}$ und $c_{r}$ Konstanten sind. Setzen wir $c_{v} = c_{r} = 0$, dann 
     \frac{u_{v}(x, t)}{i_{v}(x, t)} = \frac{u_{r}(x, t)}{i_{r}(x, t)} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} = Z_{w}.
 \end{equation}
 Diese Konstante hat die Maßeinheit eines Widerstandes, wir nennen $Z_{w}$ folglich den Wellenwiderstand der Leitung.
-
-
+Kommen wir nun zur verlustbehafteten Leitung.
 
 \section{Verlustbehaftetes Model}
+Wir wollen jetzt für einen weiteren Spezialfall die Telegraphenleitungen lösen. Wir nehmen an, dass das System im
+eingeschwungenen Zustand ist. Wir nehmen weiter an, dass die auftretenden Signale aus einer einzigen sin-förmigen
+Schwingung fester Frequenz bestehen. I.A. Fall zerlegt man die auftretenden Signale in ihre einzelnen
+Frequenzkomponenten und betrachtet diese zunächst getrennt.
+
+Wir stellen Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ dar, um hervorzuheben,
+dass es sich um komplexe Größen handelt:
+\begin{align*}
+    i(x, t) &= \mathrm{Re} \left( \underline{I}(x) \exp(j \omega t) \right) \\
+    u(x, t) &= \mathrm{Re} \left( \underline{U}(x) \exp(j \omega t) \right)
+\end{align*}
+mit $\omega = 2 \pi f$. Es handelt sich hierbei um stationäre sin-förmige Signale, bei denen Ort- und Zeitabhängigkeit
+entkoppelt sind.
+
+Das Einsetzen der Phasoren in die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} liefert
+\begin{align}
+    \frac{\text{d} \underline{U}}{\text{d} x} &= - \left( R^{\prime} + j \omega L^{\prime} \right)
+    \underline{I} \label{eq:ResDgl1} \\[1ex]
+    \frac{\text{d} \underline{I}}{\text{d} x} &= - \left( G^{\prime} + j \omega C^{\prime} \right) \underline{U}
+\end{align}
+Wir eliminieren $\underline{I}$ aus \eqref{eq:ResDgl1} durch nochmaliges Ableiten der Gleichung nach $x$:
+\begin{align}
+    \frac{\text{d}^{2} \underline{U}}{\text{d} x^{2}} &= \left( R^{\prime} + j \omega L^{\prime} \right)
+    \left( G^{\prime} + j \omega C^{\prime} \right) \underline{U} \label{eq:ResDgl3}.
+\end{align}
+Verglichen mit \eqref{eq:Tele1} entfällt in \eqref{eq:ResDgl3} die Zeitabhängigkeit. Damit haben wir eine gewöhnliche
+Differentialgleichung 2.~Ordnung mit konstanten Koeffizienten, wir wir sie in Abschnitt~\ref{VerlustlosesModel} bereits
+begegnet sind.
+
+Für den Phasor $\underline{I}$ erhalten wir mit ähnlichen Argumenten
+\begin{align}
+    \frac{\text{d}^{2} \underline{I}}{\text{d} x^{2}} &= \left( R^{\prime} + j \omega L^{\prime} \right)
+    \left( G^{\prime} + j \omega C^{\prime} \right) \underline{I}.
+\end{align}
+Dies sind die Wellengleichungen der verlustbehafteten Leitung. Sie werden in der Regel wie folgt geschrieben:
+\begin{align}
+    \frac{\text{d}^{2} \underline{U}}{\text{d} x^{2}} &= \gamma^{2} \underline{U} \\[1ex]
+    \frac{\text{d}^{2} \underline{I}}{\text{d} x^{2}} &= \gamma^{2} \underline{I} \\[1ex]
+    \gamma^{2} &= \left( R^{\prime} + j \omega L^{\prime} \right) \left( G^{\prime} + j \omega C^{\prime} \right).
+\end{align}
+Man nennt $\gamma$ die Wellenausbreitungsgeschwindigkeit. Verglichen zum verlustlosen Model ist dies eine komplexe
+Größe, was dazu führt, dass im verlustbehafteten Fall ein Dämpfungsterm in der Lösung auftritt.
+
+Die allgemeine Lösungen haben die Form
+\[ \underline{U}_{1} \exp(- \gamma x) \quad \text{und} \quad \underline{U}_{2} \exp(\gamma x), \] wobei
+$\underline{U}_{1}$ und $\underline{U}_{2}$ Integrationskonstanten sind, die durch die Anfangsbedingungen festgelegt
+werden.
+Es gilt somit für die Spannung
+\begin{equation}
+    \underline{U}(x) = \underline{U}_{1} \exp(- \gamma x) + \underline{U}_{2} \exp(\gamma x) \label{eq:VerlustU}.
+\end{equation}
+Die Gleichung für den Strom erhalten wir, wenn wir \eqref{eq:VerlustU} in \eqref{eq:ResDgl1} einsetzen,
+\begin{equation}
+    \underline{I}(x) = \frac{-1}{R^{\prime} + j \omega L^{\prime}} \frac{\text{d} \underline{U}}{\text{d} x}
+    = \frac{1}{Z}
+    \left(
+    \vphantom{\sqrt{1}{Z}}
+    \underline{U}_{1} \exp(- \gamma x) + \underline{U}_{2} \exp(\gamma x) \right),
+\end{equation}
+wobei wir
+\begin{equation}
+    Z = \sqrt{\frac{G^{\prime} + j \omega C^{\prime}}{R^{\prime} + j \omega L^{\prime}}}
+\end{equation}
+eingeführt haben. $Z$ hat die Dimension eines Wellenwiderstandes und wird daher Wellenwiderstand oder Wellenimpedanz
+genannt.
+
+Die Konstanten $\underline{U}_{1}$ und $\underline{U}_{2}$ werden in der Regel durch die angelegte Spannung am
+Leiteranfang festgelegt. Gilt z.B.
+\begin{align*}
+    \underline{U}(0) &= \underline{U}_{a} = \underline{U}_{1} + \underline{U}_{2} \\[1ex]
+    \underline{I}(0) &= \underline{I}_{a} = \frac{1}{Z}
+    \left(
+    \vphantom{\sqrt{1}{Z}}
+    \underline{U}_{1} - \underline{U}_{2} \right),
+\end{align*}
+dann folgt für die Integrationskonstanten
+\[ \underline{U}_{1} = \frac{\underline{U}_{a} + Z \underline{I}_{a}}{2} \quad \text{und} \quad \underline{U}_{2} =
+\frac{\underline{U}_{a} - Z \underline{I}_{a}}{2}. \]
+Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
+\begin{align}
+    \underline{U}(x) &=
+    \frac{1}{2} \left( \underline{U}_{a} + Z \underline{I}_{a} \right) \exp (- \gamma x)
+    +
+    \frac{1}{2} \left( \underline{U}_{a} - Z \underline{I}_{a} \right) \exp (\gamma x) \\[1ex]
+    \underline{I}(x) &=
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z} + \underline{I}_{a} \right) \exp (- \gamma x)
+    -
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z} - \underline{I}_{a} \right) \exp (\gamma x).
+\end{align}
+
+
 
 \section{Abschlüsse}
 

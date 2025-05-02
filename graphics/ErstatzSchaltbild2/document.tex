@@ -5,63 +5,108 @@
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{arrows.meta}
 \usetikzlibrary{calc}
+\usetikzlibrary{3d}
 
 \begin{document}
 
-\begin{circuitikz}
+\begin{circuitikz}[x={(15:10mm)}, y={(90:10mm)}, scale=0.5]
 
 \tikzset{
-    charge/.style={fill=orange!10, draw=orange, circle, radius=0.4},
-    fieldline/.style={postaction={decorate}, decoration={markings}},
-    arrow/.style={decoration={mark=at position #1 with {\arrow{Stealth}}}},
-    reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealth}}}}
+charge/.style={fill=orange!10, draw=orange, circle, radius=0.4},
+fieldline/.style={postaction={decorate}, decoration={markings}},
+arrow/.style={decoration={mark=at position #1 with {\arrow{Stealth}}}},
+reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealth}}}}
 }
 
-\def\diagram{
+\newcommand{\diagram}[1]{
 
-%\draw[Stealth-Stealth] (2, 4.25) -- (6, 4.25) node[pos=0.5, circle, fill=white] {d$x$};
+\def\componentWidth{10}
 
-\coordinate (A1) at (1,3);
-\coordinate (A2) at (3,3);
-\coordinate (B1) at (1,0);
-\coordinate (B2) at (3,0);
-\coordinate (C1) at (5,3);
-\coordinate (C2) at (8,3);
-\coordinate (D2) at (8,0);
-\coordinate (E1) at (10,3);
-\coordinate (E2) at (10,0);
-\coordinate (E3) at (12,3);
-\coordinate (E4) at (12,0);
+% Index of the active component
+\def\activeIndex{2}
 
+\ifnum#1=\activeIndex
+    \tikzset{line style/.style={solid, black}}
+\tikzset{resistor label/.style={l=$R_{x}$}}
+\else
+\tikzset{line style/.style={dashed, black!30}}
+\tikzset{resistor label/.style={}}
+\fi
 
-\draw[{Circle[open, fill=white]}-, fieldline, arrow=0.5] (A1) -- (A2) node[pos=0.5, above] {$i$}
-node[pos=0.2] (A3) {};
-\draw[{Circle[open, fill=white]}-] (B1) -- (B2) node[pos=0.2] (B3) {};
-\draw[-{Circle[open, fill=white]}] (B2) -- (D2);
-\draw[-Stealth, shorten <= 1ex, shorten >= 1ex] (A3) -- (B3) node[pos=0.5, right] {$u$};
+\coordinate (A1) at (#1 * \componentWidth + 1, 3);
+\coordinate (A2) at (#1 * \componentWidth + 3, 3);
+\coordinate (B1) at (#1 * \componentWidth + 1, 0);
+\coordinate (B2) at (#1 * \componentWidth + 3, 0);
+\coordinate (C1) at (#1 * \componentWidth + 5, 3);
+\coordinate (C2) at (#1 * \componentWidth + 8, 3);
+\coordinate (D2) at (#1 * \componentWidth + 8, 0);
+\coordinate (E1) at (#1 * \componentWidth + 10, 3);
+\coordinate (E2) at (#1 * \componentWidth + 10, 0);
+\coordinate (E3) at (#1 * \componentWidth + 11, 3);
+\coordinate (E4) at (#1 * \componentWidth + 11, 0);
+\coordinate (F1) at ($(B1) - (0, 2ex)$);
+\coordinate (F2) at ($(E2) - (0, 2ex)$);
+
+\ifnum#1=\activeIndex
+    \draw[fieldline, arrow=0.5, line style] (A1) -- (A2) node[pos=0.5, above] {$i$} node[pos=0.2] (A3) {};
+\else
+    \draw[line style] (A1) -- (A2) node[pos=0.2] (A3) {};
+\fi
+
+\draw[line style] (B1) -- (B2) node[pos=0.2] (B3) {};
+\draw[-{Circle[open, fill=white]}, line style] (B2) -- (D2);
+
+\ifnum#1=\activeIndex
+    \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
+\fi
 
 % resistor
-\draw (A2) to[R, l=$R_{x}$, fill=black] (C1);
+\ifnum#1=\activeIndex
+    \draw[line style] (A2) to[R, l=$R_{x}$, fill=black] (C1);
+\else
+    \draw[line style] (A2) to[R] (C1);
+\fi
 
 % inductor
 \ctikzset{inductor=american}
-\draw (C1) to[L, l=$L_{x}$] (C2);
+    \ifnum#1=\activeIndex
+\draw[line style] (C1) to[L, l=$L_{x}$] (C2);
+\else
+    \draw[line style] (C1) to[L] (C2);
+\fi
 
 % capacitor
-\draw (C2) to[C, l=$C_{x}$] (D2);
+\ifnum#1=\activeIndex
+    \draw[line style] (C2) to[C, l=$C_{x}$] (D2);
+\else
+    \draw[line style] (C2) to[C] (D2);
+\fi
 
-\draw[-{Circle[open, fill=white]}] (C2) -- (E1);
-\draw[-{Circle[open, fill=white]}] (D2) -- (E2);
+\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style] (C2) -- (E1);
+\draw[-{Circle[open, fill=white]}, line style] (D2) -- (E2);
 
 % G
-\draw (E1) to[R, l=$G_{x}$] (E2);
+\ifnum#1=\activeIndex
+    \draw[line style] (E1) to[R, l=$G_{x}$] (E2);
+\else
+    \draw[line style] (E1) to[R] (E2);
+\fi
 
-\draw[-{Circle[open, fill=white]}] (E1) -- (E3);
-\draw[-{Circle[open, fill=white]}] (E2) -- (E4);
+\draw[line style] (E1) -- (E3);
+\draw[line style] (E2) -- (E4);
 
+\ifnum#1=\activeIndex
+    \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {d$x$};
+\fi
 }
 
-\diagram
+\begin{scope}[canvas is yx plane at z=0, xscale=-1, rotate=90, transform shape]
+
+    \foreach \i in {1, 2, 3} {
+        \diagram{\i}
+    }
+
+\end{scope}
 
 \end{circuitikz}
 
