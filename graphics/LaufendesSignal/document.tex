@@ -8,15 +8,17 @@
 
 \begin{tikzpicture}
 
+% place outside of plots so negative x shift works
 \node[anchor=east] at (-0.1cm, 0.5cm) {$t = t_{0}$};
 \node[anchor=east] at (-0.1cm, -2.6cm) {$t = t_{1} = t_{0} + \frac{x_{1}}{v}$};
+
 
 \begin{groupplot}[group style={group size=1 by 2,
 horizontal sep=0pt,
 vertical sep=1cm}]
 
 \nextgroupplot[
-xmax=15, ymin=0, ymax=2.5,
+xmin=0, xmax=15, ymin=0, ymax=2.5,
 axis lines=left,
 xlabel=$x$,
 ylabel=$\textbf{u}$,
