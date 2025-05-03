@@ -26,6 +26,10 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{3d}
 
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+\usepgfplotslibrary{groupplots}
+
 
 \begin{document}
 
@@ -267,7 +271,8 @@ vorwärts laufende Wellen, bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir 
 Abbildung~\ref{VorwaertsWelle}.
 \begin{figure}[!h]
     \begin{center}
-        \includegraphics[width=0.75\textwidth]{images/VorwaertsWelle.png}
+%        \includegraphics[width=0.75\textwidth]{images/VorwaertsWelle.png}
+        \input{../graphics/LaufendesSignal/document}
         \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
             aus~\cite{LeitungenUndFilter}.}
         \label{VorwaertsWelle}
@@ -440,7 +445,7 @@ wobei wir
 \begin{equation}
     Z = \sqrt{\frac{G^{\prime} + j \omega C^{\prime}}{R^{\prime} + j \omega L^{\prime}}}
 \end{equation}
-eingeführt haben. $Z$ hat die Dimension eines Wellenwiderstandes und wird daher Wellenwiderstand oder Wellenimpedanz
+eingeführt haben. $Z$ hat die Dimension eines Widerstandes und wird daher Wellenwiderstand oder Wellenimpedanz
 genannt.
 
 Die Konstanten $\underline{U}_{1}$ und $\underline{U}_{2}$ werden in der Regel durch die angelegte Spannung am
