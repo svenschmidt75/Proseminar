@@ -61,6 +61,38 @@
 \end{titlepage}
 
 \chapter{Einführung}
+Um elektrische Energie für die verschiedensten Situationen des täglichen Lebens verwenden zu können, muss sie vom
+Erzeuger zum Verbraucher --- unter Minimierung von Verlusten --- transportiert werden. Dazu verwendet man elektrische
+Leiter, die sich u.a. in ihrer Materialzusammensetzung und geometrischer Anordnung unterscheiden. Es ist daher wichtig
+zu verstehen, wie genau der Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transport
+elektrischer Energie auf einfachen Zweidrahtleitern.
+
+Fließt in einem elektrischen Leiter ein Strom, dann bildet sich um ihn herum ein magnetisches Feld aus. Ändert sich der
+Strom mit der Zeit, wie es z.B. bei Wechselströmen der Fall ist, dann ändert sich mit ihm das magnetische Feld. Ein
+zeitlich variierendes magnetisches Feld verursacht ein elektrisches Feld, das mit dem des Leiters wechselwirkt und
+eine  Gegenspannung induziert. Das zwischen zwei Leitern ausgebildete elektrische Feld ändert sich ebenfalls mit dem
+zeitlich veränderlichen Strom. Dies führt analog zum Ausbilden eines magnetischen Feldes, welches mit dem des Leiters
+wechselwirkt. Die Maxwellsche Theorie beschreibt zeitlich variierende elektrische und magnetische Felder, sogenannte
+elektromagnetische Felder. Diese breiten sich als elektromagnetische Wellen in alle Raumrichtungen gleichermaßen aus.
+Die Ausbreitung elektromagnetischer Wellen wird mittels elektrischen Leitern so beeinflusst, dass in ihnen elektrische
+Energie transportiert werden kann.
+
+Wir betrachten zunächst den einfachsten Fall einer elektromagnetische Wellen als sinusförmige Schwingung fester
+Frequenz. Da die Frequenzen der auftretenden Wellen im Bereich 50-60Hz liegen, sind ihre Wellenlängen entsprechend groß
+-- sie liegen im Bereich von mehreren Kilometern. Der Querschnitt der betrachteten Leiter ist somit sehr viel kleiner
+als die Wellenlängen. Dies führt dazu, dass wir von der Lösung der Maxwellschen Gleichungen absehen können und die
+Gleichungen zum Beschreiben elektromagnetischer Wellen in elektrischen Leitern mit der Methode der Ersatzbilder
+herleiten können, die sich aus der Anwendung der Kirchhoffschen Regeln ergibt.
+
+Dies führt auf die sogenannten Telegraphenleitungen, die Spannung und Strom entlang eines verlustbehafteten
+elektrischen Leiters in Abhängigkeit von Ort und Zeit beschreiben. Dies sind partielle Differentialgleichungen erster
+Ordnung, die i.A. nur nummerisch gelöst werden können. Wir betrachten verschiedene vereinfachende Modellannahmen, die
+es uns erlauben, die Telegraphenleitungen für diese Spezialfälle analytisch zu lösen, um Aussagen über das qualitative
+Verhalten der auftretenden Wellen in Leitern machen zu können. Insbesondere stellt sich heraus, dass sich im
+Wesentlichen zwei Wellen im Leitermedium ausbreiten -- eine vorwärts laufende und eine rücklaufende Welle. Letztere
+ergibt sich durch Reflektion der vorwärts laufenden Welle am Leiterende. Wir betrachten verschiedene Leiterabschlüsse
+und wie sich diese auf die Reflektion der Wellen auswirkt.
+
 
 \chapter{Modell des Zweidrahtleiters}
 
@@ -389,10 +421,10 @@ Frequenzkomponenten und betrachtet diese zunächst getrennt.
 
 Wir stellen Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ dar, um hervorzuheben,
 dass es sich um komplexe Größen handelt:
-\begin{align*}
-    i(x, t) &= \mathrm{Re} \left( \underline{I}(x) \exp(\mathrm{j} \omega t) \right) \\
-    u(x, t) &= \mathrm{Re} \left( \underline{U}(x) \exp(\mathrm{j} \omega t) \right)
-\end{align*}
+\begin{align}
+    u(x, t) &= \mathrm{Re} \left( \underline{U}(x) \exp(\mathrm{j} \omega t) \right) \label{eq:Spannung} \\
+    i(x, t) &= \mathrm{Re} \left( \underline{I}(x) \exp(\mathrm{j} \omega t) \right)
+\end{align}
 mit $\omega = 2 \pi f$. Es handelt sich hierbei um stationäre sin-förmige Signale, bei denen Ort- und Zeitabhängigkeit
 entkoppelt sind.
 
@@ -445,50 +477,83 @@ Die Gleichung für den Strom erhalten wir, wenn wir \eqref{eq:VerlustU} in \eqre
 \end{equation}
 wobei wir
 \begin{equation}
-    Z = \sqrt{\frac{G^{\prime} + \mathrm{j} \omega C^{\prime}}{R^{\prime} + \mathrm{j} \omega L^{\prime}}}
+    Z_{w} = \sqrt{\frac{G^{\prime} + \mathrm{j} \omega C^{\prime}}{R^{\prime} + \mathrm{j} \omega L^{\prime}}}
+    \label{eq:Zw}
 \end{equation}
 eingeführt haben. $Z$ hat die Dimension eines Widerstandes und wird daher Wellenwiderstand oder Wellenimpedanz
 genannt.
 
-Die Konstanten $\underline{U}_{1}$ und $\underline{U}_{2}$ werden in der Regel durch die angelegte Spannung am
-Leiteranfang festgelegt. Gilt z.B.
+\subsubsection{Anfangsbedingungen am Leiteranfang}
+
+Fixieren wir Spannung und Strom am Leiteranfang durch $\underline{U}_{a}$ und $\underline{I}_{a}$, so gilt
 \begin{align*}
     \underline{U}(0) &= \underline{U}_{a} = \underline{U}_{1} + \underline{U}_{2} \\[1ex]
-    \underline{I}(0) &= \underline{I}_{a} = \frac{1}{Z}
+    \underline{I}(0) &= \underline{I}_{a} = \frac{1}{Z_{w}}
     \left(
-    \vphantom{\sqrt{1}{Z}}
-    \underline{U}_{1} - \underline{U}_{2} \right),
+    \vphantom{\sqrt{1}{Z_{w}}}
+    \underline{U}_{1} - \underline{U}_{2} \right).
 \end{align*}
-dann folgt für die Integrationskonstanten
-\[ \underline{U}_{1} = \frac{\underline{U}_{a} + Z \underline{I}_{a}}{2} \quad \text{und} \quad \underline{U}_{2} =
-\frac{\underline{U}_{a} - Z \underline{I}_{a}}{2}. \]
+Für die Integrationskonstanten $\underline{U}_{1}$ und $\underline{U}_{2}$ folgt
+\[ \underline{U}_{1} = \frac{\underline{U}_{a} + Z_{w} \underline{I}_{a}}{2} \quad \text{und} \quad \underline{U}_{2} =
+\frac{\underline{U}_{a} - Z_{w} \underline{I}_{a}}{2}. \]
 Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
 \begin{align}
     \underline{U}(x) &=
-    \frac{1}{2} \left( \underline{U}_{a} + Z \underline{I}_{a} \right) \exp (- \gamma x)
+    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma x}
     +
-    \frac{1}{2} \left( \underline{U}_{a} - Z \underline{I}_{a} \right) \exp (\gamma x) \\[1ex]
+    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma x} \label{eq:UxA} \\[1ex]
     \underline{I}(x) &=
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z} + \underline{I}_{a} \right) \exp (- \gamma x)
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma x}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z} - \underline{I}_{a} \right) \exp (\gamma x).
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma x} \label{eq:IxA}
+    .
 \end{align}
 
+\subsubsection{Anfangsbedingungen am Leiterende}
+
+Für die spätere Betrachtung ist es hilfreich, die Gleichungen mit Anfangsbedingungen anzugeben, die durch Spannung und
+Strom am Leiterende $x=l$, $\underline{U}_{e}$ und $\underline{I}_{e}$, festgelegt sind.
+\begin{align*}
+    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    +
+    \underline{U}_{2} \mathrm{e}^{ \gamma l} \\[1ex]
+    \underline{I}(l) &= \underline{I}_{e} = \frac{1}{Z_{w}}
+    \left(
+    \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    -
+    \underline{U}_{2} \mathrm{e}^{ \gamma l}
+    \right).
+\end{align*}
+In diesem Fall gilt für die Integrationskonstanten
+\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma x} \quad \text{und}
+\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma x}. \]
+Die Gleichungen für Spannung und Strom lauten damit
+\begin{align}
+    \underline{U}(x) &=
+    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - x)}
+    +
+    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - x)} \label{eq:UxE}
+    \\[1ex]
+    \underline{I}(x) &=
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - x)}
+    -
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - x)}
+    \label{eq:IxE} .
+\end{align}
 
 Um die Wellenausbreitung entlang des Leiters besser verstehen zu können, spalten wir zunächst die
 Wellenausbreitungsgeschwindigkeit $\gamma$ auf in Real- und Imaginärteil:
 \[ \gamma = \alpha + \mathrm{j} \beta. \] Wir nennen $\alpha$ die Dämpfungskonstante (oder -belag) und $\beta$ die
-Phasenkonstante (oder-belag). Für die Spannung gilt dann
-\begin{align}
-u(x, t) &= \mathrm{Re} \left[ \underline{U}(x) \mathrm{e}^{\mathrm{j} \omega t} \right] \\[1ex]
-&= \mathrm{Re} \left[
+Phasenkonstante (oder-belag). Für die Spannung gilt mit \eqref{eq:Spannung}
+\begin{equation}
+u(x, t) = \mathrm{Re} \left[
 \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \alpha x}
 \mathrm{e}^{- \mathrm{j} \beta x} \mathrm{e}^{\mathrm{j} \omega t}
 +
 \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\alpha x}
 \mathrm{e}^{\mathrm{j} \beta x} \mathrm{e}^{\mathrm{j} \omega t}
 \right].
-\end{align}
+\end{equation}
 Wir führen die Abkürzungen
 \begin{align*}
 \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) &= \hat{U}_{1} \mathrm{e}^{\mathrm{j} \psi_{1}}
@@ -542,9 +607,69 @@ entlang des Leiters als gedämpfte Wellen in entgegengesetzter Richtung ausbreit
 &= \underline{I}_{v} + \underline{I}_{r}.
 \end{alignat}
 
+Wenn wir das Verhältnis der Teilspannung und Teilstrom bilden, so ergibt sich mit \eqref{eq:UxA} und \eqref{eq:IxA}
+\[ \frac{\underline{U}_{1}}{\underline{I}_{1}} = \frac{\underline{U}_{a} + Z_{w}
+\underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a}} = Z_{w}, \]
+der Wellenwiderstand \eqref{eq:Zw}. Für die rücklaufende Welle gilt entsprechend
+\[ \frac{\underline{U}_{2}}{-\underline{I}_{2}} = \frac{\underline{U}_{a} - Z_{w}
+\underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a}} = Z_{w}. \]
+Per Konvention sei die positive Stromrichtung die der positiven $x$-Richtung entlang des Leiters.
 
-\section{Abschlüsse}
 
+\section{Reflexionen}
+
+Strom und Spannung entlang des Leiters sind vollständig bestimmt durch die Anfangsbedingungen und $\gamma$, siehe
+Gleichungen \eqref{eq:VerlustDgl1} und \eqref{eq:VerlustDgl2}. Es bilden sich zwei Teilwellen aus, die in
+entgegengesetzte Richtungen verlaufen. Wir betrachten nun verschiedene Spezialfälle des Leitungsabschlusses um die
+Wechselwirkung beider Teilwellen zu verstehen. Wir betrachten explizit das Leiterende, da dort mittels eines
+eingefügten Widerstands Diskontinuitäten entstehen, die zu reflektierten Wellen führen.
+
+\subsubsection{Unendlich langer Leiter}
+
+Abbildung~\ref{OhneAbschluss} zeigt eine unendlich lange Leitung. In diesem Fall findet die Signalausbreitung nur in
+der positiven $x$-Richtung statt.
+\begin{figure}[!htpb]
+    \begin{center}
+        \input{../graphics/OhneAbschluss/document}
+        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
+            aus~\cite{LeitungenUndFilter}.}
+        \label{OhneAbschluss}
+    \end{center}
+\end{figure}
+Aus den Leitungsgleichungen \eqref{eq:UxE} und \eqref{eq:IxE} folgt, dass die rücklaufende Welle durch den
+Dämpfungsterm gegenüber der hinlaufenden Welle vernachlässigt werden kann. Die Leitungsgleichungen vereinfachen sich
+mit $\underline{U}_{a} = Z_{w} \underline{I}_{a}$ zu
+\[ \underline{U}(x) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
+ \underline{I}(x) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
+
+\subsubsection{Anpassung}
+Wir betrachten nun den Fall, dass wir die Leitung mit einem Widerstand $Z_{e} = Z_{w}$ schliessen, siehe
+Abbildung\ref{AbschlussMitWiderstand}.
+\begin{figure}[!htpb]
+    \begin{center}
+        \input{../graphics/AbschlussMitWiderstand/document}
+        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
+            aus~\cite{LeitungenUndFilter}.}
+        \label{AbschlussMitWiderstand}
+    \end{center}
+\end{figure}
+In diesem Fall gilt
+\[ \frac{\underline{U}_{e}}{\underline{I}_{e}} = Z_{e} = Z_{w}. \]
+Eingesetzt in die Wellengleichungen \eqref{eq:UxE} und \eqref{eq:IxE} ergibt sich, dass die rücklaufende Welle
+verschwindet,
+\[ \underline{U}(x) = \underline{U}_{e} \mathrm{e}^{\gamma (l - z)} \quad \text{und} \quad
+\underline{I}(x) = \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{\gamma (l - z)}. \]
+Am Leiteranfang $x = 0$ gilt $\underline{U}_{a} = \underline{U}_{e} \mathrm{e}^{\gamma l}$, und somit
+folgt für die Gleichungen
+\[ \underline{U}(x) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
+\underline{I}(x) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
+Es existiert somit nur die vorwärts laufende Teilwelle, wie im Fall des unendlich langen Leiters. Die Welle wird also
+vom Abschlusswiderstand $Z_{e}$ vollständig absorbiert.
+
+Dieser in der Praxis wichtige Fall wird Anpassung genannt. Es treten keine unerwünschten Interferenzen des Signals mit
+rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertragen.
+
+\subsubsection{Allgemeiner Abschluß}
 
 
 \begin{figure}[!htpb]

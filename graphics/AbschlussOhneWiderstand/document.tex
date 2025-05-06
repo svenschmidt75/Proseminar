@@ -1,0 +1,49 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
+%\usepackage{circuitikz}[europeanresistors, american voltages]
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+    \begin{circuitikz}
+
+        \tikzset{
+            fieldline/.style={postaction={decorate}, decoration={markings}},
+            arrow/.style={decoration={mark=at position #1 with {\arrow{Stealth}}}},
+            reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealth}}}},
+            line style/.style={solid, black}
+            resistor label/.style={l=$R_{x}$}}
+
+        \coordinate (A1) at (1, 10);
+        \coordinate (A2) at (3, 10);
+        \coordinate (A3) at (7, 10);
+        \coordinate (A4) at (1, 9);
+        \coordinate (A5) at (1, 7);
+        \coordinate (A6) at (1, 5);
+        \coordinate (A7) at (3, 5);
+        \coordinate (A8) at (7, 5);
+
+        \draw[-{Circle[open, fill=white]}] (A1) -- ($(A2) + (2pt, 0)$) node[above] {$\underline{U}_{a} = Z_{w}
+        \underline{I}_{a}$};
+        \draw (A1) -- (A4);
+
+        % Lastwiderstand
+        \draw (A4) to[european resistor, l=$Z_{0}$] (A5);
+
+        % voltage source
+        \draw (A5) to[sinusoidal voltage source, l=$U_{0}$] (A6);
+
+        \draw[-{Circle[open, fill=white]}] (A6) -- ($(A7) + (2pt, 0)$);
+
+        \draw[-Stealth, shorten >=5pt, shorten <=5pt] (A2) -- (A7) node[pos=0.5, right] {$\underline{U}_{a}$};
+
+        \draw[fieldline, arrow=0.5] ($(A2) + (2pt, 0)$) -- (A3);
+        \draw ($(A7) + (2pt, 0)$) -- (A8);
+
+    \end{circuitikz}
+
+\end{document}
