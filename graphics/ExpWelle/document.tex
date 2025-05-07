@@ -33,16 +33,18 @@
 horizontal sep=0cm,
 vertical sep=1cm}]
 
+\def\maxZ{25}
+
 \nextgroupplot[]
 
 %envelope
-\addplot[thick, dotted, domain=0:25] {exp(-0.1*x)} node[pos=0.6, left] (A1) {};
-\addplot[thick, dotted, domain=0:25] {-exp(-0.1*x)};
+\addplot[thick, dotted, domain=0:\maxZ] {exp(-0.1*x)} node[pos=0.6, left] (A1) {};
+\addplot[thick, dotted, domain=0:\maxZ] {-exp(-0.1*x)};
 
 \draw (A1) -- +(45:20) node[right, yshift=3pt] {$\mathrm{e}^{- \alpha x}$};
 
 % cos
-\addplot[thick, blue, domain=0:25, samples=200] {exp(-0.105*x) * cos(deg(x))} node[pos=0.04, left] (V1) {}
+\addplot[thick, blue, domain=0:\maxZ, samples=200] {exp(-0.105*x) * cos(deg(x))} node[pos=0.04, left] (V1) {}
 node[pos=0.21] (N1) {} node[pos=0.465] (N2) {};
 
 \draw[thick, orange] (N1) -- +(-90:4cm) node[pos=0.7] (N121) {};
@@ -56,13 +58,14 @@ node[pos=0.21] (N1) {} node[pos=0.465] (N2) {};
 \nextgroupplot[]
 
 %envelope
-\addplot[thick, dotted, domain=0:25] {exp(-0.1*(25-x))} node[pos=0.6, left] (A1) {};
-\addplot[thick, dotted, domain=0:25] {-exp(-0.1*(25-x))};
+\addplot[thick, dotted, domain=0:\maxZ] {exp(-0.1*(\maxZ-x))} node[pos=0.6, left] (A1) {};
+\addplot[thick, dotted, domain=0:\maxZ] {-exp(-0.1*(\maxZ-x))};
 
 \draw (A1) -- +(135:20) node[left, inner sep=0] {$\mathrm{e}^{\alpha x}$};
 
 % cos
-\addplot[thick, blue, domain=0:25, samples=200] {exp(-0.105*(25-x)) * cos(deg(25-x))} node[pos=0.96, right] (V1) {};
+\addplot[thick, blue, domain=0:25, samples=200] {exp(-0.105*(\maxZ-x)) * cos(deg(\maxZ-x))} node[pos=0.96, right] (V1)
+{};
 
 \draw[-Stealth] (V1) -- +(180:0.7cm) node[left, inner sep=2pt] {$-\textbf{v}$};
 

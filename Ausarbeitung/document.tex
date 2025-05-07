@@ -669,9 +669,53 @@ vom Abschlusswiderstand $Z_{e}$ vollständig absorbiert.
 Dieser in der Praxis wichtige Fall wird Anpassung genannt. Es treten keine unerwünschten Interferenzen des Signals mit
 rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertragen.
 
-\subsubsection{Allgemeiner Abschluß}
+\subsubsection{Allgemeiner Abschluss}
+Für einen beliebigen Widerstand $Z_{e}$ am Leiterende kommt es zu einer Reflektion der einfallenden Welle, siehe
+Abbildung~\ref{} (zeige reflektierte Welle).
+
+Setzen wir $\underline{U}_{e} = Z_{w} \underline{I}_{e}$ in \eqref{eq:UxE} und \eqref{eq:IxE} ein, so folgt
+\[
+\underline{U}(x) = \frac{1}{2} (Z_{e} + Z_{w}) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
++
+\frac{1}{2} (Z_{e} - Z_{w}) \underline{I}_{e} \mathrm{e}^{- \gamma (l - z)} .
+\]
+Das Verhältnis beider Teilspannungen ist gleich
+\[
+\frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathrm{e}^{-2 \gamma (l-z)}.
+\]
+Dieses Verhältnis, ausgewertet am Leiterende $z = l$, nennt man Reflexionsfaktor,
+\begin{equation}
+r = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
+\end{equation}
+Dieser lässt sich auch mittels der Teilströme ausdrücken:
+\begin{equation}
+    r = \frac{\underline{I}_{r}(l)}{- \underline{I}_{h}(l)}.
+\end{equation}
+Er gibt also den Anteil an, der von der hinlaufenden Welle am Leiterende reflektiert wird.
+
+Für den Fall der Anpassung, $Z_{e} = Z_{w}$, ergibt sich $r = 0$, es tritt also keine Reflexion auf.
+
+Bisher haben wir nur einzelne Teilwellen betrachtet, für die $r = 0$ gilt. Wir kommen nun zu Fällen, in denen ein Teil
+der einfallenden Welle reflektiert wird. Wir werden sehen, dass es aufgrund des Superpositionsprinzips von Wellen zu
+Überlagerungen kommt.
 
 
+\subsubsection{Kurzschluss}
+Wir die Leitung kurzgeschlossen, d.h. gilt $Z_{e} = 0$, dann folgt aus \eqref{eq:RFactor} $r=-1$. Die hinlaufende Welle
+wird somit am Leiterende vollkommen reflektiert. Für die Spannungsverteilung entlang des Leiters gilt
+\begin{equation}
+\underline{U}(z) =
+\frac{1}{2} Z_{w} \underline{I}_{e}
+\mathrm{e}^{\alpha (l - z)}
+\mathrm{e}^{\mathrm{j} \beta (l - z)}
+-
+\frac{1}{2} Z_{w} \underline{I}_{e}
+\mathrm{e}^{- \alpha (l - z)}
+\mathrm{e}^{- \mathrm{j} \beta (l - z)} \label{eq:UKurzschluss}.
+\end{equation}
+Wir teilen $\underline{U}(z)$ in Teilwellen $\underline{U}_{h}$ und $\underline{U}_{r}$ auf und zeichnen jeweils Real-
+und Imaginärteil, was schematisch in
+Abbildung~\ref{ImaginaerWelle} zu sehen ist.
 \begin{figure}[!htpb]
     \begin{center}
         \input{../graphics/ImaginaerWelle/document}
@@ -680,8 +724,29 @@ rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertrage
         \label{ImaginaerWelle}
     \end{center}
 \end{figure}
+Wir sehen deutlich, wie die Amplitude der hinlaufenden, blau gezeichnete Welle abnimmt entlang der positiven
+$z$-Richtung, wohingegen die der rücklaufenden roten Welle abnimmt in entgegengesetzter Richtung. Beide Wellen
+beschreiben also exponentiell abfallende Spiralen im Raum.
 
+Per Definition des Reflexionsfaktors \eqref{eq:RFactor} gilt $\underline{U}_{r}(l) = - \underline{U}_{h}(l)$. Die
+rücklaufende Welle ist also um $\pi$ phasenverschoben gegenüber der hinlaufenden Teilwelle. Dies führt dazu, dass sich
+beide Wellen aufgrund der erwähnten Superposition aufheben und daher kommt es zur Ausbildung einer stehenden Welle.
 
+Die Projektion der räumlichen Spiralen auf die $x/y$-Achse erlaubt eine Vereinfachung der Untersuchung der
+Wellenausbreitung, da diese Darstellung alle wesentlichen Informationen erhält. Diese Projektionen beschreiben
+logarithmische Spiralen in Polarkoordinaten, siehe Abbildung~\ref{} (log. Spiralen).
+Wir können deren Gleichungen direkt an Gleichung~\eqref{eq:UKurzschluss} ablesen. Es gilt für die hinlaufende Welle
+\begin{align}
+    phi_{h}(z) &= \beta (l - z) \\[1ex]
+    rho_{h}(z) &= \left| \underline{U}_{h}(z) \right| \mathrm{e}^{\alpha (l - z)}.
+\end{align}
+Für die rücklaufende gilt entsprechend
+\begin{align}
+    phi_{r}(z) &= \pi - \beta (l - z) \\[1ex]
+    rho_{r}(z) &= \left| \underline{U}_{r}(z) \right| \mathrm{e}^{- \alpha (l - z)}.
+\end{align}
+
+{\color{red} stimmt das so? $U_v$(l) muss minimal sein, $U_v$(0) maximal...}
 
 
 
