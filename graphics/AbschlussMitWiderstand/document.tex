@@ -30,8 +30,7 @@
 \coordinate (A11) at (9, 6);
 \coordinate (A12) at (9, 5);
 
-\draw[-{Circle[open, fill=white]}] (A1) -- ($(A2) + (2pt, 0)$) node[above] {$\underline{U}_{a} = Z_{w}
-\underline{I}_{a}$};
+\draw (A1) -- ($(A2) + (2pt, 0)$) node[above] {$\underline{U}_{a} = Z_{w} \underline{I}_{a}$};
 \draw (A1) -- (A4);
 
 % Lastwiderstand
@@ -40,12 +39,17 @@
 % voltage source
 \draw (A5) to[sinusoidal voltage source, l=$U_{0}$] (A6);
 
-\draw[-{Circle[open, fill=white]}] (A6) -- ($(A7) + (2pt, 0)$);
+\draw (A6) -- ($(A7) + (2pt, 0)$);
 
 \draw[-Stealth, shorten >=5pt, shorten <=5pt] (A2) -- (A7) node[pos=0.5, right] {$\underline{U}_{a}$};
 
-\draw[fieldline, arrow=0.5, -{Circle[open, fill=white]}] ($(A2) + (2pt, 0)$) -- (A3);
-\draw[-{Circle[open, fill=white]}] ($(A7) + (2pt, 0)$) -- (A8);
+\draw[{Circle[open, fill=white]}-] ($(A2) + (-2pt, 0)$) -- ($(A2)!0.3!(A3)$);
+\draw[dotted] ($(A2)!0.3!(A3)$) -- ($(A2)!0.7!(A3)$);
+\draw[-{Circle[open, fill=white]}] ($(A2)!0.7!(A3)$) -- (A3);
+
+\draw[{Circle[open, fill=white]}-] ($(A7) + (-2pt, 0)$) -- ($(A7)!0.3!(A8)$);
+\draw[dotted] ($(A7)!0.3!(A8)$) -- ($(A7)!0.7!(A8)$);
+\draw[-{Circle[open, fill=white]}] ($(A7)!0.7!(A8)$) -- (A8);
 
 \draw[-Stealth, shorten >=5pt, shorten <=5pt] ($(A3) + (-2pt, 0)$) -- ($(A8) + (-2pt, 0)$) node[pos=0.5, left]
 {$\underline{U}_{e}$};
@@ -53,7 +57,7 @@
 \draw (A3) -- (A9) -- (A10);
 
 % Wellenwiderstand
-\draw (A10) to[european resistor, l=$Z_{e}$] (A11);
+\draw (A10) to[european resistor, l=$Z_{w}$] (A11);
 
 \draw (A11) -- (A12) -- (A8);
 
