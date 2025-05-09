@@ -2,14 +2,20 @@
 \usepackage{tikz}
 \usetikzlibrary{math}
 \usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+
 
 \begin{document}
 
 \begin{tikzpicture}
 \pgfmathsetmacro{\alpha}{0.05}
 \pgfmathdeclarefunction{spirale}{1}{\pgfmathparse{1.5*exp(\alpha*#1)}}
-
-\begin{scope}
 
 \draw[domain=0:5*pi,samples=200, blue, thick]
 plot ({deg(\x)}:{spirale(\x)})
@@ -34,8 +40,6 @@ plot ({deg(\x)}:{spirale(\x)})
 \draw[-Stealth, thick, shorten >=2pt] (0,0) -- +(45:{spirale(rad(45))});
 \draw[thick, ->] (0:1) arc[start angle=0, end angle=45, radius=1];
 \node at (18:0.7) {\footnotesize $\varphi_{h}$};
-
-\end{scope}
 
 \end{tikzpicture}
 
