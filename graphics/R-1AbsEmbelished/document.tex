@@ -4,15 +4,17 @@
 
 \begin{document}
 
-\begin{tikzpicture}[scale=0.6,transform shape]
+\begin{tikzpicture}[scale=0.75,transform shape]
 
 \tikzset{
     nodeStyle/.style={circle, shift={(#1:0.3cm)}, draw=olive, inner sep=1pt}
 }
 
+% USE in Ausarbeitung
 \node[anchor=south west, inner sep=0] (img) at (0,0)
 {\includegraphics[width=10cm]{../graphics/Enveloppe/verlustbehaftet/R-1Abs}};
 
+% USE stand-alone
 %\node[anchor=south west, inner sep=0] (img) at (0,0)
 %{\includegraphics[width=10cm]{../Enveloppe/verlustbehaftet/R-1Abs}};
 
@@ -32,6 +34,10 @@
 
 % Position 5
 \draw[fill=red, draw=red] (7.75,4.73) circle[radius=1pt] node[nodeStyle=90] {5};
+
+
+\draw (4.5, 5.17) -- (5.25,5.5) node[right] {$|U_{h}| + |U_{r}|$};
+\draw (4, 3.15) -- (3.75,2.5) node[below] {$|U_{h}| - |U_{r}|$};
 
 \end{tikzpicture}
 
