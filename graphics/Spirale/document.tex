@@ -23,8 +23,14 @@ plot ({deg(\x)}:{spirale(\x)})
     decorate,
     decoration={
         markings,
-        mark=at position 0.0 with {\node[circle, fill=black, inner sep=1] {}; \node[circle, black, right,
-        xshift={2pt}, draw=olive, inner sep=1pt] {1};},
+        mark=between positions 0.05 and 1 step 0.25 with {\arrow{Stealth}},
+}},
+postaction={
+    decorate,
+    decoration={
+        markings,
+        mark=at position 0.0 with {\node[circle, fill=black, inner sep=1] {}; \node[circle, black, right, xshift={2pt},
+        draw=olive, inner sep=1pt] {1};},
         mark=at position 0.0335 with {\node[circle, fill=black, inner sep=1] {}; \node[circle, black,
         shift={(43:0.3cm)}, draw=olive, inner sep=1pt] {2};},
         mark=at position 0.0685 with {\node[circle, fill=black, inner sep=1] {}; \node[circle, black,
