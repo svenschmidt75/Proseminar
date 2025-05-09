@@ -111,7 +111,6 @@ einen Leiter ein magnetisches Feld ausbildet (Abbildung~\ref{Felder1}). Variiert
 verändert sich mit ihm das magnetische Feld und dies wiederum bewirkt die Ausbildung eines elektrischen Feldes, welches
 sich als induzierte Gegenspannung bemerkbar macht.
 \begin{figure}[!ht]
-%    \centering
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{../graphics/MagnetischeFeldlinien/document}
@@ -757,13 +756,21 @@ Für die rücklaufende gilt entsprechend
 {\color{red} stimmt das so? $U_v$(l) muss minimal sein, $U_v$(0) maximal...}
 
 
-\begin{figure}[!htpb]
-    \begin{center}
+\begin{figure}[!htbp]
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{../graphics/Enveloppe/verlustbehaftet/R-1Abs}
+        \caption{\color{red}Caption for the first picture}
+        \label{KurzschlussAbs}
+    \end{subfigure}%
+    \hfill
+    \begin{subfigure}[b]{0.49\textwidth}
+        \centering
         \input{../graphics/Spirale/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{\color{red}Caption for the second picture}
         \label{Spirale}
-    \end{center}
+    \end{subfigure}
+    \caption{\color{red}Overall caption for the figure}
 \end{figure}
 
 
