@@ -745,21 +745,32 @@ Wellenausbreitung, da diese Darstellung alle wesentlichen Informationen erhält.
 logarithmische Spiralen in Polarkoordinaten, siehe Abbildung~\ref{} (log. Spiralen).
 Wir können deren Gleichungen direkt an Gleichung~\eqref{eq:UKurzschluss} ablesen. Es gilt für die hinlaufende Welle
 \begin{align}
-    phi_{h}(z) &= \beta (l - z) \\[1ex]
-    rho_{h}(z) &= \left| \underline{U}_{h}(z) \right| \mathrm{e}^{\alpha (l - z)}.
+    \varphi_{h}(z) &= \beta (l - z) \\[1ex]
+    \rho_{h}(z) &= \left| \underline{U}_{h}(z) \right| \mathrm{e}^{\alpha (l - z)}.
 \end{align}
 Für die rücklaufende gilt entsprechend
 \begin{align}
-    phi_{r}(z) &= \pi - \beta (l - z) \\[1ex]
-    rho_{r}(z) &= \left| \underline{U}_{r}(z) \right| \mathrm{e}^{- \alpha (l - z)}.
+    \varphi_{r}(z) &= \pi - \beta (l - z) \\[1ex]
+    \rho_{r}(z) &= \left| \underline{U}_{r}(z) \right| \mathrm{e}^{- \alpha (l - z)}.
 \end{align}
 
 {\color{red} stimmt das so? $U_v$(l) muss minimal sein, $U_v$(0) maximal...}
 
 
+\begin{figure}[!htpb]
+    \begin{center}
+        \input{../graphics/Spirale/document}
+        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
+            aus~\cite{LeitungenUndFilter}.}
+        \label{Spirale}
+    \end{center}
+\end{figure}
+
+
+
 \appendix
 
-\chapter{Wellenausbreitungen für den verlustloses Fall}
+\chapter{Wellenausbreitung für den verlustlosen Fall}
 Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
 $r$ entlang eines verlustlosen zylindrischen Leiters ($R^{\prime} = G^{\prime} = 0$). Die schwarzen Hüllkurven sind
 jeweils durch \[
@@ -795,7 +806,7 @@ jeweils durch \[
 \end{figure}
 
 
-\chapter{Wellenausbreitungen für den verlustbehafteten Fall}
+\chapter{Wellenausbreitung für den verlustbehafteten Fall}
 Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
 $r$ entlang eines zylindrischen, verlustbehafteten Leiters (\mbox{$R^{\prime} \neq 0$}, $G^{\prime} \neq 0$). Die
 schwarzen
