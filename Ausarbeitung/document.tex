@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{url}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{xcolor}
 
@@ -600,9 +601,9 @@ Zwar haben wir hier nur Spannungen untersucht, aber aufgrund der Symmetrie der G
 Die Leitungsgleichungen für Strom und Spannung setzen sich aus jeweils zwei Exponentialtermen zusammen, die sich
 entlang des Leiters als gedämpfte Wellen in entgegengesetzter Richtung ausbreiten,
 \begin{alignat}{2}
-\underline{U}_(x) &= \underline{U}_{1} \mathrm{e}^{- \gamma x} + \underline{U}_{2} \mathrm{e}^{\gamma x}
+\underline{U}(x) &= \underline{U}_{1} \mathrm{e}^{- \gamma x} + \underline{U}_{2} \mathrm{e}^{\gamma x}
 &= \underline{U}_{v} + \underline{U}_{r} \\[1ex]
-\underline{I}_(x) &= \underline{I}_{1} \mathrm{e}^{- \gamma x} + \underline{I}_{2} \mathrm{e}^{\gamma x}
+\underline{I}(x) &= \underline{I}_{1} \mathrm{e}^{- \gamma x} + \underline{I}_{2} \mathrm{e}^{\gamma x}
 &= \underline{I}_{v} + \underline{I}_{r}.
 \end{alignat}
 
@@ -674,8 +675,7 @@ Abbildung~\ref{ReflektierteWelle}.
 \begin{figure}[!htpb]
     \begin{center}
         \input{../graphics/RelektierteWelle/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{Nicht wirklich exp, sonder U(0)*exp}
         \label{ReflektierteWelle}
     \end{center}
 \end{figure}
@@ -754,25 +754,83 @@ Für die rücklaufende gilt entsprechend
 \end{align}
 
 {\color{red} stimmt das so? $U_v$(l) muss minimal sein, $U_v$(0) maximal...}
-
-
 \begin{figure}[!htbp]
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
 %        \includegraphics[width=\textwidth]{../graphics/Enveloppe/verlustbehaftet/R-1Abs}
         \input{../graphics/R-1AbsEmbelished/document}
         \caption{\color{red}Caption for the first picture}
-        \label{KurzschlussAbs}
+        \label{Huellkurve}
     \end{subfigure}%
     \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[b]{0.4\textwidth}
         \centering
         \input{../graphics/Spirale/document}
-        \caption{\color{red}Caption for the second picture}
+        \caption{Projektion von $\left| U_h(z) \right|$ auf die $x/y$-Achse für festes $t$.}
         \label{Spirale}
     \end{subfigure}
     \caption{\color{red}Overall caption for the figure}
 \end{figure}
+Abbildung~\ref{Spirale} zeigt diese Projektion der hinlaufenden Welle $\underline{U}_{h}$. Der Punkt 1 markiert
+$\underline{U}_{h}(l)$. Er liegt dem Betrag nach dem Ursprung am nächsten aufgrund der Dämpfung. Wegen $z=l$ ist die
+Phase 0. Für abnehmendes $z$ nimmt die Phase und Amplitude zu, wir bewegen uns also entgegen des Uhrzeigersinns nach
+außen hin zu $\underline{U}_{h}(0)$. Die Punkt 1-5 sind auf der linken Abbildung markiert, welche
+$|\underline{U}_{h}(z)|$ zeigt. Für benachbarte Extrema, 1-4 oder 3-5, gilt eine Phasenverschiebung von $\beta \Delta z
+= \pi$.
+
+Aus Gleichung~\eqref{eq:RFactor} folgt mit $z=l$ und $r=-1$, dass $\underline{U}_{r} = - U_{h}$, also muss am
+Leiterende $\underline{U}_{e} = 0$ gelten. Mit Gleichung~\eqref{eq:IxE} folgt für den Strom
+\[
+\underline{I}(x) =
+\frac{1}{2} \underline{I}_{e} \mathrm{e}^{\alpha (l - x)} \mathrm{e}^{\mathrm{j} \beta (l - x)}
+-
+\frac{1}{2} \underline{I}_{e} \mathrm{e}^{- \alpha (l - x)} \mathrm{e}^{- \mathrm{j} \beta (l - x)}.
+\]
+Die Stromkurve ist von gleicher Größe wie die Spannungskurve. Durch Einsetzen sieht man, dass Strom und Spannung um
+$\Delta z = \frac{\pi}{2 \beta}$ phasenverschoben sind. Ansonsten verhalten sich beide Wellen im wesentlichen gleich
+entlang des Leiters.
+
+
+\subsubsection{Offene Leitung}
+Eine offene Leitung ist durch einen großen Abschlusswiderstand $Z_{e} \gg Z_{w}$ gekennzeichnet. Aufgrund von
+$\underline{U}_{e} = Z_{e} \underline{I}_{e}$ folgt $\underline{I}_{e} \approx 0$. Einsetzen in die
+Leitergleichungen~\eqref{eq:UxE} und \eqref{eq:IxE} ergibt
+\begin{equation*}
+\underline{U}(z) =
+\frac{1}{2} \underline{U}_{e} \mathrm{e}^{\alpha (l - z)} \mathrm{e}^{\mathrm{j} \beta (l - z)}
++
+\frac{1}{2} \underline{U}_{e} \mathrm{e}^{- \alpha (l - z)} \mathrm{e}^{- \mathrm{j} \beta (l - z)}.
+\end{equation*}
+und
+\begin{equation*}
+\underline{I}(x) =
+\frac{1}{2} \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{\alpha (l - z)} \mathrm{e}^{\mathrm{j} \beta (l - z)}
+-
+\frac{1}{2} \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{- \alpha (l - z)} \mathrm{e}^{\mathrm{j} -\beta (l - z)}.
+\end{equation*}
+Verglichen mit dem Kurzschluss am Leiterende, $r=-1$, sehen wir, dass Strom und Spannung hier die Rollen vertauschen.
+
+Aus $\underline{U}(l) = \underline{U}_{e}$, sind die Teilspannungen am Leiterende in Phase, berühren also das obere
+Ende der Hüllkurve (vgl. Abbildung~\ref{Huellkurve} links). Für den Strom gilt hingegen $I(l) = 0$ wie erwartet.
+
+Wir hatten bereits gesehen, dass der Abstand zwischen zwei aufeinanderfolgenden Extrema jeweils $\frac{\pi}{\beta}$
+beträgt. Die Stromkurve hat demnach Minima für $l - k \frac{\pi}{\beta} \ge 0$, wobei $k \in \mathbb{N}_{0}$.
+
+
+
+\subsubsection{Beliebiger Abschluss}
+Für einen Abschlusswiderstand zwischen den betrachteten Spezialfällen, d.h. $0 < Z_{e} < \infty$, wir sich das
+Verhalten der Spanungs- und Stromkomponenten qualitativ ähnlich verhalten, wobei dann der reflektierte Anteil wegen
+$\left| r \right| < 1$ kleiner ausfällt. Dies gilt allerdings nur für die hier betrachteten Fälle mit reellem
+Wellenwiderstand $Z_{w}$.
+
+
+
+\subsubsection{Verlustloser Fall}
+Obgleich der verlustlose Fall eine Idealisierung ist, gibt es viele Fälle, bei denen die auftretenden Verluste so klein
+sind, dass ihr Vernachlässigung gute Näherungen geben. Der verlustlose Fall ist durch $\alpha = 0$ gekennzeichnet, d.h.
+es kommt nicht zu einem exponentiellen Abfall bzw. Zunahme der Wellenamplituden.
+
 
 
 
