@@ -27,7 +27,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 
 \ifnum#1=\activeIndex
     \tikzset{line style/.style={solid, black}}
-\tikzset{resistor label/.style={l=$R_{x}$}}
+\tikzset{resistor label/.style={l=$R_{z}$}}
 \else
 \tikzset{line style/.style={densely dashed, black!30}}
 \tikzset{resistor label/.style={}}
@@ -62,7 +62,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 
 % resistor
 \ifnum#1=\activeIndex
-    \draw[line style] (A2) to[R, l=$R_{x}$, fill=black] (C1);
+    \draw[line style] (A2) to[R, l=$R_{z}$, fill=black] (C1);
 \else
     \draw[line style] (A2) to[R] (C1);
 \fi
@@ -70,14 +70,14 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 % inductor
 \ctikzset{inductor=american}
     \ifnum#1=\activeIndex
-\draw[line style] (C1) to[L, l=$L_{x}$] (C2);
+\draw[line style] (C1) to[L, l=$L_{z}$] (C2);
 \else
     \draw[line style] (C1) to[L] (C2);
 \fi
 
 % capacitor
 \ifnum#1=\activeIndex
-    \draw[line style] (C2) to[C, l=$C_{x}$] (D2);
+    \draw[line style] (C2) to[C, l=$C_{z}$] (D2);
 \else
     \draw[line style] (C2) to[C] (D2);
 \fi
@@ -87,7 +87,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 
 % G
 \ifnum#1=\activeIndex
-    \draw[line style] (E1) to[R, l=$G_{x}$] (E2);
+    \draw[line style] (E1) to[R, l=$G_{z}$] (E2);
 \else
     \draw[line style] (E1) to[R] (E2);
 \fi
@@ -96,7 +96,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \draw[line style] (E2) -- (E4);
 
 \ifnum#1=\activeIndex
-    \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {d$x$};
+    \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\mathrm{d} z$};
 \fi
 }
 

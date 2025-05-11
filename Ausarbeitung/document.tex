@@ -111,29 +111,28 @@ Aus den Gesetzen der Elektro- und Magnetostatik ist bekannt, dass sich beim Durc
 einen Leiter ein magnetisches Feld ausbildet (Abbildung~\ref{Felder1}). Variiert dieser Strom zeitlich, dann
 verändert sich mit ihm das magnetische Feld und dies wiederum bewirkt die Ausbildung eines elektrischen Feldes, welches
 sich als induzierte Gegenspannung bemerkbar macht.
-\begin{figure}[!ht]
-    \begin{subfigure}[b]{0.49\textwidth}
+\begin{figure}[!htbp]
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \input{../graphics/MagnetischeFeldlinien/document}
-        \caption{\color{red}Caption for the first picture}
+        \caption{Zweidrahtleiter im Querschnitt mit induziertem Magnetfeld $H$ und magnetischem Fluss $\Phi$.}
         \label{Felder1}
     \end{subfigure}%
     \hfill
-    \begin{subfigure}[b]{0.49\textwidth}
+    \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \input{../graphics/ElektrischeFeldlinien/document}
-        \caption{\color{red}Caption for the second picture}
+        \caption{Zweidrahtleiter im Querschnitt mit induziertem elektrischen Feld $E$.}
         \label{Felder2}
     \end{subfigure}
-    \caption{\color{red}Overall caption for the figure}
 \end{figure}
 Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld einher (Abbildung~\ref{Felder2}).
 Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
 wechselwirkt.
 
 
-Im Folgenden nehmen wir an, dass der Leiter parallel verläuft, der Abstand $d$ zwischen den Leitern und der Querschnitt
-des Leiters viel kleiner ist, als die Wellenlänge $\lambda$ der auftretenden Signale,
+Im Folgenden nehmen wir an, dass der Leiter parallel verläuft und der Abstand $d$ zwischen den Leitern und der
+Querschnitt des Leiters viel kleiner ist als die Wellenlänge $\lambda$ der auftretenden Signale,
 \[ d \ll \lambda = \frac{c_{0}}{f \sqrt{\epsilon_{r}}}. \]
 In diesem Fall müssen wir nicht die Maxwellschen Gleichungen
 lösen -- statt dessen können wir mit der Methode der Ersatzschaltbilder die Signalübertragung direkt mit den
@@ -141,46 +140,54 @@ beteiligten Strömen und Spannungen beschreiben, ohne mit den elektrischen und m
 argumentieren zu müssen.
 
 Es ist $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals und $\epsilon_{r}$ die relative
-Dielektrizitätskonstante bezeichnet. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine (konstante)
+Dielektrizitätskonstante. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine konstante
 Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
 
 
-Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}x$,
-\begin{figure}[!h]
+Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}z$, wie es auf Abbildung~\ref{Leitung1}
+dargestellt ist.
+\begin{figure}[!htbp]
     \begin{center}
         \input{../graphics/ErstatzSchaltbild1/document}
-        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \caption{Infinitesimales Leiterstück $\mathrm{d} z$ mit diskreten Komponenten für Widerstand $R_{z}$ und
+        Kapazität $C_{z}$.}
         \label{Leitung1}
     \end{center}
 \end{figure}
 
-Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{x}$
-\[ \Phi_{x} = i \cdot L_{x} \], wobei $i$ der Strom ist.
-Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{x}$,
-die über die Spannung $u$ wie folgt zusammenhängt,
-\[ Q_{x} = C_{x} \cdot u . \]
-Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt vor wie auf Abbildung~\ref{Leitung2}
+Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{z}$
+\[ \Phi_{z} = i \cdot L_{z}, \] wobei $i$ der Strom ist.
+Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{z}$,
+die über die Spannung $u$ wie folgt zusammenhängt:
+\[ Q_{z} = C_{z} \cdot u . \]
+Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt vor, wie auf Abbildung~\ref{Leitung2}
 dargestellt.
-\begin{figure}[!h]
+\begin{figure}[!htbp]
     \begin{center}
         \input{../graphics/ErstatzSchaltbild2/document}
-        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
+        Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung2}
     \end{center}
 \end{figure}
-Die führt auf die folgenden qualitativen Eigenschaften: Wir eine Spannung am Leitungsanfang angelegt, muss zunächst die
-erste Kapazität $Q_{s_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spannung an der Längsinduktivität $L_{s_{1}}$
-an. Der aufgebaute Strom wird nun $Q{s_{2}}$ aufladen etc., bis zum Leiterende. Die Ausbreitung des Einschaltvorgangs
-findet mit endlicher Geschwindigkeit statt.
 
-Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $R_{s}$ auf einer Strecke
-$\mathrm{d}s$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum leitend ist, dann bezeichnen wir dies mit
-dem Querleitwert
-$G_{s}$ auf der Strecke $\mathrm{d}s$. Die Abbildung~\ref{Leitung3}
-\begin{figure}[!h]
+Dies führt auf die folgenden qualitativen Eigenschaften: Wird eine Spannung am Leitungsanfang angelegt, muss zunächst
+die erste Kapazität $Q_{z_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spannung an der Längsinduktivität
+$L_{z_{1}}$ auf. Der aufgebaute Strom wird nun $Q_{z_{2}}$ aufladen etc., bis zum Leiterende. Die Ausbreitung des
+Einschaltvorgangs findet somit mit endlicher Geschwindigkeit statt.
+
+Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $R_{z}$ auf einer Strecke
+$\mathrm{d} z$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum selbst leitend ist, dann bezeichnen wir
+dies mit dem Querleitwert $G_{z}$.
+
+Die Abbildung~\ref{Leitung3} zeigt ein Ersatzschaltbild mit eingezeichneten Komponenten, die den auftretenden Verlusten
+Rechnung tragen.
+
+\begin{figure}[!htbp]
     \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/Leitungsstueck.png}
-        \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{LeitungenUndFilter}.}
+        \input{../graphics/ErstatzSchaltbild3/document}
+        \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
+    Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung3}
     \end{center}
 \end{figure}
@@ -188,10 +195,10 @@ $G_{s}$ auf der Strecke $\mathrm{d}s$. Die Abbildung~\ref{Leitung3}
 
 
 \chapter{Die Telegraphenleitungen}
-Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\mathrm{d}s$ eines verlustbehafteten
-Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Leitungsende $i + \mathrm{d}i$ und $u +
-\mathrm{d}u$.
-\begin{figure}[!h]
+Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\mathrm{d} z$ eines verlustbehafteten
+Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \mathrm{d} i$} und
+\mbox{$u + \mathrm{d} u$}.
+\begin{figure}[!htbp]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{images/Leitungsstueck2.png}
         \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
@@ -200,51 +207,50 @@ Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Leitungsend
     \end{center}
 \end{figure}
 
-Wir definieren auf einem Stück $\mathrm{d}s$
-
+Wir definieren auf einem Stück $\mathrm{d} z$
 \begin{tabular}{l l}
-    den Widerstandsbelag & $R^{\prime} = \frac{R_{s}}{s}$ \\
+    den Widerstandsbelag & $R^{\prime} = \frac{R_{z}}{z}$ \\
 \addlinespace
-    den Induktivitätsbelag & $L^{\prime} = \frac{L_{s}}{s}$ \\
+    den Induktivitätsbelag & $L^{\prime} = \frac{L_{z}}{z}$ \\
 \addlinespace
-    den Kapazitätsbelag & $C^{\prime} = \frac{C_{s}}{s}$ \\
+    den Kapazitätsbelag & $C^{\prime} = \frac{C_{z}}{z}$ \\
 \addlinespace
-    und den Leitungsbelag & $G^{\prime} = \frac{G_{s}}{s}$. \\
+    und den Leitungsbelag & $G^{\prime} = \frac{G_{z}}{z}$. \\
 \end{tabular}
 
 Der Widerstand $R^{\prime}$ und die Induktivität $L^{\prime}$ verursachen einen Spannungsabfall von
 \[
 i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d} z
 \]
-entlang von $\mathrm{d}s$. Mit der Kirchhoffschen Maschengleichung {\color{red}REF} folgt für die Spannung
-\begin{equation}
+entlang von $\mathrm{d} z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
+\begin{equation*}
 u(z, t) = R^{\prime} \, i(z, t) + L^{\prime} \, \frac{\partial i(z, t)}{\partial t} + u(z + \Delta z, t).
-\end{equation}
-Durch Querleitwert $G_{s}$ und Querkapazität $C_{s}$ fließt der Strom
+\end{equation*}
+Durch Querleitwert $G_{z}$ und Querkapazität $C_{z}$ fließt der Strom
 \[
 u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d} z.
 \]
-Mit der Kirchhoffschen Knotenregel {\color{red}REF} folgt
-\begin{equation}
+Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
+\begin{equation*}
     i(z, t) = G^{\prime} \, u(z, t) + C^{\prime} \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
-\end{equation}
+\end{equation*}
 Wir formen nun beide Gleichungen um,
-\begin{align}
+\begin{align*}
 \frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= \frac{R^{\prime}}{\Delta z} \, i(z, t) + \frac{L^{\prime}}{\Delta z}
 \,
 \frac{\partial i(z, t)}{\partial t} \\
 \frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &= \frac{G^{\prime}}{\Delta z} \, u(z, t) + \frac{C^{\prime}}{\Delta z}
 \, \frac{\partial u(z + \Delta z, t)}{\partial t}.
-\end{align}
+\end{align*}
 Mit
 \[
-\lim_{\Delta x \to 0} \frac{u(x+\Delta x, t)-u(x, t)}{\Delta x} = \frac{\partial u(x, t)}{\partial x} \quad \text{und}
-\quad \lim_{\Delta x \to 0} \frac{\Delta R}{\Delta x} = R' \quad \text{folgt}
+\lim_{\Delta z \to 0} \frac{u(z+\Delta z, t)-u(z, t)}{\Delta z} = \frac{\partial u(z, t)}{\partial z} \quad \text{und}
+\quad \lim_{\Delta z \to 0} \frac{\Delta R}{\Delta z} = R' \quad \text{folgt}
 \]
 \begin{align}
     \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
     \\[1ex]
-    \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u \label{eq:Dgl2}
+    \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u. \label{eq:Dgl2}
 \end{align}
 Dies ist ein System partieller linearer Differentialgleichungen 1.~Ordnung mit konstanten Koeffizienten. Sie werden
 auch Differentialgleichungen der elektrischen Leitung genannt.
@@ -254,29 +260,29 @@ Die zweite Gleichung~\eqref{eq:Dgl2} beschreibt den Stromfluss zwischen den Leit
 $C^{\prime}$ und Querleitwert $G^{\prime}$.
 
 Oftmals werden diese Gleichungen in die sogenannten Telegraphenleitungen weiter umgeformt. Dazu leiten wir beide
-Gleichungen einmal nach $x$ und einmal nach $t$ ab,
+Gleichungen einmal nach $z$ und einmal nach $t$ ab,
 \begin{align}
-    \frac{\partial^{2} u}{\partial x^2} &= -R^{\prime} \, \frac{\partial i}{\partial x} - L^{\prime} \,
+    \frac{\partial^{2} u}{\partial z^2} &= -R^{\prime} \, \frac{\partial i}{\partial z} - L^{\prime} \,
     \frac{\partial^2 i}{\partial t \,
-    \partial x} \label{eq:Dgl3} \\[1ex]
-    \frac{\partial^{2} i}{\partial x^2} &= -G^{\prime} \, \frac{\partial u}{\partial x} - C^{\prime} \,
+    \partial z} \label{eq:Dgl3} \\[1ex]
+    \frac{\partial^{2} i}{\partial z^2} &= -G^{\prime} \, \frac{\partial u}{\partial z} - C^{\prime} \,
     \frac{\partial^2 u}{\partial t \,
-    \partial x} \label{eq:Dgl4} \\[1ex]
-    \frac{\partial^{2} u}{\partial x \, \partial t} &= -R^{\prime} \, \frac{\partial i}{\partial t} - L^{\prime} \,
+    \partial z} \label{eq:Dgl4} \\[1ex]
+    \frac{\partial^{2} u}{\partial z \, \partial t} &= -R^{\prime} \, \frac{\partial i}{\partial t} - L^{\prime} \,
     \frac{\partial^2
     i}{\partial t^{2}} \label{eq:Dgl5} \\[1ex]
-    \frac{\partial^{2} i}{\partial x \, \partial t} &= -G^{\prime} \, \frac{\partial u}{\partial t} - C^{\prime} \,
+    \frac{\partial^{2} i}{\partial z \, \partial t} &= -G^{\prime} \, \frac{\partial u}{\partial t} - C^{\prime} \,
     \frac{\partial^2
-    u}{\partial t^{2}} \label{eq:Dgl6}
+    u}{\partial t^{2}}. \label{eq:Dgl6}
 \end{align}
 Wir setzen nun \eqref{eq:Dgl2} und \eqref{eq:Dgl6} in \eqref{eq:Dgl3} und \eqref{eq:Dgl1} und \eqref{eq:Dgl5} in
 \eqref{eq:Dgl4} ein und erhalten
 \begin{align}
-    \frac{\partial^{2} u}{\partial x^{2}} &= R^{\prime} G^{\prime} u(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
-    G^{\prime}) \frac{\partial u(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(x,t)}{\partial t^{2}}
+    \frac{\partial^{2} u}{\partial z^{2}} &= R^{\prime} G^{\prime} u(z,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial u(z, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(z,t)}{\partial t^{2}}
      \label{eq:Tele1} \\[1.5ex]
-    \frac{\partial^{2} i}{\partial x^{2}} &= R^{\prime} G^{\prime} i(x,t) + (R^{\prime} C^{\prime} + L^{\prime}
-    G^{\prime}) \frac{\partial i(x, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} i(x, t)}{\partial t^{2}}
+    \frac{\partial^{2} i}{\partial z^{2}} &= R^{\prime} G^{\prime} i(z,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial i(z, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} i(z, t)}{\partial t^{2}}.
 \end{align}
 Im Allgemeinen wird man diese partiellen Differentialgleichungen nur numerisch lösen können. Im Folgenden werden wir
 einige Spezialfälle betrachten, die es uns erlauben, das qualitative Verhalten der Signalausbreitung zu beschreiben.
@@ -303,7 +309,6 @@ vorwärts laufende Wellen, bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir 
 Abbildung~\ref{VorwaertsWelle}.
 \begin{figure}[!h]
     \begin{center}
-%        \includegraphics[width=0.75\textwidth]{images/VorwaertsWelle.png}
         \input{../graphics/LaufendesSignal/document}
         \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
             aus~\cite{LeitungenUndFilter}.}
@@ -828,9 +833,39 @@ Wellenwiderstand $Z_{w}$.
 
 \subsubsection{Verlustloser Fall}
 Obgleich der verlustlose Fall eine Idealisierung ist, gibt es viele Fälle, bei denen die auftretenden Verluste so klein
-sind, dass ihr Vernachlässigung gute Näherungen geben. Der verlustlose Fall ist durch $\alpha = 0$ gekennzeichnet, d.h.
-es kommt nicht zu einem exponentiellen Abfall bzw. Zunahme der Wellenamplituden.
+sind, dass ihre Vernachlässigung gute Näherungen geben. Der verlustlose Fall ist durch $\alpha = 0$ gekennzeichnet,
+d.\,h. es kommt nicht zu einem exponentiellen Abfall bzw. Zunahme der Wellenamplituden. Deshalb bewegen sich Strom- und
+Spannungsphasoren auf einem Zylinder statt of einer Schraubenlinie, vgl.\,Abbildung~\ref{ImaginaerWelle}. Da die
+Amplituden nicht abfallen bzw. zunehmen, ist ihr Betrag entlang des Leiters konstant. Die Hüllkurve, die beide Wellen
+einschliesst, ist daher eine horizontale Linie, siehe folgende Abbildung~\ref{VerlustlosBetrag}.
+\begin{figure}[!htpb]
+    \begin{center}
+        \input{../graphics/VerlustlosBetrag/document}
+        \caption{Nicht wirklich exp, sonder U(0)*exp}
+        \label{VerlustlosBetrag}
+    \end{center}
+\end{figure}
+Für den Kurzschluss bzw. offene Leitung gilt $|r|=1$. Dann haben hin- und rücklaufende Wellen jeweils die gleiche
+Amplitude. Aufgrund der Überlagerung beider Wellen addieren sie sich zum doppelten Wert der Wellenamplituden bzw.
+annihilieren sie sich auf dem Leiter. Für die Wellengleichungen ergibt sich
+\begin{align*}
+\underline{U}(x) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
+\left( \mathrm{e}^{\mathrm{j} \beta (l - z)} - \mathrm{e}^{- \mathrm{j} \beta (l - z)} \right) \\[1ex]
+&= Z_{w} \, \underline{I}_{e} \, \mathrm{j} \sin \beta (l - z)
+\end{align*}
+und
+\begin{align*}
+    \underline{I}(x) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
+    \left( \mathrm{e}^{\mathrm{j} \beta (l - z)} + \mathrm{e}^{- \mathrm{j} \beta (l - z)} \right) \\[1ex]
+    &= Z_{w} \, \underline{I}_{e} \, \mathrm{j} \cos \beta (l - z).
+\end{align*}
+Strom und Spannung sind also entlang des ganzen Leiters um ein viertel Periode, also $\frac{\pi}{2}$, phasenverschoben.
 
+Für die offene Leitung gelten analoge Gleichungen, wobei wir bereits gesehen haben, dass Strom und Spannung ihre Rollen
+vertauschen.
+
+
+\chapter{Zusammenfassung}
 
 
 
