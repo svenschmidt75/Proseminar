@@ -14,8 +14,8 @@
     fieldline/.style={postaction={decorate}, decoration={markings}},
     arrow/.style={decoration={mark=at position #1 with {\arrow{Stealth}}}},
     reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealth}}}},
-    line style/.style={solid, black}
-    resistor label/.style={l=$R_{x}$}, y=0.75cm}
+    line style/.style={solid, black},
+    y=0.75cm}
 
 \coordinate (A1) at (1, 10);
 \coordinate (A2) at (3, 10);
@@ -46,7 +46,7 @@
 \draw ($(A7) + (2pt, 0)$) -- (A8);
 
 \draw[dashed] (A3) -- (A10);
-\draw[-Stealth, dashed] (A8) -- (A9) node[below] {$x$};
+\draw[-Stealth, dashed] (A8) -- (A9) node[below] {$z$};
 
 \end{circuitikz}
 

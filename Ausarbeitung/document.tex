@@ -628,7 +628,7 @@ Per Konvention sei die positive Stromrichtung die der positiven $z$-Richtung ent
 Strom und Spannung entlang des Leiters sind vollständig bestimmt durch die Anfangsbedingungen und $\gamma$, siehe
 Gleichungen \eqref{eq:VerlustDgl1}~-~\eqref{eq:VerlustDgl2}. Es bilden sich zwei Teilwellen aus, die in
 entgegengesetzte Richtungen verlaufen. Wir betrachten nun verschiedene Spezialfälle des Leitungsabschlusses um die
-Wechselwirkung beider Teilwellen zu verstehen. Wir betrachten explizit das Leiterende, da dort mittels eines
+Wechselwirkung beider Teilwellen zu verstehen. Dazu betrachten wir explizit das Leiterende, da dort mittels eines
 eingefügten Widerstands Diskontinuitäten entstehen, die zu reflektierten Wellen führen.
 
 \subsubsection{Unendlich langer Leiter}
@@ -638,43 +638,42 @@ der positiven $x$-Richtung statt.
 \begin{figure}[!htpb]
     \begin{center}
         \input{../graphics/OhneAbschluss/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{Modell eines unendlich langen Leiters.}
         \label{OhneAbschluss}
     \end{center}
 \end{figure}
 Aus den Leitungsgleichungen \eqref{eq:UxE} und \eqref{eq:IxE} folgt, dass die rücklaufende Welle durch den
 Dämpfungsterm gegenüber der hinlaufenden Welle vernachlässigt werden kann. Die Leitungsgleichungen vereinfachen sich
 mit $\underline{U}_{a} = Z_{w} \underline{I}_{a}$ zu
-\[ \underline{U}(x) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
- \underline{I}(x) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
+\[ \underline{U}(z) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
+ \underline{I}(z) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
 
 \subsubsection{Anpassung}
 Wir betrachten nun den Fall, dass wir die Leitung mit einem Widerstand $Z_{e} = Z_{w}$ schliessen, siehe
-Abbildung\ref{AbschlussMitWiderstand}.
+Abbildung~\ref{AbschlussMitWiderstand}.
 \begin{figure}[!htpb]
     \begin{center}
         \input{../graphics/AbschlussMitWiderstand/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{Abschluss am Leiterende mit Widerstand $Z_{e}$, der dem Wellenwiderstand $W_{w}$ entspricht.}
         \label{AbschlussMitWiderstand}
     \end{center}
 \end{figure}
+
 In diesem Fall gilt
 \[ \frac{\underline{U}_{e}}{\underline{I}_{e}} = Z_{e} = Z_{w}. \]
 Eingesetzt in die Wellengleichungen \eqref{eq:UxE} und \eqref{eq:IxE} ergibt sich, dass die rücklaufende Welle
 verschwindet,
-\[ \underline{U}(x) = \underline{U}_{e} \mathrm{e}^{\gamma (l - z)} \quad \text{und} \quad
-\underline{I}(x) = \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{\gamma (l - z)}. \]
+\[ \underline{U}(z) = \underline{U}_{e} \mathrm{e}^{\gamma (l - z)} \quad \text{und} \quad
+\underline{I}(z) = \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{\gamma (l - z)}. \]
 Am Leiteranfang $x = 0$ gilt $\underline{U}_{a} = \underline{U}_{e} \mathrm{e}^{\gamma l}$, und somit
 folgt für die Gleichungen
-\[ \underline{U}(x) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
-\underline{I}(x) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
+\[ \underline{U}(z) = \underline{U}_{a} \mathrm{e}^{- \gamma z} \quad \text{und} \quad
+\underline{I}(z) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
 Es existiert somit nur die vorwärts laufende Teilwelle, wie im Fall des unendlich langen Leiters. Die Welle wird also
 vom Abschlusswiderstand $Z_{e}$ vollständig absorbiert.
 
 Dieser in der Praxis wichtige Fall wird Anpassung genannt. Es treten keine unerwünschten Interferenzen des Signals mit
-rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertragen.
+rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertragen und absorbiert.
 
 \subsubsection{Allgemeiner Abschluss}
 Für einen beliebigen Widerstand $Z_{e}$ am Leiterende kommt es zu einer Reflexion der einfallenden Welle, siehe
@@ -945,6 +944,6 @@ Hüllkurven sind jeweils durch \[
 \end{figure}
 
 
-\printbibliography
+%\printbibliography
 
 \end{document}
