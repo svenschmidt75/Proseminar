@@ -99,7 +99,7 @@ und wie sich diese auf die Reflektion der Wellen auswirkt.
 
 In dieser Ausarbeitung beschränken wir uns auf die Untersuchung der Ausbreitung elektromagnetischer Wellen in
 Zweidrahtleitern (Paralleldraht), die schematisch in der folgenden Abbildung gezeigt.
-\begin{figure}[!h]
+\begin{figure}[!ht]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{images/Leiter.png}
         \caption{Elektrische Leiter mit ihren Anwendungen. Entnommen aus~\cite{FernuniSkript}.}
@@ -111,7 +111,7 @@ Aus den Gesetzen der Elektro- und Magnetostatik ist bekannt, dass sich beim Durc
 einen Leiter ein magnetisches Feld ausbildet (Abbildung~\ref{Felder1}). Variiert dieser Strom zeitlich, dann
 verändert sich mit ihm das magnetische Feld und dies wiederum bewirkt die Ausbildung eines elektrischen Feldes, welches
 sich als induzierte Gegenspannung bemerkbar macht.
-\begin{figure}[!htbp]
+\begin{figure}[ht]
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \input{../graphics/MagnetischeFeldlinien/document}
@@ -130,39 +130,37 @@ Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld e
 Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
 wechselwirkt.
 
+Wenn die Ausbreitungsgeschwindigkeit von Strom und Spannung in einem elektrischen Leiter von Bedeutung sind, dann
+können Ort- und Zeitabhängigkeit des Signals nicht länger getrennt betrachtet werden. Dies ist z.\,B. bei
+hochfrequenten Signalen der Fall, bei denen die Wellenlänge der übertragenen Signal in die Größenordnung des
+Leiterquerschnitt kommt. Der Leiter kann dann nicht mehr mittels diskreter Parameter wie Widerstand und Kapazität
+modelliert werden~\cite{LeiterTheorie}. Statt dessen stellen wir uns den Leiter zusammengesetzt aus kleinen
+Leiterelementen vor, auf die die Parameter homogen verteilt werden, um die lokale Natur der Signalausbreitung zu
+modellieren.
 
-Im Folgenden nehmen wir an, dass der Leiter parallel verläuft und der Abstand $d$ zwischen den Leitern und der
-Querschnitt des Leiters viel kleiner ist als die Wellenlänge $\lambda$ der auftretenden Signale,
-\[ d \ll \lambda = \frac{c_{0}}{f \sqrt{\epsilon_{r}}}. \]
-In diesem Fall müssen wir nicht die Maxwellschen Gleichungen
-lösen -- statt dessen können wir mit der Methode der Ersatzschaltbilder die Signalübertragung direkt mit den
-beteiligten Strömen und Spannungen beschreiben, ohne mit den elektrischen und magnetischen Feldern
-argumentieren zu müssen.
-
-Es ist $c_{0}$ die Lichtgeschwindigkeit im Vakuum, $f$ die Frequenz des Signals und $\epsilon_{r}$ die relative
-Dielektrizitätskonstante. Wir machen hier die vereinfachende Annahme, dass $\epsilon_{r}$ eine konstante
-Eigenschaft des Mediums ist, in dem sich das Signal ausbreitet. Im Vakuum gilt $\epsilon_{r} = 1$.
-
-
-Wir betrachten nun ein kleines, infinitesimales Leitungsstück $\mathrm{d}z$, wie es auf Abbildung~\ref{Leitung1}
-dargestellt ist.
-\begin{figure}[!htbp]
+Klassische elektromagnetische Phänomene werden allgemein mit Hilfe der Maxwellschen
+Gleichungen~\cite{MaxwellGleichungen} beschrieben. Hierbei handelt es um ein System partieller Differentialgleichungen
+erster Ordnung, deren Lösung oftmals nur nummerisch gelingt. Mit Hilfe der sogenannten Ersatzschaltbilder gelingt die
+Ableitung der Gleichungen des elektrischen Leiters zur Beschreibung von Strom und Spannung ohne explizite Betrachtung
+der elektrischen und magnetischen Felder. Dazu betrachten ein kleines Leitungsstück $\Delta z$, wie es auf
+Abbildung~\ref{Leitung1} dargestellt ist.
+\begin{figure}[htbp]
     \begin{center}
         \input{../graphics/ErstatzSchaltbild1/document}
-        \caption{Infinitesimales Leiterstück $\mathrm{d} z$ mit diskreten Komponenten für Widerstand $R_{z}$ und
-        Kapazität $C_{z}$.}
+        \caption{Kleines Leiterstück $\Delta z$ mit diskreten Komponenten für Widerstand $\Delta R$ und
+        Kapazität $\Delta C$.}
         \label{Leitung1}
     \end{center}
 \end{figure}
 
-Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $L_{z}$
-\[ \Phi_{z} = i \cdot L_{z}, \] wobei $i$ der Strom ist.
-Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $C_{z}$,
+Der Fluss $\Phi$ des magnetischen Feldes $\textbf{H}$ bewirkt eine Induktivität $\Delta L$
+\[ \Phi_{z} = i \cdot \Delta L, \] wobei $i$ der Strom ist.
+Das elektrische Feld $\textbf{E}$ induziert Ladungen auf der Oberfläche des Leiters und damit eine Kapazität $\Delta C$,
 die über die Spannung $u$ wie folgt zusammenhängt:
-\[ Q_{z} = C_{z} \cdot u . \]
+\[ \Delta Q = \Delta C \cdot u . \]
 Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt vor, wie auf Abbildung~\ref{Leitung2}
 dargestellt.
-\begin{figure}[!htbp]
+\begin{figure}[htb]
     \begin{center}
         \input{../graphics/ErstatzSchaltbild2/document}
         \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
@@ -172,18 +170,18 @@ dargestellt.
 \end{figure}
 
 Dies führt auf die folgenden qualitativen Eigenschaften: Wird eine Spannung am Leitungsanfang angelegt, muss zunächst
-die erste Kapazität $Q_{z_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spannung an der Längsinduktivität
-$L_{z_{1}}$ auf. Der aufgebaute Strom wird nun $Q_{z_{2}}$ aufladen etc., bis zum Leiterende. Die Ausbreitung des
-Einschaltvorgangs findet somit mit endlicher Geschwindigkeit statt.
+die erste Kapazität $\Delta Q_{z_{1}}$ aufgeladen werden. Erst dann bildet sich eine Spannung an der Längsinduktivität
+$\Delta L_{z_{1}}$ auf. Der aufgebaute Strom wird nun $\Delta Q_{z_{2}}$ aufladen etc., bis zum Leiterende. Die
+Ausbreitung des Einschaltvorgangs findet somit mit endlicher Geschwindigkeit statt.
 
-Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $R_{z}$ auf einer Strecke
-$\mathrm{d} z$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum selbst leitend ist, dann bezeichnen wir
-dies mit dem Querleitwert $G_{z}$.
+Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $\Delta R$ auf einer Strecke
+$\Delta z$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum selbst leitend ist, dann bezeichnen wir
+dies mit dem Querleitwert $\Delta G$.
 
 Die Abbildung~\ref{Leitung3} zeigt ein Ersatzschaltbild mit eingezeichneten Komponenten, die den auftretenden Verlusten
 Rechnung tragen.
 
-\begin{figure}[!htbp]
+\begin{figure}[htb]
     \begin{center}
         \input{../graphics/ErstatzSchaltbild3/document}
         \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
@@ -195,40 +193,42 @@ Rechnung tragen.
 
 
 \chapter{Die Telegraphenleitungen}
-Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\mathrm{d} z$ eines verlustbehafteten
+Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\Delta z$ eines verlustbehafteten
 Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \mathrm{d} i$} und
 \mbox{$u + \mathrm{d} u$}.
-\begin{figure}[!htbp]
+\begin{figure}[htb]
     \begin{center}
-        \includegraphics[width=0.5\textwidth]{images/Leitungsstueck2.png}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-        aus~\cite{LeitungenUndFilter}.}
+        \input{../graphics/ErstatzSchaltbild4/document}
+        \caption{Einschaltbild eines kleinen Leiterelements mit anteiligem Widerstand, Kapazität, Querleitwert und
+        Induktivität zur Herleitung der Gleichungen des elektrischen Leiters.}
         \label{Leitung4}
     \end{center}
 \end{figure}
 
-Wir definieren auf einem Stück $\mathrm{d} z$
+Mit der Leiterlänge $l$ definieren wir
+
 \begin{tabular}{l l}
-    den Widerstandsbelag & $R^{\prime} = \frac{R_{z}}{z}$ \\
+    den Widerstandsbelag & $R^{\prime} = \frac{R}{l}$, \\
 \addlinespace
-    den Induktivitätsbelag & $L^{\prime} = \frac{L_{z}}{z}$ \\
+    den Induktivitätsbelag & $L^{\prime} = \frac{L}{l}$, \\
 \addlinespace
-    den Kapazitätsbelag & $C^{\prime} = \frac{C_{z}}{z}$ \\
+    den Kapazitätsbelag & $C^{\prime} = \frac{C}{l}$, \\
 \addlinespace
-    und den Leitungsbelag & $G^{\prime} = \frac{G_{z}}{z}$. \\
+    und den Leitungsbelag & $G^{\prime} = \frac{G}{l}$. \\
 \end{tabular}
 
-Der Widerstand $R^{\prime}$ und die Induktivität $L^{\prime}$ verursachen einen Spannungsabfall von
+Der Widerstand $\Delta R = R^{\prime} \Delta z$ und die Induktivität $\Delta L = L^{\prime} \Delta z$ verursachen einen
+Spannungsabfall von
 \[
-i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d} z
+i \, R^{\prime} \, \Delta z + \frac{\partial i}{\partial t} \, L^{\prime} \, \Delta z
 \]
-entlang von $\mathrm{d} z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
+entlang von $\Delta z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
 \begin{equation*}
 u(z, t) = R^{\prime} \, i(z, t) + L^{\prime} \, \frac{\partial i(z, t)}{\partial t} + u(z + \Delta z, t).
 \end{equation*}
-Durch Querleitwert $G_{z}$ und Querkapazität $C_{z}$ fließt der Strom
+Durch Querleitwert $\Delta G = G^{\prime} \Delta z$ und Querkapazität $\Delta C = C^{\prime} \Delta z$ fließt der Strom
 \[
-u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d} z.
+u \, G^{\prime} \, \Delta z + \frac{\partial u}{\partial t} \, C^{\prime} \, \Delta z.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
@@ -306,7 +306,7 @@ i(x, t) &= i_{v}(v t - x) + i_{r}(v t + x) \label{eq:AllgEq2}.
 \end{align}
 Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{h}$ bzw. $i_{h}$ um vorwärts laufende Wellen,
 bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu Abbildung~\ref{VorwaertsWelle}.
-\begin{figure}[!h]
+\begin{figure}[!htbp]
     \begin{center}
         \input{../graphics/LaufendesSignal/document}
         \caption{Model der hinlaufenden Welle für die Spannung $u$ zum Zeitpunkt $t_{0}$ und $t_{1}$.}
@@ -582,7 +582,7 @@ Für einen festen Zeitpunkt $t$ oszilliert jede der Teilspannungen entlang der $
 von $z$ abhängt. Für die Periode der Welle gilt \[ \beta z = 2 \pi, \] und somit
 \[ z = \lambda = \frac{2 \pi}{\beta}, \] die Wellenlänge der Schwingung. Die ist exemplarisch auf
 Abbildung~\ref{ExpWelle} gezeigt.
-\begin{figure}[!htpb]
+\begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ExpWelle/document}
         \caption{Oben: Exponentieller Abfall der hinlaufenden Teilwelle $u_{h}$. Unten: Exponentieller Abfall der
@@ -635,7 +635,7 @@ eingefügten Widerstands Diskontinuitäten entstehen, die zu reflektierten Welle
 
 Abbildung~\ref{OhneAbschluss} zeigt eine unendlich lange Leitung. In diesem Fall findet die Signalausbreitung nur in
 der positiven $x$-Richtung statt.
-\begin{figure}[!htpb]
+\begin{figure}[!htb]
     \begin{center}
         \input{../graphics/OhneAbschluss/document}
         \caption{Modell eines unendlich langen Leiters.}
@@ -651,7 +651,7 @@ mit $\underline{U}_{a} = Z_{w} \underline{I}_{a}$ zu
 \subsubsection{Anpassung}
 Wir betrachten nun den Fall, dass wir die Leitung mit einem Widerstand $Z_{e} = Z_{w}$ schliessen, siehe
 Abbildung~\ref{AbschlussMitWiderstand}.
-\begin{figure}[!htpb]
+\begin{figure}[!htb]
     \begin{center}
         \input{../graphics/AbschlussMitWiderstand/document}
         \caption{Abschluss am Leiterende mit Widerstand $Z_{e}$, der dem Wellenwiderstand $W_{w}$ entspricht.}
@@ -673,22 +673,22 @@ Es existiert somit nur die vorwärts laufende Teilwelle, wie im Fall des unendli
 vom Abschlusswiderstand $Z_{e}$ vollständig absorbiert.
 
 Dieser in der Praxis wichtige Fall wird Anpassung genannt. Es treten keine unerwünschten Interferenzen des Signals mit
-rücklaufenden Wellen auf; die eingespeiste Energie wird vollständig übertragen und absorbiert.
+rücklaufenden Wellen auf -- die eingespeiste Energie wird vollständig übertragen und absorbiert.
 
 \subsubsection{Allgemeiner Abschluss}
 Für einen beliebigen Widerstand $Z_{e}$ am Leiterende kommt es zu einer Reflexion der einfallenden Welle, siehe
 Abbildung~\ref{ReflektierteWelle}.
-\begin{figure}[!htpb]
+\begin{figure}[!htb]
     \begin{center}
         \input{../graphics/RelektierteWelle/document}
-        \caption{Nicht wirklich exp, sonder U(0)*exp}
+        \caption{Reflexion der einfallenden Teilwelle $u_{h}$ am Leiterende $z=l$ mit normierter Amplitude.}
         \label{ReflektierteWelle}
     \end{center}
 \end{figure}
 
 Setzen wir $\underline{U}_{e} = Z_{w} \underline{I}_{e}$ in \eqref{eq:UxE} und \eqref{eq:IxE} ein, so folgt
 \[
-\underline{U}(x) = \frac{1}{2} (Z_{e} + Z_{w}) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
+\underline{U}(z) = \frac{1}{2} (Z_{e} + Z_{w}) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
 +
 \frac{1}{2} (Z_{e} - Z_{w}) \underline{I}_{e} \mathrm{e}^{- \gamma (l - z)} .
 \]
@@ -696,7 +696,7 @@ Das Verhältnis beider Teilspannungen ist gleich
 \[
 \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathrm{e}^{-2 \gamma (l-z)}.
 \]
-Dieses Verhältnis, ausgewertet am Leiterende $z = l$, nennt man Reflexionsfaktor,
+Dieses Verhältnis, ausgewertet am Leiterende $z = l$, wird Reflexionsfaktor genannt,
 \begin{equation}
 r = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
 \end{equation}
@@ -704,9 +704,8 @@ Dieser lässt sich auch mittels der Teilströme ausdrücken:
 \begin{equation}
     r = \frac{\underline{I}_{r}(l)}{- \underline{I}_{h}(l)}.
 \end{equation}
-Er gibt also den Anteil an, der von der hinlaufenden Welle am Leiterende reflektiert wird.
-
-Für den Fall der Anpassung, $Z_{e} = Z_{w}$, ergibt sich $r = 0$, es tritt also keine Reflexion auf.
+Er gibt also den Anteil an, der von der hinlaufenden Welle am Leiterende reflektiert wird. Für den Fall der Anpassung,
+$Z_{e} = Z_{w}$, ergibt sich $r = 0$, es tritt also keine Reflexion auf.
 
 Bisher haben wir nur einzelne Teilwellen betrachtet, für die $r = 0$ gilt. Wir kommen nun zu Fällen, in denen ein Teil
 der einfallenden Welle reflektiert wird. Wir werden sehen, dass es aufgrund des Superpositionsprinzips von Wellen zu
@@ -726,10 +725,9 @@ wird somit am Leiterende vollkommen reflektiert. Für die Spannungsverteilung en
 \mathrm{e}^{- \alpha (l - z)}
 \mathrm{e}^{- \mathrm{j} \beta (l - z)} \label{eq:UKurzschluss}.
 \end{equation}
-Wir teilen $\underline{U}(z)$ in Teilwellen $\underline{U}_{h}$ und $\underline{U}_{r}$ auf und zeichnen jeweils Real-
-und Imaginärteil, was schematisch in
-Abbildung~\ref{ImaginaerWelle} zu sehen ist.
-\begin{figure}[!htpb]
+Wir teilen $\underline{U}$ in Teilwellen $\underline{U}_{h}$ und $\underline{U}_{r}$ auf und zeichnen jeweils Real-
+und Imaginärteil, was schematisch in Abbildung~\ref{ImaginaerWelle} zu sehen ist.
+\begin{figure}[ht]
     \begin{center}
         \input{../graphics/ImaginaerWelle/document}
         \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
@@ -744,38 +742,37 @@ beschreiben also exponentiell abfallende Spiralen im Raum.
 Per Definition des Reflexionsfaktors \eqref{eq:RFactor} gilt $\underline{U}_{r}(l) = - \underline{U}_{h}(l)$. Die
 rücklaufende Welle ist also um $\pi$ phasenverschoben gegenüber der hinlaufenden Teilwelle. Dies führt dazu, dass sich
 beide Wellen aufgrund der erwähnten Superposition aufheben und daher kommt es zur Ausbildung einer stehenden Welle.
+Dies ist auf Abbildung~\ref{WellenausbreitungVerlustlos} für den verlustlosen, auf
+Abbildung~\ref{WellenausbreitungVerlustbehaftet} für den verlustbehafteten Fall, jeweils unten rechts, gezeigt.
 
 Die Projektion der räumlichen Spiralen auf die $x/y$-Achse erlaubt eine Vereinfachung der Untersuchung der
-Wellenausbreitung, da diese Darstellung alle wesentlichen Informationen erhält. Diese Projektionen beschreiben
-logarithmische Spiralen in Polarkoordinaten, siehe Abbildung~\ref{} (log. Spiralen).
-Wir können deren Gleichungen direkt an Gleichung~\eqref{eq:UKurzschluss} ablesen. Es gilt für die hinlaufende Welle
+Wellenausbreitung, da diese Darstellung bereits alle wesentlichen Informationen erhält. Diese Projektionen beschreiben
+logarithmische Spiralen in Polarkoordinaten, siehe Abbildung~\ref{Spirale}.
+Wir können deren Gleichungen direkt an Gleichung~\eqref{eq:UKurzschluss} ablesen. Es gilt für die hinlaufende Teilwelle
 \begin{align}
     \varphi_{h}(z) &= \beta (l - z) \\[1ex]
     \rho_{h}(z) &= \left| \underline{U}_{h}(z) \right| \mathrm{e}^{\alpha (l - z)}.
 \end{align}
-Für die rücklaufende gilt entsprechend
+Für die rücklaufende Teilwelle gilt entsprechend
 \begin{align}
     \varphi_{r}(z) &= \pi - \beta (l - z) \\[1ex]
     \rho_{r}(z) &= \left| \underline{U}_{r}(z) \right| \mathrm{e}^{- \alpha (l - z)}.
 \end{align}
 
-{\color{red} stimmt das so? $U_v$(l) muss minimal sein, $U_v$(0) maximal...}
-\begin{figure}[!htbp]
+\begin{figure}[!htb]
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
-%        \includegraphics[width=\textwidth]{../graphics/Enveloppe/verlustbehaftet/R-1Abs}
         \input{../graphics/R-1AbsEmbelished/document}
-        \caption{\color{red}Caption for the first picture}
         \label{Huellkurve}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
         \input{../graphics/Spirale/document}
-        \caption{Projektion von $\left| U_h(z) \right|$ auf die $x/y$-Achse für festes $t$.}
         \label{Spirale}
     \end{subfigure}
-    \caption{\color{red}Overall caption for the figure}
+    \caption{Links: Graph von $|\underline_{U}|$, eingeschlossen von Hüllkurven. Rechts: Projektion der hinlaufenden
+    Teilwelle $\left| U_h \right|$ auf die $x/y$-Achse für festes $t$.}
 \end{figure}
 Abbildung~\ref{Spirale} zeigt diese Projektion der hinlaufenden Welle $\underline{U}_{h}$. Der Punkt 1 markiert
 $\underline{U}_{h}(l)$. Er liegt dem Betrag nach dem Ursprung am nächsten aufgrund der Dämpfung. Wegen $z=l$ ist die
@@ -905,6 +902,8 @@ jeweils durch \[
         \caption*{$r=-1$, $t=0.05$ (blau), $t=0.1$ (orange) und $t=0.15$ (grün)}
     \end{minipage}
 
+    \label{WellenausbreitungVerlustlos}
+
 \end{figure}
 
 
@@ -941,6 +940,9 @@ Hüllkurven sind jeweils durch \[
         \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R-1}
         \caption*{$r=-1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.5$ (grün)}
     \end{minipage}
+
+    \label{WellenausbreitungVerlustbehaftet}
+
 \end{figure}
 
 

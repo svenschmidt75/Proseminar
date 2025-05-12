@@ -45,25 +45,25 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
 
 % resistor
-\draw[line style] (A2) to[R, l=$R_{z}$, fill=black] (C1);
+\draw[line style] (A2) to[R, l=$\Delta R$, fill=black] (C1);
 
 % inductor
 \ctikzset{inductor=american}
-\draw[line style] (C1) to[L, l=$L_{z}$] (C2);
+\draw[line style] (C1) to[L, l=$\Delta L$] (C2);
 
 % capacitor
-\draw[line style] (C2) to[C, l=$C_{z}$] (D2);
+\draw[line style] (C2) to[C, l=$\Delta C$] (D2);
 
 \draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
 \draw[-{Circle[open, fill=white]}, line style] (D2) --  ($(E2) + (2pt, 0)$);
 
 % G
-\draw[line style] (E1) to[R, l=$G_{z}$] (E2);
+\draw[line style] (E1) to[R, l=$\Delta G$] (E2);
 
 \draw[line style] (E1) -- (E3);
 \draw[line style] (E2) -- (E4);
 
-\draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\mathrm{d} z$};
+\draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\Delta z$};
 
 \end{circuitikz}
 
