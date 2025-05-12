@@ -763,31 +763,30 @@ Für die rücklaufende Teilwelle gilt entsprechend
     \begin{subfigure}[b]{0.49\textwidth}
         \centering
         \input{../graphics/R-1AbsEmbelished/document}
-        \label{Huellkurve}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[b]{0.4\textwidth}
         \centering
         \input{../graphics/Spirale/document}
-        \label{Spirale}
     \end{subfigure}
-    \caption{Links: Graph von $|\underline_{U}|$, eingeschlossen von Hüllkurven. Rechts: Projektion der hinlaufenden
-    Teilwelle $\left| U_h \right|$ auf die $x/y$-Achse für festes $t$.}
+    \caption{Links: Von oberer und unterer Hüllkurve eingeschlossener Graph von $\left| \underline{U} \right|$. Rechts:
+    Projektion der hinlaufenden Teilwelle $\left| \underline{U}_h \right|$ auf die $x/y$-Achse für festes $t$.}
+    \label{Spirale}
 \end{figure}
 Abbildung~\ref{Spirale} zeigt diese Projektion der hinlaufenden Welle $\underline{U}_{h}$. Der Punkt 1 markiert
-$\underline{U}_{h}(l)$. Er liegt dem Betrag nach dem Ursprung am nächsten aufgrund der Dämpfung. Wegen $z=l$ ist die
+$\underline{U}_{h}(l)$. Er liegt dem Betrage nach dem Ursprung am nächsten aufgrund der Dämpfung. Wegen $z=l$ ist die
 Phase 0. Für abnehmendes $z$ nimmt die Phase und Amplitude zu, wir bewegen uns also entgegen des Uhrzeigersinns nach
-außen hin zu $\underline{U}_{h}(0)$. Die Punkt 1-5 sind auf der linken Abbildung markiert, welche
+außen hin zu $\underline{U}_{h}(0)$. Die Punkte 1-5 sind auf der linken Abbildung markiert, welche
 $|\underline{U}_{h}(z)|$ zeigt. Für benachbarte Extrema, 1-4 oder 3-5, gilt eine Phasenverschiebung von $\beta \Delta z
 = \pi$.
 
 Aus Gleichung~\eqref{eq:RFactor} folgt mit $z=l$ und $r=-1$, dass $\underline{U}_{r} = - U_{h}$, also muss am
 Leiterende $\underline{U}_{e} = 0$ gelten. Mit Gleichung~\eqref{eq:IxE} folgt für den Strom
 \[
-\underline{I}(x) =
-\frac{1}{2} \underline{I}_{e} \mathrm{e}^{\alpha (l - x)} \mathrm{e}^{\mathrm{j} \beta (l - x)}
+\underline{I}(z) =
+\frac{1}{2} \underline{I}_{e} \mathrm{e}^{\alpha (l - z)} \mathrm{e}^{\mathrm{j} \beta (l - z)}
 -
-\frac{1}{2} \underline{I}_{e} \mathrm{e}^{- \alpha (l - x)} \mathrm{e}^{- \mathrm{j} \beta (l - x)}.
+\frac{1}{2} \underline{I}_{e} \mathrm{e}^{- \alpha (l - z)} \mathrm{e}^{- \mathrm{j} \beta (l - z)}.
 \]
 Die Stromkurve ist von gleicher Größe wie die Spannungskurve. Durch Einsetzen sieht man, dass Strom und Spannung um
 $\Delta z = \frac{\pi}{2 \beta}$ phasenverschoben sind. Ansonsten verhalten sich beide Wellen im wesentlichen gleich
@@ -806,15 +805,15 @@ Leitergleichungen~\eqref{eq:UxE} und \eqref{eq:IxE} ergibt
 \end{equation*}
 und
 \begin{equation*}
-\underline{I}(x) =
+\underline{I}(z) =
 \frac{1}{2} \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{\alpha (l - z)} \mathrm{e}^{\mathrm{j} \beta (l - z)}
 -
 \frac{1}{2} \frac{\underline{U}_{e}}{Z_{w}} \mathrm{e}^{- \alpha (l - z)} \mathrm{e}^{\mathrm{j} -\beta (l - z)}.
 \end{equation*}
 Verglichen mit dem Kurzschluss am Leiterende, $r=-1$, sehen wir, dass Strom und Spannung hier die Rollen vertauschen.
 
-Aus $\underline{U}(l) = \underline{U}_{e}$, sind die Teilspannungen am Leiterende in Phase, berühren also das obere
-Ende der Hüllkurve (vgl. Abbildung~\ref{Huellkurve} links). Für den Strom gilt hingegen $I(l) = 0$ wie erwartet.
+Aus $\underline{U}(l) = \underline{U}_{e}$ folgt, dass die Teilspannungen am Leiterende in Phase sind, berühren also
+das obere Ende der Hüllkurve (vgl. Abbildung~\ref{Spirale} links). Für den Strom gilt hingegen $I(l) = 0$ wie erwartet.
 
 Wir hatten bereits gesehen, dass der Abstand zwischen zwei aufeinanderfolgenden Extrema jeweils $\frac{\pi}{\beta}$
 beträgt. Die Stromkurve hat demnach Minima für $l - k \frac{\pi}{\beta} \ge 0$, wobei $k \in \mathbb{N}_{0}$.
@@ -822,7 +821,7 @@ beträgt. Die Stromkurve hat demnach Minima für $l - k \frac{\pi}{\beta} \ge 0$
 
 
 \subsubsection{Beliebiger Abschluss}
-Für einen Abschlusswiderstand zwischen den betrachteten Spezialfällen, d.h. $0 < Z_{e} < \infty$, wir sich das
+Für einen Abschlusswiderstand zwischen den betrachteten Spezialfällen, d.h. $0 < Z_{e} < \infty$, wird sich das
 Verhalten der Spanungs- und Stromkomponenten qualitativ ähnlich verhalten, wobei dann der reflektierte Anteil wegen
 $\left| r \right| < 1$ kleiner ausfällt. Dies gilt allerdings nur für die hier betrachteten Fälle mit reellem
 Wellenwiderstand $Z_{w}$.
@@ -836,28 +835,30 @@ d.\,h. es kommt nicht zu einem exponentiellen Abfall bzw. Zunahme der Wellenampl
 Spannungsphasoren auf einem Zylinder statt of einer Schraubenlinie, vgl.\,Abbildung~\ref{ImaginaerWelle}. Da die
 Amplituden nicht abfallen bzw. zunehmen, ist ihr Betrag entlang des Leiters konstant. Die Hüllkurve, die beide Wellen
 einschliesst, ist daher eine horizontale Linie, siehe folgende Abbildung~\ref{VerlustlosBetrag}.
-\begin{figure}[!htpb]
+\begin{figure}[!htb]
     \begin{center}
         \input{../graphics/VerlustlosBetrag/document}
-        \caption{Nicht wirklich exp, sonder U(0)*exp}
+        \caption{Spannung und Strom in verlustlosen Fall für $r = 1$, gegeneinander um eine Viertelperiode verschoben.}
         \label{VerlustlosBetrag}
     \end{center}
 \end{figure}
 Für den Kurzschluss bzw. offene Leitung gilt $|r|=1$. Dann haben hin- und rücklaufende Wellen jeweils die gleiche
-Amplitude. Aufgrund der Überlagerung beider Wellen addieren sie sich zum doppelten Wert der Wellenamplituden bzw.
-annihilieren sie sich auf dem Leiter. Für die Wellengleichungen ergibt sich
+Amplitude. Aufgrund der Überlagerung beider Wellen addieren sich ihre Amplituden auf dem Leiter entweder zu einer
+doppelten Amplitude (konstruktive Interferenz) oder heben sich gegenseitig vollständig auf (destruktive Interferenz).
+Für die Wellengleichungen ergibt sich für $r = 1$
 \begin{align*}
-\underline{U}(x) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
+\underline{U}(z) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
 \left( \mathrm{e}^{\mathrm{j} \beta (l - z)} - \mathrm{e}^{- \mathrm{j} \beta (l - z)} \right) \\[1ex]
 &= Z_{w} \, \underline{I}_{e} \, \mathrm{j} \sin \beta (l - z)
 \end{align*}
 und
 \begin{align*}
-    \underline{I}(x) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
+    \underline{I}(z) &= \frac{1}{2} Z_{w} \, \underline{I}_{e}
     \left( \mathrm{e}^{\mathrm{j} \beta (l - z)} + \mathrm{e}^{- \mathrm{j} \beta (l - z)} \right) \\[1ex]
     &= Z_{w} \, \underline{I}_{e} \, \mathrm{j} \cos \beta (l - z).
 \end{align*}
-Strom und Spannung sind also entlang des ganzen Leiters um ein viertel Periode, also $\frac{\pi}{2}$, phasenverschoben.
+Strom und Spannung sind reine $\sin$- bzw.\,$\cos$-Schwingungen entlang des Leiters und um eine Viertelperiode
+($\frac{\pi}{2}$) phasenverschoben.
 
 Für die offene Leitung gelten analoge Gleichungen, wobei wir bereits gesehen haben, dass Strom und Spannung ihre Rollen
 vertauschen.
@@ -873,9 +874,9 @@ vertauschen.
 Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
 $r$ entlang eines verlustlosen zylindrischen Leiters ($R^{\prime} = G^{\prime} = 0$). Die schwarzen Hüllkurven sind
 jeweils durch \[
-\mathrm{Re} ( \left| U_{h}(z) + U_{r}(z) \right| )
+\mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] bzw. \[
-- \mathrm{Re} ( \left| U_{h}(z) + U_{r}(z) \right| )
+- \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] gegeben. Die Maxima der Amplituden laufen auf der oberen, die Minima auf der unteren Hüllkurve für alle $t$.
 \begin{figure}[!htpb]
     \begin{minipage}{0.45\textwidth}
@@ -912,9 +913,9 @@ Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Z
 $r$ entlang eines zylindrischen, verlustbehafteten Leiters (\mbox{$R^{\prime} \neq 0$}, $G^{\prime} \neq 0$). Die
 schwarzen
 Hüllkurven sind jeweils durch \[
-\mathrm{Re} ( \left| U_{h}(z) + U_{r}(z) \right| )
+\mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] bzw. \[
-- \mathrm{Re} ( \left| U_{h}(z) + U_{r}(z) \right| )
+- \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] gegeben. Die Maxima der Amplituden laufen auf der oberen, die Minima auf der unteren Hüllkurve für alle $t$.
 \begin{figure}[!htpb]
     \begin{minipage}{0.45\textwidth}
