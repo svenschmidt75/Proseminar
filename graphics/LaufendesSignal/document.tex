@@ -13,21 +13,21 @@
 
 \begin{tikzpicture}
 
-\pgfplotsset{xmin=0, xmax=15, ymin=0, ymax=2.5,
+\pgfplotsset{xmin=0, xmax=15, ymin=0, ymax=2.75,
     axis lines=left,
-    xlabel=$x$,
+    xlabel=$z$,
     ylabel=$\textbf{u}$,
     ylabel style={rotate=-90, at={(current axis.above origin)}, anchor=east},
     xlabel style={at={(axis description cs:1,-0.1)},anchor=north},
     xtick={0},
     yticklabels={},
     % scale y
-    y=0.75cm
+    y=0.75cm,
 }
 
 % place outside of plots so negative x shift works
 \node[anchor=east] at (-0.1cm, 0.5cm) {$t = t_{0}$};
-\node[anchor=east] at (-0.1cm, -2.6cm) {$t = t_{1} = t_{0} + \frac{x_{1}}{v}$};
+\node[anchor=east] at (-0.1cm, -2.6cm) {$t = t_{1} = t_{0} + \frac{z_{1}}{v}$};
 
 
 \begin{groupplot}[group style={group size=1 by 2,
@@ -37,15 +37,15 @@ vertical sep=1cm}]
 \nextgroupplot[]
 
 \addplot[smooth, samples=100, thick, blue, domain=0:15] coordinates {(0,0) (1,2.3) (2,1.75) (3,2) (4,0) (5,0)}
-node[pos=0.6, anchor=south west] {\color{black}$u(v t_{0} - x)$} node[pos=0.75] (A1) {};
+node[pos=0.6, anchor=south west] {\color{black}$u(v t_{0} - z)$} node[pos=0.75] (A1) {};
 
 \draw[-Stealth] (A1) -- +(1cm,0) node[anchor=west] {$v$};
 
 
-\nextgroupplot[xtick={0, 7}, xticklabels={0, $x_{1}$},]
+\nextgroupplot[xtick={0, 7}, xticklabels={0, $z_{1}$},]
 
 \addplot[smooth, samples=100, thick, blue] coordinates {(7,0) (8,2.3) (9,1.75) (10,2) (11,0) (12,0)}
-node[pos=0.6, anchor=south west] {\color{black}$u(v t_{1} - x)$} node[pos=0.75] (A1) {};
+node[pos=0.6, anchor=south west] {\color{black}$u(v t_{1} - z)$} node[pos=0.75] (A1) {};
 
 \draw[-Stealth] (A1) -- +(1cm,0) node[anchor=west] {$v$};
 

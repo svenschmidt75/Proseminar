@@ -290,31 +290,30 @@ einige Spezialfälle betrachten, die es uns erlauben, das qualitative Verhalten 
 
 \section{Die Gleichungen der verlustlosen Leitung}
 \label{VerlustlosesModel}
-Da die Telegraphenleitungen i.A. nur nummerisch gelöst werden können, wollen wir hier eine vereinfachende Annahme
-machen: wir nehmen an, dass die Leitung verlustlos ist, d.h. wir setzen $R^{\prime} = G^{\prime} = 0$. Dies erlaubt es
-uns, die Gleichungen exakt zu lösen und somit das qualitative Verhalten der Signalausbreitung zu beschreiben. Die
-Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen sich zu
+Da die Telegraphenleitungen i.\,A. nur nummerisch gelöst werden können, wollen wir hier eine vereinfachende Annahme
+machen: wir nehmen an, dass die Leitung verlustlos ist, d.\,h. wir setzen \mbox{$R^{\prime} = G^{\prime} = 0$}. Dies
+erlaubt es uns, die Gleichungen exakt zu lösen und somit das qualitative Verhalten der Signalausbreitung zu
+beschreiben. Die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen sich zu
 \begin{align}
     \frac{\partial u}{\partial z} &= - L^{\prime} \, \frac{\partial i}{\partial t} \label{eq:Dgl7} \\[1ex]
     \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} \label{eq:Dgl8} .
 \end{align}
 Jede dieser Gleichungen hat die Form der Wellengleichung. Sie sind homogene partielle Differentialgleichungen, deren
-Lösung aus zwei Partiallösungen
+Lösung sich aus zwei Partiallösungen zusammensetzt,
 \begin{align}
 u(x, t) &= u_{v}(v t - x) + u_{r}(v t + x) \label{eq:AllgEq1} \\[1ex]
 i(x, t) &= i_{v}(v t - x) + i_{r}(v t + x) \label{eq:AllgEq2}.
 \end{align}
-Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{v}$ bzw. $i_{v}$ um
-vorwärts laufende Wellen, bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu
-Abbildung~\ref{VorwaertsWelle}.
+Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{h}$ bzw. $i_{h}$ um vorwärts laufende Wellen,
+bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu Abbildung~\ref{VorwaertsWelle}.
 \begin{figure}[!h]
     \begin{center}
         \input{../graphics/LaufendesSignal/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{Model der hinlaufenden Welle für die Spannung $u$ zum Zeitpunkt $t_{0}$ und $t_{1}$.}
         \label{VorwaertsWelle}
     \end{center}
 \end{figure}
+
 Sei dazu $t_{0} = 0$, $t_{1} > 0$ und $x_{0} > 0$. Dann ist die Welle zum Zeitpunkt $t_{1} > 0$ die Strecke $x = x_{1}
 = v t_{1} + x_{0}$ vorangeschritten. Es gilt $u(x_{0}, t_{0}) = u_{v}(-x_{0})$ und
 \begin{align*}
