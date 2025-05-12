@@ -419,29 +419,29 @@ Kommen wir nun zur verlustbehafteten Leitung.
 
 \section{Verlustbehaftetes Model}
 Wir wollen jetzt für einen weiteren Spezialfall die Telegraphenleitungen lösen. Wir nehmen an, dass das System im
-eingeschwungenen Zustand ist. Wir nehmen weiter an, dass die auftretenden Signale aus einer einzigen sin-förmigen
-Schwingung fester Frequenz bestehen. I.A. Fall zerlegt man die auftretenden Signale in ihre einzelnen
-Frequenzkomponenten und betrachtet diese zunächst getrennt.
+eingeschwungenen Zustand ist, d.\,h. wir ignorieren den Einschwungvorgang. Wir nehmen weiter an, dass die auftretenden
+Signale aus einer einzigen sin-förmigen Schwingung fester Frequenz bestehen. Im allgemeinen Fall zerlegt man die
+auftretenden Signale in ihre einzelnen Frequenzkomponenten und betrachtet diese zunächst getrennt.
 
 Wir stellen Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ dar, um hervorzuheben,
 dass es sich um komplexe Größen handelt:
 \begin{align}
-    u(x, t) &= \mathrm{Re} \left( \underline{U}(x) \exp(\mathrm{j} \omega t) \right) \label{eq:Spannung} \\
-    i(x, t) &= \mathrm{Re} \left( \underline{I}(x) \exp(\mathrm{j} \omega t) \right)
+    u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
+    i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
 \end{align}
-mit $\omega = 2 \pi f$. Es handelt sich hierbei um stationäre sin-förmige Signale, bei denen Ort- und Zeitabhängigkeit
-entkoppelt sind.
+mit $\omega = 2 \pi f$. Es handelt sich hierbei um sin-förmige Signale, bei denen Ort- und Zeitabhängigkeit entkoppelt
+sind.
 
 Das Einsetzen der Phasoren in die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} liefert
 \begin{align}
-    \frac{\text{d} \underline{U}}{\text{d} x} &= - \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
+    \frac{\text{d} \underline{U}}{\text{d} z} &= - \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
     \underline{I} \label{eq:ResDgl1} \\[1ex]
-    \frac{\text{d} \underline{I}}{\text{d} x} &= - \left( G^{\prime} + \mathrm{j} \omega C^{\prime} \right)
-    \underline{U}
+    \frac{\text{d} \underline{I}}{\text{d} z} &= - \left( G^{\prime} + \mathrm{j} \omega C^{\prime} \right)
+    \underline{U}.
 \end{align}
-Wir eliminieren $\underline{I}$ aus \eqref{eq:ResDgl1} durch nochmaliges Ableiten der Gleichung nach $x$:
+Wir eliminieren $\underline{I}$ aus \eqref{eq:ResDgl1} durch nochmaliges Ableiten der Gleichung nach $z$:
 \begin{align}
-    \frac{\text{d}^{2} \underline{U}}{\text{d} x^{2}} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
+    \frac{\text{d}^{2} \underline{U}}{\text{d} z^{2}} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
     \left( G^{\prime} + \mathrm{j} \omega C^{\prime} \right) \underline{U} \label{eq:ResDgl3}.
 \end{align}
 Verglichen mit \eqref{eq:Tele1} entfällt in \eqref{eq:ResDgl3} die Zeitabhängigkeit. Damit haben wir eine gewöhnliche
@@ -450,41 +450,42 @@ begegnet sind.
 
 Für den Phasor $\underline{I}$ erhalten wir mit ähnlichen Argumenten
 \begin{align}
-    \frac{\text{d}^{2} \underline{I}}{\text{d} x^{2}} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
+    \frac{\text{d}^{2} \underline{I}}{\text{d} z^{2}} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right)
     \left( G^{\prime} + \mathrm{j} \omega C^{\prime} \right) \underline{I}.
 \end{align}
 Dies sind die Wellengleichungen der verlustbehafteten Leitung. Sie werden in der Regel wie folgt geschrieben:
 \begin{align}
-    \frac{\text{d}^{2} \underline{U}}{\text{d} x^{2}} &= \gamma^{2} \underline{U} \label{eq:VerlustDgl1} \\[1ex]
-    \frac{\text{d}^{2} \underline{I}}{\text{d} x^{2}} &= \gamma^{2} \underline{I} \label{eq:VerlustDgl2} \\[1ex]
+    \frac{\text{d}^{2} \underline{U}}{\text{d} z^{2}} &= \gamma^{2} \underline{U} \label{eq:VerlustDgl1} \\[1ex]
+    \frac{\text{d}^{2} \underline{I}}{\text{d} z^{2}} &= \gamma^{2} \underline{I} \label{eq:VerlustDgl2} \\[1ex]
     \gamma^{2} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right) \left( G^{\prime} + \mathrm{j} \omega
-    C^{\prime} \right).
+    C^{\prime} \right) \label{eq:Gamma}.
 \end{align}
 Man nennt $\gamma$ die Wellenausbreitungsgeschwindigkeit. Verglichen zum verlustlosen Model ist dies eine komplexe
 Größe, was dazu führt, dass im verlustbehafteten Fall ein Dämpfungsterm in der Lösung auftritt.
 
-Die allgemeine Lösungen haben die Form
-\[ \underline{U}_{1} \exp(- \gamma x) \quad \text{und} \quad \underline{U}_{2} \exp(\gamma x), \] wobei
-$\underline{U}_{1}$ und $\underline{U}_{2}$ Integrationskonstanten sind, die durch die Anfangsbedingungen festgelegt
-werden.
-Es gilt somit für die Spannung
+Lösungen haben die Form
+\[ \underline{U}_{1} \mathrm{e}^{- \gamma z} \quad \text{und} \quad \underline{U}_{2} \mathrm{e}^{\gamma z}, \]
+wobei $\underline{U}_{1}$ und $\underline{U}_{2}$ Integrationskonstanten sind, die durch die Anfangsbedingungen
+festgelegt werden. Es gilt somit für die Spannung
 \begin{equation}
-    \underline{U}(x) = \underline{U}_{1} \exp(- \gamma x) + \underline{U}_{2} \exp(\gamma x) \label{eq:VerlustU}.
+    \underline{U}(z) = \underline{U}_{1} \mathrm{e}^{- \gamma z}
+     +
+     \underline{U}_{2} \mathrm{e}^{\gamma z} \label{eq:VerlustU}.
 \end{equation}
 Die Gleichung für den Strom erhalten wir, wenn wir \eqref{eq:VerlustU} in \eqref{eq:ResDgl1} einsetzen,
 \begin{equation}
-    \underline{I}(x) = \frac{-1}{R^{\prime} + \mathrm{j} \omega L^{\prime}} \frac{\text{d} \underline{U}}{\text{d} x}
+    \underline{I}(z) = \frac{-1}{R^{\prime} + \mathrm{j} \omega L^{\prime}} \frac{\text{d} \underline{U}}{\text{d} z}
     = \frac{1}{Z}
     \left(
     \vphantom{\sqrt{1}{Z}}
-    \underline{U}_{1} \exp(- \gamma x) + \underline{U}_{2} \exp(\gamma x) \right),
+    \underline{U}_{1} \mathrm{e}^{- \gamma z} + \underline{U}_{2} \mathrm{e}^{\gamma z} \right),
 \end{equation}
 wobei wir
 \begin{equation}
     Z_{w} = \sqrt{\frac{G^{\prime} + \mathrm{j} \omega C^{\prime}}{R^{\prime} + \mathrm{j} \omega L^{\prime}}}
     \label{eq:Zw}
 \end{equation}
-eingeführt haben. $Z$ hat die Dimension eines Widerstandes und wird daher Wellenwiderstand oder Wellenimpedanz
+eingeführt haben. $Z_{w}$ hat die Dimension eines Widerstandes und wird daher Wellenwiderstand oder Wellenimpedanz
 genannt.
 
 \subsubsection{Anfangsbedingungen am Leiteranfang}
@@ -502,21 +503,21 @@ Für die Integrationskonstanten $\underline{U}_{1}$ und $\underline{U}_{2}$ folg
 \frac{\underline{U}_{a} - Z_{w} \underline{I}_{a}}{2}. \]
 Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
 \begin{align}
-    \underline{U}(x) &=
-    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma x}
+    \underline{U}(z) &=
+    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
     +
-    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma x} \label{eq:UxA} \\[1ex]
+    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:UxA} \\[1ex]
     \underline{I}(x) &=
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma x}
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma x} \label{eq:IxA}
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:IxA}
     .
 \end{align}
 
 \subsubsection{Anfangsbedingungen am Leiterende}
 
 Für die spätere Betrachtung ist es hilfreich, die Gleichungen mit Anfangsbedingungen anzugeben, die durch Spannung und
-Strom am Leiterende $x=l$, $\underline{U}_{e}$ und $\underline{I}_{e}$, festgelegt sind.
+Strom am Leiterende $z=l$, $\underline{U}_{e}$ und $\underline{I}_{e}$, festgelegt sind.
 \begin{align*}
     \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathrm{e}^{- \gamma l}
     +
@@ -529,33 +530,33 @@ Strom am Leiterende $x=l$, $\underline{U}_{e}$ und $\underline{I}_{e}$, festgele
     \right).
 \end{align*}
 In diesem Fall gilt für die Integrationskonstanten
-\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma x} \quad \text{und}
-\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma x}. \]
+\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma z} \quad \text{und}
+\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma z}. \]
 Die Gleichungen für Spannung und Strom lauten damit
 \begin{align}
-    \underline{U}(x) &=
-    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - x)}
+    \underline{U}(z) &=
+    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
     +
-    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - x)} \label{eq:UxE}
+    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)} \label{eq:UxE}
     \\[1ex]
-    \underline{I}(x) &=
-    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - x)}
+    \underline{I}(z) &=
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - x)}
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)}
     \label{eq:IxE} .
 \end{align}
 
 Um die Wellenausbreitung entlang des Leiters besser verstehen zu können, spalten wir zunächst die
-Wellenausbreitungsgeschwindigkeit $\gamma$ auf in Real- und Imaginärteil:
+Wellenausbreitungsgeschwindigkeit $\gamma$, Gleichung~\eqref{eq:Gamma}, auf in Real- und Imaginärteil:
 \[ \gamma = \alpha + \mathrm{j} \beta. \] Wir nennen $\alpha$ die Dämpfungskonstante (oder -belag) und $\beta$ die
 Phasenkonstante (oder-belag). Für die Spannung gilt mit \eqref{eq:Spannung}
 \begin{equation}
-u(x, t) = \mathrm{Re} \left[
-\frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \alpha x}
-\mathrm{e}^{- \mathrm{j} \beta x} \mathrm{e}^{\mathrm{j} \omega t}
+u(z, t) = \mathrm{Re} \left[
+\frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \alpha z}
+\mathrm{e}^{- \mathrm{j} \beta z} \mathrm{e}^{\mathrm{j} \omega t}
 +
-\frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\alpha x}
-\mathrm{e}^{\mathrm{j} \beta x} \mathrm{e}^{\mathrm{j} \omega t}
+\frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\alpha z}
+\mathrm{e}^{\mathrm{j} \beta z} \mathrm{e}^{\mathrm{j} \omega t}
 \right].
 \end{equation}
 Wir führen die Abkürzungen
@@ -566,26 +567,26 @@ Wir führen die Abkürzungen
 \end{align*}
 ein, mit denen für die Spannung folgt
 \begin{equation}
-u(x,t) =
-\hat{U}_{1} \mathrm{e}^{- \alpha x} \cos \left( \omega t - \beta x + \psi_{1} \right)
+u(z,t) =
+\hat{U}_{1} \mathrm{e}^{- \alpha z} \cos \left( \omega t - \beta z + \psi_{1} \right)
 +
-\hat{U}_{2} \mathrm{e}^{\alpha x} \cos \left( \omega t + \beta x + \psi_{2} \right).
+\hat{U}_{2} \mathrm{e}^{\alpha z} \cos \left( \omega t + \beta z + \psi_{2} \right).
 \end{equation}
-Die Spannung setzt sich also aus zwei Einzelspannungen zusammen. Der Faktor $\exp(-\alpha x)$ bewirkt ein
-exponentiellen Abfall der Teilspannung entlang der positiven $z$-Achse. Für die zweite Teilspannung bewirkt
-$\exp(\alpha x)$ einen exponentiellen Abfall in die negative $z$-Richtung der Amplitude.
+Die Spannung setzt sich also aus zwei Einzelspannungen zusammen. Für $\alpha > 0$ bewirkt der Faktor $\exp(-\alpha z)$
+einen exponentiellen Abfall der Teilspannung entlang der positiven $z$-Achse. Für die zweite Teilspannung bewirkt
+$\exp(\alpha z)$ einen exponentiellen Abfall in die negative $z$-Richtung der Amplitude.
 
 \subsubsection{Wellenlänge}
 
-Für einen festen Zeitpunkt $t$ oszilliert jede der Teilspannungen entlang der $x$-Richtung, da das Argument des Kosinus
-von $x$ abhängt. Für die Periode der Welle gilt gilt \[ \beta z = 2 \pi, \] und somit
-\[ x = \lambda = \frac{2 \pi}{\beta}, \] die Wellenlänge der Schwingung. Die ist exemplarisch auf
-Abbildung\ref{ExpWelle} gezeigt.
+Für einen festen Zeitpunkt $t$ oszilliert jede der Teilspannungen entlang der $z$-Richtung, da das Argument des Kosinus
+von $z$ abhängt. Für die Periode der Welle gilt \[ \beta z = 2 \pi, \] und somit
+\[ z = \lambda = \frac{2 \pi}{\beta}, \] die Wellenlänge der Schwingung. Die ist exemplarisch auf
+Abbildung~\ref{ExpWelle} gezeigt.
 \begin{figure}[!htpb]
     \begin{center}
         \input{../graphics/ExpWelle/document}
-        \caption{Einschaltbild eines infinitesimalen Leitungsstücks einer verlustbehafteten Leitung. Entnommen
-            aus~\cite{LeitungenUndFilter}.}
+        \caption{Oben: Exponentieller Abfall der hinlaufenden Teilwelle $u_{h}$. Unten: Exponentieller Abfall der
+        rücklaufenden Teilwelle $u_{r}$. Die Spannung $u$ ist jeweils mit den Amplituden am Leiterende normiert.}
         \label{ExpWelle}
     \end{center}
 \end{figure}
@@ -593,22 +594,22 @@ Abbildung\ref{ExpWelle} gezeigt.
 
 \subsubsection{Wellengeschwindigkeit}
 
-Um die Wellengeschwindigkeit zu bestimmen, betrachten wir einen Nulldurchgang einer Teilspannung zum Zeitpunkt
+Um die Wellengeschwindigkeit $v$ zu bestimmen, betrachten wir einen Nulldurchgang einer Teilspannung zum Zeitpunkt
 $t=t_{0}$, bei dem das Argument des Kosinus $\frac{\pi}{2}$ sei. Es gilt
-\[ x_{0} = \frac{\omega t_{0} + \psi_{1} -\frac{\pi}{2}}{\beta} \]. Nach der Zeit $t_{1} = t_{0} + \Delta t$ sei der
+\[ z_{0} = \frac{\omega t_{0} + \psi_{1} -\frac{\pi}{2}}{\beta} \]. Nach der Zeit $t_{1} = t_{0} + \Delta t$ sei der
 folgende Nulldurchgang erreicht, für den gilt
-\[ x_{1} = \frac{\omega t_{1} + \psi_{1} -\frac{\pi}{2}}{\beta} \]. Für die Phasengeschwindigkeit der Welle gilt somit
-\[ v = \frac{x_{1} - x_{0}}{t_{1} - t_{0}} = \frac{\omega}{\beta}. \]
+\[ z_{1} = \frac{\omega t_{1} + \psi_{1} -\frac{\pi}{2}}{\beta}. \] Für die Phasengeschwindigkeit der Welle gilt somit
+\[ v = \frac{z_{1} - z_{0}}{t_{1} - t_{0}} = \frac{\omega}{\beta}. \]
 
 Zwar haben wir hier nur Spannungen untersucht, aber aufgrund der Symmetrie der Gleichungen~\eqref{eq:VerlustDgl1} und
 \eqref{eq:VerlustDgl2} unterscheidet sich die Gleichung für den Teilstrom nur um den Faktor von der der Teilspannung.
 Die Leitungsgleichungen für Strom und Spannung setzen sich aus jeweils zwei Exponentialtermen zusammen, die sich
 entlang des Leiters als gedämpfte Wellen in entgegengesetzter Richtung ausbreiten,
 \begin{alignat}{2}
-\underline{U}(x) &= \underline{U}_{1} \mathrm{e}^{- \gamma x} + \underline{U}_{2} \mathrm{e}^{\gamma x}
-&= \underline{U}_{v} + \underline{U}_{r} \\[1ex]
-\underline{I}(x) &= \underline{I}_{1} \mathrm{e}^{- \gamma x} + \underline{I}_{2} \mathrm{e}^{\gamma x}
-&= \underline{I}_{v} + \underline{I}_{r}.
+\underline{U}(z) &= \underline{U}_{1} \mathrm{e}^{- \gamma z} + \underline{U}_{2} \mathrm{e}^{\gamma z}
+&= \underline{U}_{h} + \underline{U}_{r} \\[1ex]
+\underline{I}(z) &= \underline{I}_{1} \mathrm{e}^{- \gamma z} + \underline{I}_{2} \mathrm{e}^{\gamma z}
+&= \underline{I}_{h} + \underline{I}_{r}.
 \end{alignat}
 
 Wenn wir das Verhältnis der Teilspannung und Teilstrom bilden, so ergibt sich mit \eqref{eq:UxA} und \eqref{eq:IxA}
@@ -616,14 +617,16 @@ Wenn wir das Verhältnis der Teilspannung und Teilstrom bilden, so ergibt sich m
 \underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a}} = Z_{w}, \]
 der Wellenwiderstand \eqref{eq:Zw}. Für die rücklaufende Welle gilt entsprechend
 \[ \frac{\underline{U}_{2}}{-\underline{I}_{2}} = \frac{\underline{U}_{a} - Z_{w}
-\underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a}} = Z_{w}. \]
-Per Konvention sei die positive Stromrichtung die der positiven $x$-Richtung entlang des Leiters.
+\underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a}} = Z_{w}. \] Dies ist allerdings nur am
+Leiteranfang der Fall.
+
+Per Konvention sei die positive Stromrichtung die der positiven $z$-Richtung entlang des Leiters.
 
 
 \section{Reflexionen}
 
 Strom und Spannung entlang des Leiters sind vollständig bestimmt durch die Anfangsbedingungen und $\gamma$, siehe
-Gleichungen \eqref{eq:VerlustDgl1} und \eqref{eq:VerlustDgl2}. Es bilden sich zwei Teilwellen aus, die in
+Gleichungen \eqref{eq:VerlustDgl1}~-~\eqref{eq:VerlustDgl2}. Es bilden sich zwei Teilwellen aus, die in
 entgegengesetzte Richtungen verlaufen. Wir betrachten nun verschiedene Spezialfälle des Leitungsabschlusses um die
 Wechselwirkung beider Teilwellen zu verstehen. Wir betrachten explizit das Leiterende, da dort mittels eines
 eingefügten Widerstands Diskontinuitäten entstehen, die zu reflektierten Wellen führen.
