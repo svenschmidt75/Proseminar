@@ -63,11 +63,11 @@
 \end{titlepage}
 
 \chapter{Einführung}
-Um elektrische Energie für die verschiedensten Situationen des täglichen Lebens verwenden zu können, muss sie vom
-Erzeuger zum Verbraucher --- unter Minimierung von Verlusten --- transportiert werden. Dazu verwendet man elektrische
-Leiter, die sich u.a. in ihrer Materialzusammensetzung und geometrischer Anordnung unterscheiden. Es ist daher wichtig
-zu verstehen, wie genau der Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transport
-elektrischer Energie auf einfachen Zweidrahtleitern.
+Um elektrische Energie für die verschiedensten Situationen des täglichen Lebens verwenden zu können, muss sie effizient
+vom Erzeuger zum Verbraucher transportiert werden. Dazu verwendet man elektrische Leiter, die sich u.\,a. in ihrer
+Materialzusammensetzung und geometrischer Anordnung unterscheiden. Es ist daher wichtig zu verstehen, wie genau der
+Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transport elektrischer Energie auf einfachen
+Zweidrahtleitern.
 
 Fließt in einem elektrischen Leiter ein Strom, dann bildet sich um ihn herum ein magnetisches Feld aus. Ändert sich der
 Strom mit der Zeit, wie es z.B. bei Wechselströmen der Fall ist, dann ändert sich mit ihm das magnetische Feld. Ein
@@ -80,20 +80,21 @@ Die Ausbreitung elektromagnetischer Wellen wird mittels elektrischen Leitern so 
 Energie transportiert werden kann.
 
 Wir betrachten zunächst den einfachsten Fall einer elektromagnetische Wellen als sinusförmige Schwingung fester
-Frequenz. Da die Frequenzen der auftretenden Wellen im Bereich 50-60Hz liegen, sind ihre Wellenlängen entsprechend groß
--- sie liegen im Bereich von mehreren Kilometern. Der Querschnitt der betrachteten Leiter ist somit sehr viel kleiner
-als die Wellenlängen. Dies führt dazu, dass wir von der Lösung der Maxwellschen Gleichungen absehen können und die
-Gleichungen zum Beschreiben elektromagnetischer Wellen in elektrischen Leitern mit der Methode der Ersatzbilder
-herleiten können, die sich aus der Anwendung der Kirchhoffschen Regeln ergibt.
+Frequenz. Dabei machen wir die Annahme, dass die Signalausbreitungsgeschwindigkeit nicht vernachlässigt werden kann,
+wie es insbesondere bei hochfrequenten Signalen der Fall ist. Das Fließen eines zeitlich veränderlichen elektrischen
+Stroms in einem Leiter induziert die Ausbildung elektromagnetischer Felder, die i.\,A. durch die Maxwellschen
+Gleichungen beschrieben werden. Die Methode der Ersatzschaltbilder bietet einen einfacheren Zugang zur Ableitung der
+Gleichungen des elektrischen Leiters mittels der Gesetzt der Elektro- und Magnetostatik. Sie basieren wesentlich auf
+die Anwendung der Kirchhoffschen Maschen- und Knotengleichungen.
 
 Dies führt auf die sogenannten Telegraphenleitungen, die Spannung und Strom entlang eines verlustbehafteten
 elektrischen Leiters in Abhängigkeit von Ort und Zeit beschreiben. Dies sind partielle Differentialgleichungen erster
-Ordnung, die i.A. nur nummerisch gelöst werden können. Wir betrachten verschiedene vereinfachende Modellannahmen, die
+Ordnung, die i.\,A. nur nummerisch gelöst werden können. Wir betrachten verschiedene vereinfachende Modellannahmen, die
 es uns erlauben, die Telegraphenleitungen für diese Spezialfälle analytisch zu lösen, um Aussagen über das qualitative
 Verhalten der auftretenden Wellen in Leitern machen zu können. Insbesondere stellt sich heraus, dass sich im
 Wesentlichen zwei Wellen im Leitermedium ausbreiten -- eine vorwärts laufende und eine rücklaufende Welle. Letztere
-ergibt sich durch Reflektion der vorwärts laufenden Welle am Leiterende. Wir betrachten verschiedene Leiterabschlüsse
-und wie sich diese auf die Reflektion der Wellen auswirkt.
+ergibt sich durch Reflexion der vorwärts laufenden Welle am Leiterende. Wir betrachten verschiedene Leiterabschlüsse
+und wie sich diese auf die Reflexion der Wellen auswirkt.
 
 
 \chapter{Modell des Zweidrahtleiters}
@@ -147,7 +148,7 @@ der elektrischen und magnetischen Felder. Dazu betrachten ein kleines Leitungsst
 Abbildung~\ref{Leitung1} dargestellt ist.
 \begin{figure}[htbp]
     \begin{center}
-        \input{../graphics/ErstatzSchaltbild1/document}
+        \input{../graphics/ErsatzSchaltbild1/document}
         \caption{Kleines Leiterstück $\Delta z$ mit diskreten Komponenten für Widerstand $\Delta R$ und
         Kapazität $\Delta C$.}
         \label{Leitung1}
@@ -163,7 +164,7 @@ Die gesamte Leitung stellen wir uns aus diesen Leitungsstücken zusammengesetzt 
 dargestellt.
 \begin{figure}[htb]
     \begin{center}
-        \input{../graphics/ErstatzSchaltbild2/document}
+        \input{../graphics/ErsatzSchaltbild2/document}
         \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
         Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung2}
@@ -184,7 +185,7 @@ Rechnung tragen.
 
 \begin{figure}[htb]
     \begin{center}
-        \input{../graphics/ErstatzSchaltbild3/document}
+        \input{../graphics/ErsatzSchaltbild3/document}
         \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
     Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung3}
@@ -199,48 +200,54 @@ Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{
 \mbox{$u + \mathrm{d} u$}.
 \begin{figure}[htb]
     \begin{center}
-        \input{../graphics/ErstatzSchaltbild4/document}
+        \input{../graphics/ErsatzSchaltbild4/document}
         \caption{Einschaltbild eines kleinen Leiterelements mit anteiligem Widerstand, Kapazität, Querleitwert und
         Induktivität zur Herleitung der Gleichungen des elektrischen Leiters.}
         \label{Leitung4}
     \end{center}
 \end{figure}
 
-Mit der Leiterlänge $l$ definieren wir
+Mit der Leiterlänge $l$ definieren wir die verteilten Größen
 
-\begin{tabular}{l l}
-    den Widerstandsbelag & $R^{\prime} = \frac{R}{l}$, \\
+\begin{tabular}{r l r l}
+    Widerstandsbelag & $R^{\prime} = \frac{R}{l}$, & Induktivitätsbelag & $L^{\prime} = \frac{L}{l}$, \\
 \addlinespace
-    den Induktivitätsbelag & $L^{\prime} = \frac{L}{l}$, \\
-\addlinespace
-    den Kapazitätsbelag & $C^{\prime} = \frac{C}{l}$, \\
-\addlinespace
-    und den Leitungsbelag & $G^{\prime} = \frac{G}{l}$. \\
+    Kapazitätsbelag & $C^{\prime} = \frac{C}{l}$, & und Leitungsbelag & $G^{\prime} = \frac{G}{l}$. \\
 \end{tabular}
 
-Der Widerstand $\Delta R = R^{\prime} \Delta z$ und die Induktivität $\Delta L = L^{\prime} \Delta z$ verursachen einen
-Spannungsabfall von
+Anteilig für ein Leiterelement der Länge $\Delta z$ definieren wir
+
+\begin{tabular}{r l r l}
+    Leitungswiderstand & $\Delta R = R^{\prime} \Delta z$, &
+    Leitungsinduktivität & $\Delta L = L^{\prime} \Delta z$, \\
+\addlinespace
+    Leitungskapazität & $\Delta C = C^{\prime} \Delta z$, &
+    und Isolationsleitwert & $\Delta G = G^{\prime} \Delta z$. \\
+\end{tabular}
+
+
+Der Widerstand $\Delta R$ und die Induktivität $\Delta L$ verursachen einen Spannungsabfall von
 \[
-i \, R^{\prime} \, \Delta z + \frac{\partial i}{\partial t} \, L^{\prime} \, \Delta z
+i \, \Delta R + \frac{\partial i}{\partial t} \, \Delta L
 \]
 entlang von $\Delta z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
 \begin{equation*}
-u(z, t) = R^{\prime} \, i(z, t) + L^{\prime} \, \frac{\partial i(z, t)}{\partial t} + u(z + \Delta z, t).
+u(z, t) = \Delta R \, i(z, t) + \Delta L \, \frac{\partial i(z, t)}{\partial t} + u(z + \Delta z, t).
 \end{equation*}
-Durch Querleitwert $\Delta G = G^{\prime} \Delta z$ und Querkapazität $\Delta C = C^{\prime} \Delta z$ fließt der Strom
+Durch Querleitwert $\Delta G$ und Querkapazität $\Delta C$ fließt der Strom
 \[
-u \, G^{\prime} \, \Delta z + \frac{\partial u}{\partial t} \, C^{\prime} \, \Delta z.
+u \, \Delta G + \frac{\partial u}{\partial t} \, \Delta C.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
-    i(z, t) = G^{\prime} \, u(z, t) + C^{\prime} \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
+    i(z, t) = \Delta G \, u(z, t) + \Delta C \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
 \end{equation*}
 Wir formen nun beide Gleichungen um,
 \begin{align*}
-\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= \frac{R^{\prime}}{\Delta z} \, i(z, t) + \frac{L^{\prime}}{\Delta z}
+\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= - \frac{\Delta R}{\Delta z} \, i(z, t) - \frac{\Delta L}{\Delta z}
 \,
 \frac{\partial i(z, t)}{\partial t} \\
-\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &= \frac{G^{\prime}}{\Delta z} \, u(z, t) + \frac{C^{\prime}}{\Delta z}
+\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &= - \frac{\Delta G}{\Delta z} \, u(z, t) - \frac{\Delta C}{\Delta z}
 \, \frac{\partial u(z + \Delta z, t)}{\partial t}.
 \end{align*}
 Mit
@@ -302,8 +309,8 @@ beschreiben. Die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} vereinfachen si
 Jede dieser Gleichungen hat die Form der Wellengleichung. Sie sind homogene partielle Differentialgleichungen, deren
 Lösung sich aus zwei Partiallösungen zusammensetzt,
 \begin{align}
-u(x, t) &= u_{v}(v t - x) + u_{r}(v t + x) \label{eq:AllgEq1} \\[1ex]
-i(x, t) &= i_{v}(v t - x) + i_{r}(v t + x) \label{eq:AllgEq2}.
+u(x, t) &= u_{h}(v t - x) + u_{r}(v t + x) \label{eq:AllgEq1} \\[1ex]
+i(x, t) &= i_{h}(v t - x) + i_{r}(v t + x) \label{eq:AllgEq2}.
 \end{align}
 Wir nehmen hier stets $v > 0$ an. In diesem Fall handelt es sich bei $u_{h}$ bzw. $i_{h}$ um vorwärts laufende Wellen,
 bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu Abbildung~\ref{VorwaertsWelle}.
@@ -349,9 +356,9 @@ und
 \end{equation*}
 Es folgt somit
 \begin{equation*}
-    \frac{\partial^{2} u_{h}}{\partial z^{2}} = L^{\prime} \, C^{\prime} \, \frac{\partial^{2} u_{v}}{\partial t^{2}}
+    \frac{\partial^{2} u_{h}}{\partial z^{2}} = L^{\prime} \, C^{\prime} \, \frac{\partial^{2} u_{h}}{\partial t^{2}}
     \Leftrightarrow
-    \frac{\partial^{2} u_{v}}{\partial w^{2}} = L^{\prime} \, C^{\prime} \, v^{2} \frac{\partial^{2} u_{v}}{\partial
+    \frac{\partial^{2} u_{h}}{\partial w^{2}} = L^{\prime} \, C^{\prime} \, v^{2} \frac{\partial^{2} u_{h}}{\partial
     w^{2}}.
 \end{equation*}
 Nachdem wir die partielle Ableitung herauskürzen, erhalten wir also
@@ -421,7 +428,7 @@ Kommen wir nun zur verlustbehafteten Leitung.
 \section{Verlustbehaftetes Model}
 Wir wollen jetzt für einen weiteren Spezialfall die Telegraphenleitungen lösen. Wir nehmen an, dass das System im
 eingeschwungenen Zustand ist, d.\,h. wir ignorieren den Einschwungvorgang. Wir nehmen weiter an, dass die auftretenden
-Signale aus einer einzigen sin-förmigen Schwingung fester Frequenz bestehen. Im allgemeinen Fall zerlegt man die
+Signale aus einer einzigen $\sin$-förmigen Schwingung fester Frequenz bestehen. Im allgemeinen Fall zerlegt man die
 auftretenden Signale in ihre einzelnen Frequenzkomponenten und betrachtet diese zunächst getrennt.
 
 Wir stellen Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ dar, um hervorzuheben,
@@ -430,8 +437,8 @@ dass es sich um komplexe Größen handelt:
     u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
     i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
 \end{align}
-mit $\omega = 2 \pi f$. Es handelt sich hierbei um sin-förmige Signale, bei denen Ort- und Zeitabhängigkeit entkoppelt
-sind.
+mit $\omega = 2 \pi f$. Es handelt sich hierbei um $\sin$-förmige Signale, bei denen Ort- und Zeitabhängigkeit
+entkoppelt sind.
 
 Das Einsetzen der Phasoren in die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} liefert
 \begin{align}
@@ -476,14 +483,14 @@ festgelegt werden. Es gilt somit für die Spannung
 Die Gleichung für den Strom erhalten wir, wenn wir \eqref{eq:VerlustU} in \eqref{eq:ResDgl1} einsetzen,
 \begin{equation}
     \underline{I}(z) = \frac{-1}{R^{\prime} + \mathrm{j} \omega L^{\prime}} \frac{\text{d} \underline{U}}{\text{d} z}
-    = \frac{1}{Z}
+    = \frac{1}{Z_{w}}
     \left(
     \vphantom{\sqrt{1}{Z}}
-    \underline{U}_{1} \mathrm{e}^{- \gamma z} + \underline{U}_{2} \mathrm{e}^{\gamma z} \right),
+    \underline{U}_{1} \mathrm{e}^{- \gamma z} - \underline{U}_{2} \mathrm{e}^{\gamma z} \right),
 \end{equation}
 wobei wir
 \begin{equation}
-    Z_{w} = \sqrt{\frac{G^{\prime} + \mathrm{j} \omega C^{\prime}}{R^{\prime} + \mathrm{j} \omega L^{\prime}}}
+    Z_{w} = \sqrt{\frac{R^{\prime} + \mathrm{j} \omega L^{\prime}}{G^{\prime} + \mathrm{j} \omega C^{\prime}}}
     \label{eq:Zw}
 \end{equation}
 eingeführt haben. $Z_{w}$ hat die Dimension eines Widerstandes und wird daher Wellenwiderstand oder Wellenimpedanz
@@ -508,7 +515,7 @@ Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
     \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
     +
     \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:UxA} \\[1ex]
-    \underline{I}(x) &=
+    \underline{I}(z) &=
     \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
     -
     \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:IxA}
@@ -580,8 +587,8 @@ $\exp(\alpha z)$ einen exponentiellen Abfall in die negative $z$-Richtung der Am
 \subsubsection{Wellenlänge}
 
 Für einen festen Zeitpunkt $t$ oszilliert jede der Teilspannungen entlang der $z$-Richtung, da das Argument des Kosinus
-von $z$ abhängt. Für die Periode der Welle gilt \[ \beta z = 2 \pi, \] und somit
-\[ z = \lambda = \frac{2 \pi}{\beta}, \] die Wellenlänge der Schwingung. Die ist exemplarisch auf
+von $z$ abhängt. Für die Periode der Welle gilt \[ \beta \Delta z = 2 \pi, \] und somit
+\[ \Delta z = \lambda = \frac{2 \pi}{\beta}, \] die Wellenlänge der Schwingung. Die ist exemplarisch auf
 Abbildung~\ref{ExpWelle} gezeigt.
 \begin{figure}[!htb]
     \begin{center}
@@ -597,7 +604,7 @@ Abbildung~\ref{ExpWelle} gezeigt.
 
 Um die Wellengeschwindigkeit $v$ zu bestimmen, betrachten wir einen Nulldurchgang einer Teilspannung zum Zeitpunkt
 $t=t_{0}$, bei dem das Argument des Kosinus $\frac{\pi}{2}$ sei. Es gilt
-\[ z_{0} = \frac{\omega t_{0} + \psi_{1} -\frac{\pi}{2}}{\beta} \]. Nach der Zeit $t_{1} = t_{0} + \Delta t$ sei der
+\[ z_{0} = \frac{\omega t_{0} + \psi_{1} -\frac{\pi}{2}}{\beta}. \] Nach der Zeit $t_{1} = t_{0} + \Delta t$ sei der
 folgende Nulldurchgang erreicht, für den gilt
 \[ z_{1} = \frac{\omega t_{1} + \psi_{1} -\frac{\pi}{2}}{\beta}. \] Für die Phasengeschwindigkeit der Welle gilt somit
 \[ v = \frac{z_{1} - z_{0}}{t_{1} - t_{0}} = \frac{\omega}{\beta}. \]
