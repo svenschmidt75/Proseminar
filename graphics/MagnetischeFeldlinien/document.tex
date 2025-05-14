@@ -10,7 +10,7 @@
 \begin{document}
 
 
-\begin{tikzpicture}[scale=0.8, transform shape, baseline=(current bounding box.south)]
+\begin{tikzpicture}[scale=0.6, transform shape]
 
 % Define styles
 \tikzset{
@@ -46,7 +46,7 @@
 
 % magnetic flux
 \draw [thick, purple, decorate, decoration={brace, amplitude=10pt}] ($(A1) + (-1cm, 0)$) -- ($(A2) + (-1cm, 0)$)
-node[midway, left=10pt] (FLUX) {\large $\Phi$};
+node[midway, left=15pt] (FLUX) {\large $\Phi$};
 
 % Magnetic field lines
 \draw[fieldline, reversearrow=0.5] (2,8.5) arc (-180:0:3cm and 3cm);
