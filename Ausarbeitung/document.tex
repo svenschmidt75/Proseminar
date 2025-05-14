@@ -71,7 +71,7 @@ Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transpo
 Zweidrahtleitern.
 
 Fließt in einem elektrischen Leiter ein Strom, dann bildet sich um ihn herum ein magnetisches Feld aus. Ändert sich der
-Strom mit der Zeit, wie es z.B. bei Wechselströmen der Fall ist, dann ändert sich mit ihm das magnetische Feld. Ein
+Strom mit der Zeit, wie es z.\,B. bei Wechselströmen der Fall ist, dann ändert sich mit ihm das magnetische Feld. Ein
 zeitlich variierendes magnetisches Feld verursacht ein elektrisches Feld, das mit dem des Leiters wechselwirkt und
 eine  Gegenspannung induziert. Das zwischen zwei Leitern ausgebildete elektrische Feld ändert sich ebenfalls mit dem
 zeitlich veränderlichen Strom. Dies führt analog zum Ausbilden eines magnetischen Feldes, welches mit dem des Leiters
@@ -80,15 +80,14 @@ elektromagnetische Felder. Diese breiten sich als elektromagnetische Wellen in a
 Die Ausbreitung elektromagnetischer Wellen wird mittels elektrischen Leitern so beeinflusst, dass in ihnen elektrische
 Energie transportiert werden kann.
 
-Wir betrachten zunächst den einfachsten Fall einer elektromagnetische Wellen als sinusförmige Schwingung fester
-Frequenz. Dabei machen wir die Annahme, dass die Signalausbreitungsgeschwindigkeit nicht vernachlässigt werden kann,
-wie es insbesondere bei hochfrequenten Signalen der Fall ist. Das Fließen eines zeitlich veränderlichen elektrischen
-Stroms in einem Leiter induziert die Ausbildung elektromagnetischer Felder, die i.\,A. durch die Maxwellschen
-Gleichungen beschrieben werden. Die Methode der Ersatzschaltbilder bietet einen einfacheren Zugang zur Ableitung der
-Gleichungen des elektrischen Leiters mittels der Gesetzt der Elektro- und Magnetostatik. Sie basieren wesentlich auf
-die Anwendung der Kirchhoffschen Maschen- und Knotengleichungen.
+Wir betrachten zunächst den einfachsten Fall einer elektromagnetischen Welle als sinusförmige Schwingung fester
+Frequenz. Dabei machen wir die Annahme, dass die Signalausbreitungsgeschwindigkeit nicht vernachlässigt werden kann --
+insbesondere bei hochfrequenten Signalen. Zur Herleitung der Gleichungen des elektrischen Leiters
+verwenden wir die Methode der Ersatzschaltbilder. Sie basiert auf den Kirchhoffschen Maschen- und Knotengleichungen,
+die ihrerseits aus den Gesetzen der Elektro- und Magnetostatik folgen. Dieser Ansatz erweist sich als einfacher
+im Vergleich zur Lösung der Maxwell-Gleichungen, die Phänomene klassischer elektromagnetischer Natur beschreiben.
 
-Dies führt auf die sogenannten Telegraphenleitungen, die Spannung und Strom entlang eines verlustbehafteten
+Dieses Verfahren führt auf die sogenannten Telegraphenleitungen, die Spannung und Strom entlang eines verlustbehafteten
 elektrischen Leiters in Abhängigkeit von Ort und Zeit beschreiben. Dies sind partielle Differentialgleichungen erster
 Ordnung, die i.\,A. nur numerisch gelöst werden können. Wir betrachten verschiedene vereinfachende Modellannahmen, die
 es uns erlauben, die Telegraphenleitungen für diese Spezialfälle analytisch zu lösen, um Aussagen über das qualitative
@@ -166,7 +165,7 @@ dargestellt.
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild2/document}
-        \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
+        \caption{Model eines Paralleldrahtleiters, zusammengesetzt aus kleinen Leiterelementen mit diskreten
         Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung2}
     \end{center}
@@ -182,13 +181,13 @@ $\Delta z$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum selbst
 dies mit dem Querleitwert $\Delta G$.
 
 Die Abbildung~\ref{Leitung3} zeigt ein Ersatzschaltbild mit eingezeichneten Komponenten, die den auftretenden Verlusten
-Rechnung tragen.
+Rechnung tragen und bildet die Grundlage zur Herleitung der Gleichungen des elektrischen Leiters.
 
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild3/document}
-        \caption{Model eines Parallelleiters, zusammengesetzt aus infinitesimalen Leiterstücken mit diskreten
-    Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
+        \caption{Elements eines Paralleldrahtleiters mit diskreten Komponenten für Widerstand, Induktivität, Kapazität
+        und Querleitwert.}
         \label{Leitung3}
     \end{center}
 \end{figure}
@@ -196,8 +195,8 @@ Rechnung tragen.
 
 
 \chapter{Die Telegraphenleitungen}
-Abbildung~\ref{Leitung4} zeigt nochmals ein infinitesimales Leitungsstück $\Delta z$ eines verlustbehafteten
-Leiters. Am Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \mathrm{d} i$} und
+Abbildung~\ref{Leitung4} zeigt nochmals ein kleines Leitersegment $\Delta z$ eines verlustbehafteten Leiters. Am
+Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \mathrm{d} i$} und
 \mbox{$u + \mathrm{d} u$}.
 \begin{figure}[!htb]
     \begin{center}
@@ -907,7 +906,8 @@ ist die Amplitude der rücklaufenden Welle kleiner, sofern der Wellenwiderstand 
 
 \chapter{Wellenausbreitung für den verlustlosen Fall}
 Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
-$r$ entlang eines verlustlosen zylindrischen Leiters ($R^{\prime} = G^{\prime} = 0$). Die schwarzen Hüllkurven sind
+$r$ entlang eines verlustlosen zylindrischen Leiters (\mbox{$R^{\prime} = G^{\prime} = 0$}). Die schwarzen Hüllkurven
+sind
 jeweils durch \[
 \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] bzw. \[
