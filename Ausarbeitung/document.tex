@@ -64,11 +64,11 @@
 \end{titlepage}
 
 \chapter{Einführung}
-Um elektrische Energie für die verschiedensten Situationen des täglichen Lebens verwenden zu können, muss sie effizient
-vom Erzeuger zum Verbraucher transportiert werden. Dazu verwendet man elektrische Leiter, die sich u.\,a. in ihrer
-Materialzusammensetzung und geometrischer Anordnung unterscheiden. Es ist daher wichtig zu verstehen, wie genau der
-Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transport elektrischer Energie auf einfachen
-Zweidrahtleitern.
+Um elektrische Energie oder Signale für die verschiedensten Situationen des täglichen Lebens verwenden zu können, muss
+sie effizient vom Erzeuger zum Verbraucher transportiert werden. Dazu verwendet man elektrische Leiter, die sich u.\,a.
+in ihrer Materialzusammensetzung und geometrischer Anordnung unterscheiden. Es ist daher wichtig zu verstehen, wie
+genau der Energietransport in Leitern abläuft. Wir betrachten ausschließlich den Transport elektrischer Energie auf
+einfachen Zweidrahtleitern.
 
 Fließt in einem elektrischen Leiter ein Strom, dann bildet sich um ihn herum ein magnetisches Feld aus. Ändert sich der
 Strom mit der Zeit, wie es z.\,B. bei Wechselströmen der Fall ist, dann ändert sich mit ihm das magnetische Feld. Ein
@@ -94,13 +94,13 @@ es uns erlauben, die Telegraphenleitungen für diese Spezialfälle analytisch zu
 Verhalten der auftretenden Wellen in Leitern machen zu können. Insbesondere stellt sich heraus, dass sich im
 Wesentlichen zwei Wellen im Leitermedium ausbreiten -- eine vorwärts laufende und eine rücklaufende Welle. Letztere
 ergibt sich durch Reflexion der vorwärts laufenden Welle am Leiterende. Wir betrachten verschiedene Leiterabschlüsse
-und wie sich diese auf die Reflexion der Wellen auswirkt.
+und wie sich diese auf die Reflexion der Wellen auswirken.
 
 
 \chapter{Modell des Zweidrahtleiters}
 
 In dieser Ausarbeitung beschränken wir uns auf die Untersuchung der Ausbreitung elektromagnetischer Wellen in
-Zweidrahtleitern (Paralleldraht), die schematisch in der folgenden Abbildung gezeigt.
+Zweidrahtleitern (Paralleldraht), die schematisch in der folgenden Abbildung gezeigt sind.
 \begin{figure}[!htb]
     \begin{center}
         \includegraphics[width=0.75\textwidth]{images/Leiter.png}
@@ -127,6 +127,7 @@ sich als induzierte Gegenspannung bemerkbar macht.
         \caption{Zweidrahtleiter im Querschnitt mit induziertem elektrischen Feld $E$.}
         \label{Felder2}
     \end{subfigure}
+    \caption{Schematische Darstellung der elektrischen und magnetischen Felder um einen Zweidrahtleiter.}
 \end{figure}
 Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld einher (Abbildung~\ref{Felder2}).
 Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
@@ -134,18 +135,18 @@ wechselwirkt.
 
 Wenn die Ausbreitungsgeschwindigkeit von Strom und Spannung in einem elektrischen Leiter von Bedeutung sind, dann
 können Ort- und Zeitabhängigkeit des Signals nicht länger getrennt betrachtet werden. Dies ist z.\,B. bei
-hochfrequenten Signalen der Fall, bei denen die Wellenlänge der übertragenen Signal in die Größenordnung des
-Leiterquerschnitt kommt. Der Leiter kann dann nicht mehr mittels diskreter Parameter wie Widerstand und Kapazität
+hochfrequenten Signalen der Fall, bei denen die Wellenlänge der übertragenen Signale in die Größenordnung des
+Leiterquerschnitts kommt. Der Leiter kann dann nicht mehr mittels diskreter Parameter wie Widerstand und Kapazität
 modelliert werden~\cite{LeiterTheorie}. Statt dessen stellen wir uns den Leiter zusammengesetzt aus kleinen
 Leiterelementen vor, auf die die Parameter homogen verteilt werden, um die lokale Natur der Signalausbreitung zu
 modellieren.
 
-Klassische elektromagnetische Phänomene werden allgemein mit Hilfe der Maxwellschen
-Gleichungen~\cite{MaxwellGleichungen} beschrieben. Hierbei handelt es um ein System partieller Differentialgleichungen
-erster Ordnung, deren Lösung oftmals nur numerisch gelingt. Mit Hilfe der sogenannten Ersatzschaltbilder gelingt die
-Ableitung der Gleichungen des elektrischen Leiters zur Beschreibung von Strom und Spannung ohne explizite Betrachtung
-der elektrischen und magnetischen Felder~\cite{LeitungenUndFilter}. Dazu betrachten ein kleines Leitungsstück $\Delta
-z$, wie es auf Abbildung~\ref{Leitung1} dargestellt ist.
+Klassische elektromagnetische Phänomene werden allgemein mit Hilfe der Maxwell-Gleichungen~\cite{MaxwellGleichungen}
+beschrieben. Hierbei handelt es um ein System partieller Differentialgleichungen erster Ordnung, deren Lösung oftmals
+nur numerisch gelingt. Mit Hilfe der sogenannten Ersatzschaltbilder gelingt die Ableitung der Gleichungen des
+elektrischen Leiters zur Beschreibung von Strom und Spannung ohne explizite Betrachtung der elektrischen und
+magnetischen Felder~\cite{LeitungenUndFilter}. Dazu betrachten wir ein kleines Leitungsstück $\Delta z$, wie es auf
+Abbildung~\ref{Leitung1} dargestellt ist.
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild1/document}
@@ -176,7 +177,7 @@ die erste Kapazität $\Delta Q_{z_{1}}$ aufgeladen werden. Erst dann bildet sich
 $\Delta L_{z_{1}}$ auf. Der aufgebaute Strom wird nun $\Delta Q_{z_{2}}$ aufladen etc., bis zum Leiterende. Die
 Ausbreitung des Einschaltvorgangs findet somit mit endlicher Geschwindigkeit statt.
 
-Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $\Delta R$ auf einer Strecke
+Ein elektrischer Strom, der durch einen Leiter fließt, erfährt einen Widerstand $\Delta R$ auf der Strecke
 $\Delta z$. Wenn wir annehmen, dass das den Leiter umgebende Dielektrikum selbst leitend ist, dann bezeichnen wir
 dies mit dem Querleitwert $\Delta G$.
 
@@ -186,8 +187,8 @@ Rechnung tragen und bildet die Grundlage zur Herleitung der Gleichungen des elek
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild3/document}
-        \caption{Elements eines Paralleldrahtleiters mit diskreten Komponenten für Widerstand, Induktivität, Kapazität
-        und Querleitwert.}
+        \caption{Element eines Paralleldrahtleiters mit diskreten Komponenten für Widerstand und Querleitwert, die die
+        auftretenden Verluste beschreiben.}
         \label{Leitung3}
     \end{center}
 \end{figure}
@@ -322,7 +323,7 @@ bei $u_{r}$ und $i_{r}$ um rücklaufende Wellen. Wir betrachten dazu Abbildung~\
     \end{center}
 \end{figure}
 Sei dazu $t_{0} = 0$, $t_{1} > 0$ und $z_{0} > 0$. Dann ist die Welle zum Zeitpunkt $t_{1} > 0$ die Strecke
-$z = z_{1} = v t_{1} + z_{0}$ vorangeschritten. Es gilt $u(z_{0}, t_{0}) = u_{h}(-z_{0})$ und
+$z = z_{1} = v t_{1}$ vorangeschritten. Es gilt $u(z_{0}, t_{0}) = u_{h}(-z_{0})$ und
 \begin{align*}
     u(z_{1}, t_{1}) &= u_{h}(v t_{1} - z_{1}) \\
                     &= u_{h}(v t_{1} - (v t_{1} + z_{0})) \\
@@ -338,16 +339,16 @@ rücklaufende Welle.
 Sei \mbox{$w = w(z, t) = v t - z$}. Setzen wir die allgemeine Lösung \mbox{$u_{h}(v t - z) = u_{h}(w)$} in die
 Gleichungen \eqref{eq:Dgl7} und \eqref{eq:Dgl8} ein, so erhalten wir mit
 \begin{equation*}
-    \frac{\partial u_{h}}{\partial z} = \frac{\partial u_{h}}{\partial w} \frac{\partial w}{\partial z} = -1
-    \frac{\partial u_{h}}{\partial w}
+    \frac{\partial u_{h}}{\partial z} = \frac{\partial u_{h}}{\partial w}
+    \underbrace{\frac{\partial w}{\partial z}}_{=-1} = - \frac{\partial u_{h}}{\partial w}
     \quad \text{und} \quad
-    \frac{\partial u_{h}}{\partial t} = \frac{\partial u_{h}}{\partial w} \frac{\partial w}{\partial t} = v
-    \frac{\partial u_{h}}{\partial w}
+    \frac{\partial u_{h}}{\partial t} = \frac{\partial u_{h}}{\partial w}
+    \underbrace{\frac{\partial w}{\partial t}}_{v} = v \frac{\partial u_{h}}{\partial w}
 \end{equation*}
 die Gleichungen
 \begin{equation*}
-    \frac{\partial^{2} u_{h}}{\partial z^{2}} = -1 \frac{\partial}{\partial z} \left( \frac{\partial u_{h}}{\partial w}
-    \right) = -1 \frac{\partial^{2} u_{h}}{\partial w^{2}} \frac{\partial w}{\partial z} = \frac{\partial^{2}
+    \frac{\partial^{2} u_{h}}{\partial z^{2}} = - \frac{\partial}{\partial z} \left( \frac{\partial u_{h}}{\partial w}
+    \right) = - \frac{\partial^{2} u_{h}}{\partial w^{2}} \frac{\partial w}{\partial z} = \frac{\partial^{2}
     u_{h}}{\partial w^{2}}
 \end{equation*}
 und
@@ -379,21 +380,23 @@ Wir kommen nun zu einer weiteren wichtigen Größe, dem Wellenwiderstand. Sei hi
 Setzen wir Gleichungen~\eqref{eq:AllgEq1}, \eqref{eq:AllgEq2} und \eqref{eq:WellenGeschw1} in \eqref{eq:Dgl7} und
 \eqref{eq:Dgl8} ein, so folgt
 \begin{alignat*}{2}
-    \frac{\partial u}{\partial z} &=
+    \frac{\partial u}{\partial z}
+    &=
     \frac{\partial u_{h}}{\partial w_{-}}
     \underbrace{\frac{\partial w_{-}}{\partial z} }_{=-1}
     +
     \frac{\partial u_{r}}{\partial w_{+}}
     \underbrace{\frac{\partial w_{+}}{\partial z} }_{=1}
-    & =
+    &&=
     - \frac{\partial u_{h}}{\partial w_{-}} + \frac{\partial u_{r}}{\partial w_{+}} \\[1ex]
-    \frac{\partial i}{\partial t} &=
+    \frac{\partial i}{\partial t}
+    &=
     \frac{\partial i_{h}}{\partial w_{-}}
     \underbrace{\frac{\partial w_{-}}{\partial t} }_{=v}
     +
     \frac{\partial i_{r}}{\partial w_{+}}
     \underbrace{\frac{\partial w_{+}}{\partial t} }_{=v}
-    & =
+    &&=
     v \left( \frac{\partial i_{h}}{\partial w_{-}} + \frac{\partial i_{r}}{\partial w_{+}} \right)
 \end{alignat*}
 und
@@ -407,11 +410,11 @@ Mit Gleichungen~\eqref{eq:Dgl7} und \eqref{eq:Dgl8} gilt
 \begin{alignat*}{4}
     \frac{\partial u}{\partial z} &= - L^{\prime} \, \frac{\partial i}{\partial t} & \Leftrightarrow &
     - \frac{\partial u_{h}}{\partial w_{-}} + \frac{\partial u_{r}}{\partial w_{+}}
-    &=
+    &&=
     - L^{\prime} v \left( \frac{\partial i_{h}}{\partial w_{-}} + \frac{\partial i_{r}}{\partial w_{+}} \right) \\[1ex]
     \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} & \Leftrightarrow &
     - \frac{\partial i_{h}}{\partial w_{-}} + \frac{\partial i_{r}}{\partial w_{+}}
-    &=
+    &&=
     - C^{\prime} v \left( \frac{\partial u_{h}}{\partial w_{-}} + \frac{\partial u_{r}}{\partial w_{+}} \right).
 \end{alignat*}
 Da die Funktionen $u_{h}$ und $u_{r}$ bzw. $i_{h}$ und $i_{r}$ unabhängig sind, folgt
@@ -425,13 +428,13 @@ Integrieren beider Seiten liefert
 \end{equation*}
 und
 \begin{equation*}
-    u_{r}(w_{+}) = L^{\prime} v \, i_{r}(w_{+}) + c_{r} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} \, i_{r}(w_{+}) +
+    u_{r}(w_{+}) = - L^{\prime} v \, i_{r}(w_{+}) + c_{r} = - \sqrt{\frac{L^{\prime}}{C^{\prime}}} \, i_{r}(w_{+}) +
     c_{r},
 \end{equation*}
 wobei $c_{h}$ und $c_{r}$ Konstanten sind. Da Spannung und Strom proportional zueinander sind, setzen wir
 \mbox{$c_{h} = c_{r} = 0$}. Dann erhalten wir
 \begin{equation*}
-    \frac{u_{h}(z, t)}{i_{h}(z, t)} = \frac{u_{r}(z, t)}{i_{r}(z, t)} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} = Z_{w}.
+    \frac{u_{h}(z, t)}{i_{h}(z, t)} = \frac{u_{r}(z, t)}{- i_{r}(z, t)} = \sqrt{\frac{L^{\prime}}{C^{\prime}}} = Z_{w}.
 \end{equation*}
 Diese Konstante hat die Maßeinheit eines Widerstandes, wir nennen $Z_{w}$ folglich den Wellenwiderstand der Leitung.
 Kommen wir nun zur verlustbehafteten Leitung.
@@ -448,8 +451,8 @@ dass es sich um komplexe Größen handelt:
     u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
     i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
 \end{align}
-mit $\omega = 2 \pi f$. Es handelt sich hierbei um $\sin$-förmige Signale, bei denen Ort- und Zeitabhängigkeit
-entkoppelt sind.
+mit $\omega = 2 \pi f$, wobei $f$ die Frequenz des Signals ist. Es handelt sich hierbei um $\sin$-förmige Signale, bei
+denen Ort- und Zeitabhängigkeit entkoppelt sind.
 
 Das Einsetzen der Phasoren in die Gleichungen \eqref{eq:Dgl1} und \eqref{eq:Dgl2} liefert
 \begin{align}
@@ -464,8 +467,7 @@ Wir eliminieren $\underline{I}$ aus \eqref{eq:ResDgl1} durch nochmaliges Ableite
     \left( G^{\prime} + \mathrm{j} \omega C^{\prime} \right) \underline{U} \label{eq:ResDgl3}.
 \end{equation}
 Verglichen mit \eqref{eq:Tele1} entfällt in \eqref{eq:ResDgl3} die Zeitabhängigkeit. Damit haben wir eine gewöhnliche
-Differentialgleichung 2.~Ordnung mit konstanten Koeffizienten, wir wir sie in Abschnitt~\ref{VerlustlosesModel} bereits
-begegnet sind.
+Differentialgleichung 2.~Ordnung mit konstanten Koeffizienten, die denen des Abschnitts~\ref{VerlustlosesModel} ähneln.
 
 Für den Phasor $\underline{I}$ erhalten wir mit ähnlichen Argumenten
 \begin{equation*}
@@ -549,8 +551,8 @@ Strom am Leiterende $z=l$, $\underline{U}_{e}$ und $\underline{I}_{e}$, festgele
     \right).
 \end{align*}
 In diesem Fall gilt für die Integrationskonstanten
-\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma z} \quad \text{und}
-\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma z}. \]
+\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma l} \quad \text{und}
+\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma l}. \]
 Die Gleichungen für Spannung und Strom lauten damit
 \begin{align}
     \underline{U}(z) &=
@@ -622,8 +624,8 @@ folgende Nulldurchgang erreicht, für den gilt
 
 Zwar haben wir hier nur Spannungen untersucht, aber aufgrund der Symmetrie der Gleichungen~\eqref{eq:VerlustDgl1} und
 \eqref{eq:VerlustDgl2} unterscheidet sich die Gleichung für den Teilstrom nur um den Faktor von der der Teilspannung.
-Die Leitungsgleichungen für Strom und Spannung setzen sich aus jeweils zwei Exponentialtermen zusammen, die sich
-entlang des Leiters als gedämpfte Wellen in entgegengesetzte Richtungen ausbreiten,
+Die Leitungsgleichungen für Strom und Spannung setzen sich aus jeweils zwei Termen zusammen, die sich entlang des
+Leiters als gedämpfte Wellen in entgegengesetzte Richtungen ausbreiten,
 \begin{alignat*}{2}
 \underline{U}(z) &= \underline{U}_{1} \mathrm{e}^{- \gamma z} + \underline{U}_{2} \mathrm{e}^{\gamma z}
 &= \underline{U}_{h} + \underline{U}_{r} \\[1ex]
@@ -631,7 +633,7 @@ entlang des Leiters als gedämpfte Wellen in entgegengesetzte Richtungen ausbrei
 &= \underline{I}_{h} + \underline{I}_{r}.
 \end{alignat*}
 
-Wenn wir das Verhältnis der Teilspannung und Teilstrom bilden, so ergibt sich mit \eqref{eq:UxA} und \eqref{eq:IxA}
+Wenn wir das Verhältnis von Teilspannung und Teilstrom bilden, so ergibt sich mit \eqref{eq:UxA} und \eqref{eq:IxA}
 \[ \frac{\underline{U}_{1}}{\underline{I}_{1}} = \frac{\underline{U}_{a} + Z_{w}
 \underline{I}_{a}}{\frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a}} = Z_{w}, \]
 der Wellenwiderstand \eqref{eq:Zw}. Für die rücklaufende Welle gilt entsprechend
@@ -668,7 +670,7 @@ mit $\underline{U}_{a} = Z_{w} \underline{I}_{a}$ zu
  \underline{I}(z) = \frac{\underline{U}_{a}}{Z_{w}} \mathrm{e}^{- \gamma z}. \]
 
 \subsubsection{Anpassung}
-Wir betrachten nun den Fall, dass wir die Leitung mit einem Widerstand $Z_{e} = Z_{w}$ schliessen, siehe
+Wir betrachten nun den Fall, dass wir die Leitung mit einem Widerstand $Z_{e} = Z_{w}$ abschließen, siehe
 Abbildung~\ref{AbschlussMitWiderstand}.
 \begin{figure}[!htb]
     \begin{center}
@@ -705,11 +707,17 @@ Abbildung~\ref{ReflektierteWelle}.
     \end{center}
 \end{figure}
 
-Setzen wir $\underline{U}_{e} = Z_{w} \underline{I}_{e}$ in \eqref{eq:UxE} und \eqref{eq:IxE} ein, so folgt
+Setzen wir $\underline{U}_{e} = Z_{e} \underline{I}_{e}$ in \eqref{eq:UxE} und \eqref{eq:IxE} ein, so folgt
 \[
-\underline{U}(z) = \frac{1}{2} (Z_{e} + Z_{w}) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
+\underline{U}(z) = \frac{1}{2} \left( Z_{e} + Z_{w} \right) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
 +
-\frac{1}{2} (Z_{e} - Z_{w}) \underline{I}_{e} \mathrm{e}^{- \gamma (l - z)} .
+\frac{1}{2} \left( Z_{e} - Z_{w} \right) \underline{I}_{e} \mathrm{e}^{- \gamma (l - z)}
+\]
+und
+\[
+\underline{I}(z) = \frac{1}{2} \left( \frac{Z_{e}}{Z_{w}} + 1 \right) \underline{I}_{e} \mathrm{e}^{\gamma (l - z)}
+-
+\frac{1}{2} \left( \frac{Z_{e}}{Z_{w}} - 1 \right) \underline{I}_{e} \mathrm{e}^{- \gamma (l - z)} .
 \]
 Das Verhältnis beider Teilspannungen ist gleich
 \[
@@ -721,7 +729,7 @@ r = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}
 \end{equation}
 Dieser lässt sich auch mittels der Teilströme ausdrücken:
 \begin{equation*}
-    r = \frac{\underline{I}_{r}(l)}{- \underline{I}_{h}(l)}.
+    r = \frac{- \underline{I}_{r}(l)}{\underline{I}_{h}(l)}.
 \end{equation*}
 Er gibt also den Anteil an, der von der hinlaufenden Welle am Leiterende reflektiert wird. Für den Fall der Anpassung,
 $Z_{e} = Z_{w}$, ergibt sich $r = 0$, es tritt also keine Reflexion auf.
@@ -756,12 +764,15 @@ und Imaginärteil, was schematisch in Abbildung~\ref{ImaginaerWelle} zu sehen is
 \end{figure}
 Wir sehen deutlich, wie die Amplitude der hinlaufenden, blau gezeichnete Welle abnimmt entlang der positiven
 $z$-Richtung, wohingegen die der rücklaufenden roten Welle abnimmt in entgegengesetzter Richtung. Beide Wellen
-beschreiben also exponentiell abfallende Spiralen im Raum.
+beschreiben also exponentiell gedämpfte Spiralen im Raum.
 
 Per Definition des Reflexionsfaktors~\eqref{eq:RFactor} gilt $\underline{U}_{r}(l) = - \underline{U}_{h}(l)$. Die
 rücklaufende Welle ist also um $\pi$ phasenverschoben gegenüber der hinlaufenden Teilwelle. Dies führt dazu, dass sich
-beide Wellen aufgrund der erwähnten Superposition stellenweise aufheben und daher kommt es zur Ausbildung einer
-stehenden Welle. Dies ist auf Abbildung~\ref{WellenausbreitungVerlustlos} für den verlustlosen, auf
+beide Wellen aufgrund der erwähnten Superposition stellenweise aufheben und daher kommt es für den verlustlosen Fall
+zur Ausbildung einer stehenden Welle. Dies ist auf Abbildung~\ref{WellenausbreitungVerlustlos} unten rechts gezeigt.
+
+
+, auf
 Abbildung~\ref{WellenausbreitungVerlustbehaftet} für den verlustbehafteten Fall, jeweils unten rechts, gezeigt.
 
 Die Projektion der räumlichen Spiralen auf die $x/y$-Achse erlaubt eine Vereinfachung der Untersuchung der
@@ -792,15 +803,16 @@ Für die rücklaufende Teilwelle gilt entsprechend
     Projektion der hinlaufenden Teilwelle $\left| \underline{U}_h \right|$ auf die $x/y$-Achse für festes $t$.}
     \label{Spirale}
 \end{figure}
-Abbildung~\ref{Spirale} zeigt diese Projektion der hinlaufenden Welle $\underline{U}_{h}$. Der Punkt 1 markiert
+Abbildung~\ref{Spirale} zeigt diese Projektion für die hinlaufenden Welle $\underline{U}_{h}$. Der Punkt 1 markiert
 $\underline{U}_{h}(l)$. Er liegt dem Betrage nach dem Ursprung am nächsten aufgrund der Dämpfung. Wegen $z=l$ ist die
 Phase 0. Für abnehmendes $z$ nimmt die Phase und Amplitude zu, wir bewegen uns also entgegen des Uhrzeigersinns nach
 außen hin zu $\underline{U}_{h}(0)$. Die Punkte 1-5 sind auf der linken Abbildung markiert, welche
-$|\underline{U}_{h}(z)|$ zeigt. Für benachbarte Extrema, 1-4 oder 3-5, gilt eine Phasenverschiebung von $\beta \Delta z
+$|\underline{U}_{h}(z)|$ in blau zeigt. Für benachbarte Extrema, 1-4 oder 3-5, gilt eine Phasenverschiebung von $\beta
+\Delta z
 = \pi$.
 
-Aus Gleichung~\eqref{eq:RFactor} folgt mit $z=l$ und $r=-1$, dass $\underline{U}_{r} = - U_{h}$, also muss am
-Leiterende $\underline{U}_{e} = 0$ gelten. Mit Gleichung~\eqref{eq:IxE} folgt für den Strom
+Aus Gleichung~\eqref{eq:RFactor} folgt mit $z=l$ und $r=-1$, dass $\underline{U}_{r} = - \underline{U}_{h}$, also muss
+am Leiterende $\underline{U}_{e} = 0$ gelten. Mit Gleichung~\eqref{eq:IxE} folgt für den Strom
 \[
 \underline{I}(z) =
 \frac{1}{2} \underline{I}_{e} \mathrm{e}^{\alpha (l - z)} \mathrm{e}^{\mathrm{j} \beta (l - z)}
@@ -832,7 +844,7 @@ und
 Verglichen mit dem Kurzschluss am Leiterende, $r=-1$, sehen wir, dass Strom und Spannung hier die Rollen vertauschen.
 
 Aus $\underline{U}(l) = \underline{U}_{e}$ folgt, dass die Teilspannungen am Leiterende in Phase sind, berühren also
-das obere Ende der Hüllkurve (vgl. Abbildung~\ref{Spirale} links). Für den Strom gilt hingegen $I(l) = 0$ wie erwartet.
+das obere Ende der Hüllkurve. Für den Strom gilt hingegen $I(l) = 0$ wie erwartet.
 
 Wir hatten bereits gesehen, dass der Abstand zwischen zwei aufeinanderfolgende Extrema jeweils $\frac{\pi}{\beta}$
 beträgt. Die Stromkurve hat demnach Minima für $l - k \frac{\pi}{\beta} \ge 0$, wobei $k \in \mathbb{N}_{0}$.
@@ -857,7 +869,8 @@ einschliesst, ist daher eine horizontale Linie, siehe folgende Abbildung~\ref{Ve
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/VerlustlosBetrag/document}
-        \caption{Spannung und Strom in verlustlosen Fall für $r = 1$, gegeneinander um eine Viertelperiode verschoben.}
+        \caption{Spannung und Strom des verlustlosen Falls für $r = 1$ sind gegeneinander um eine Viertelperiode
+        verschoben.}
         \label{VerlustlosBetrag}
     \end{center}
 \end{figure}
@@ -905,7 +918,7 @@ Verbraucher übertragenen.
 Beim Kurzschluss ist der Abschlusswiderstand sehr klein oder gar Null. Hier kommt es zur vollständigen Reflexion der
 einlaufenden Teilwelle, wobei diese gegenüber der einlaufenden Welle um eine halbe Periode phasenverschoben ist.
 
-Bei der offenen Leitung ist die Abschlusswiderstand sehr viel größer als der Wellenwiderstand. Am Leiterende kommt es
+Bei der offenen Leitung ist der Abschlusswiderstand sehr viel größer als der Wellenwiderstand. Am Leiterende kommt es
 daher ebenfalls zur Reflexion der einfallenden Welle, allerdings vertauschen Strom und Spannung, verglichen mit dem
 Kurzschluss, ihre Rollen.
 
