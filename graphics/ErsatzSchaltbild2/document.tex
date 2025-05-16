@@ -39,7 +39,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \coordinate (B2) at (#1 * \componentWidth + 3, 0);
 \coordinate (C1) at (#1 * \componentWidth + 5, 3);
 \coordinate (C2) at (#1 * \componentWidth + 8, 3);
-\coordinate (D2) at (#1 * \componentWidth + 8, 0);
+\coordinate (D1) at (#1 * \componentWidth + 8, 0);
 \coordinate (E1) at (#1 * \componentWidth + 10, 3);
 \coordinate (E2) at (#1 * \componentWidth + 10, 0);
 \coordinate (F1) at ($(B1) - (0, 2ex)$);
@@ -54,9 +54,9 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 
 % G
 \ifnum#1=\activeIndex
-    \draw[line style] (C2) to[R, l=$\Delta G$] (D2);
+    \draw[line style] (C2) to[R, l=$\Delta G$] (D1);
 \else
-    \draw[line style] (C2) to[R] (D2);
+    \draw[line style] (C2) to[R] (D1);
 \fi
 
 
@@ -68,7 +68,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \fi
 
 \draw[-{Circle[open, fill=white]}, line style] (B1) -- (B2) node[pos=0.2] (B3) {};
-\draw[line style] (B2) -- ($(D2) + (2pt, 0)$);
+\draw[line style] (B2) -- ($(D1) + (2pt, 0)$);
 
 \ifnum#1=\activeIndex
     \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
@@ -90,7 +90,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \fi
 
 \draw[{Circle[open, fill=white]}-, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
-\draw[{Circle[open, fill=white]}-, line style] ($(D2) - (2pt, 0)$) --  ($(E2) + (2pt, 0)$);
+\draw[{Circle[open, fill=white]}-, line style] ($(D1) - (2pt, 0)$) --  ($(E2) + (2pt, 0)$);
 
 \ifnum#1=\activeIndex
     \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\Delta z$};

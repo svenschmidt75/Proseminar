@@ -18,7 +18,7 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 }
 
 
-\def\componentWidth{10}
+\def\componentWidth{9}
 
 \tikzset{line style/.style={solid, black}}
 \tikzset{resistor label/.style={l=$R_{z}$}}
@@ -29,20 +29,11 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \coordinate (B2) at (\componentWidth + 3, 0);
 \coordinate (C1) at (\componentWidth + 5, 3);
 \coordinate (C2) at (\componentWidth + 8, 3);
-\coordinate (D2) at (\componentWidth + 8, 0);
+\coordinate (D1) at (\componentWidth + 8, 0);
 \coordinate (E1) at (\componentWidth + 10, 3);
 \coordinate (E2) at (\componentWidth + 10, 0);
-\coordinate (E3) at (\componentWidth + 11, 3);
-\coordinate (E4) at (\componentWidth + 11, 0);
 \coordinate (F1) at ($(B1) - (0, 2ex)$);
 \coordinate (F2) at ($(E2) - (0, 2ex)$);
-
-\draw[fieldline, arrow=0.5, line style] (A1) -- (A2) node[pos=0.5, above] {$i$} node[pos=0.2] (A3) {};
-
-\draw[line style] (B1) -- (B2) node[pos=0.2] (B3) {};
-\draw[-{Circle[open, fill=white]}, line style] (B2) -- ($(D2) + (2pt, 0)$);
-
-\draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
 
 % resistor
 \draw[line style] (A2) to[R, l=$\Delta R$, fill=black] (C1);
@@ -52,16 +43,23 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \draw[line style] (C1) to[L, l=$\Delta L$] (C2);
 
 % capacitor
-\draw[line style] (C2) to[C, l=$\Delta C$] (D2);
-
-\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
-\draw[-{Circle[open, fill=white]}, line style] (D2) --  ($(E2) + (2pt, 0)$);
+\draw[line style] ($(A2) + (-2pt, 0)$) to[C, l=$\Delta C$] ($(B2) + (-2pt, 0)$);
 
 % G
-\draw[line style] (E1) to[R, l=$\Delta G$] (E2);
+\draw[line style] (C2) to[R, l=$\Delta G$] (D1);
 
-\draw[line style] (E1) -- (E3);
-\draw[line style] (E2) -- (E4);
+
+\draw[-{Circle[open, fill=white]}, fieldline, arrow=0.5, line style] (A1) -- (A2) node[pos=0.5, above] {$i$}
+node[pos=0.2] (A3) {};
+
+\draw[line style] (D1) --  (E2);
+
+\draw[-{Circle[open, fill=white]}, line style] (B1) -- (B2) node[pos=0.2] (B3) {};
+\draw[-{Circle[open, fill=white]}, line style] (B2) -- ($(D1) + (2pt, 0)$);
+
+\draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
+
+\draw[{Circle[open, fill=white]}-, line style]  ($(C2) - (2pt, 0)$) --  (E1);
 
 \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\Delta z$};
 
