@@ -20,17 +20,17 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 
 \newcommand{\diagram}[1]{
 
-\def\componentWidth{10}
+\def\componentWidth{9}
 
 % Index of the active component
 \def\activeIndex{2}
 
 \ifnum#1=\activeIndex
     \tikzset{line style/.style={solid, black}}
-\tikzset{resistor label/.style={l=$R_{z}$}}
+    \tikzset{resistor label/.style={l=$R_{z}$}}
 \else
-\tikzset{line style/.style={densely dashed, black!30}}
-\tikzset{resistor label/.style={}}
+    \tikzset{line style/.style={densely dashed, black!30}}
+    \tikzset{resistor label/.style={}}
 \fi
 
 \coordinate (A1) at (#1 * \componentWidth + 1, 3);
@@ -42,19 +42,33 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
 \coordinate (D2) at (#1 * \componentWidth + 8, 0);
 \coordinate (E1) at (#1 * \componentWidth + 10, 3);
 \coordinate (E2) at (#1 * \componentWidth + 10, 0);
-\coordinate (E3) at (#1 * \componentWidth + 11, 3);
-\coordinate (E4) at (#1 * \componentWidth + 11, 0);
 \coordinate (F1) at ($(B1) - (0, 2ex)$);
 \coordinate (F2) at ($(E2) - (0, 2ex)$);
 
+% capacitor
 \ifnum#1=\activeIndex
-    \draw[fieldline, arrow=0.5, line style] (A1) -- (A2) node[pos=0.5, above] {$i$} node[pos=0.2] (A3) {};
+    \draw[line style] ($(A2) + (-2pt, 0)$) to[C, l=$\Delta C$] ($(B2) + (-2pt, 0)$);
 \else
-    \draw[line style] (A1) -- (A2) node[pos=0.2] (A3) {};
+    \draw[line style] ($(A2) + (-2pt, 0)$) to[C] ($(B2) + (-2pt, 0)$);
 \fi
 
-\draw[line style] (B1) -- (B2) node[pos=0.2] (B3) {};
-\draw[-{Circle[open, fill=white]}, line style] (B2) -- ($(D2) + (2pt, 0)$);
+% G
+\ifnum#1=\activeIndex
+    \draw[line style] (C2) to[R, l=$\Delta G$] (D2);
+\else
+    \draw[line style] (C2) to[R] (D2);
+\fi
+
+
+\ifnum#1=\activeIndex
+    \draw[-{Circle[open, fill=white]}, fieldline, arrow=0.5, line style] (A1) -- (A2) node[pos=0.5, above] {$i$}
+    node[pos=0.2] (A3) {};
+\else
+    \draw[-{Circle[open, fill=white]}, line style] (A1) -- (A2) node[pos=0.2] (A3) {};
+\fi
+
+\draw[-{Circle[open, fill=white]}, line style] (B1) -- (B2) node[pos=0.2] (B3) {};
+\draw[line style] (B2) -- ($(D2) + (2pt, 0)$);
 
 \ifnum#1=\activeIndex
     \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] (A3) -- (B3) node[pos=0.5, right] {$u$};
@@ -75,25 +89,8 @@ reversearrow/.style={decoration={mark=at position #1 with {\arrowreversed{Stealt
     \draw[line style] (C1) to[L] (C2);
 \fi
 
-% capacitor
-\ifnum#1=\activeIndex
-    \draw[line style] (C2) to[C, l=$\Delta C$] (D2);
-\else
-    \draw[line style] (C2) to[C] (D2);
-\fi
-
-\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
-\draw[-{Circle[open, fill=white]}, line style] (D2) --  ($(E2) + (2pt, 0)$);
-
-% G
-\ifnum#1=\activeIndex
-    \draw[line style] (E1) to[R, l=$\Delta G$] (E2);
-\else
-    \draw[line style] (E1) to[R] (E2);
-\fi
-
-\draw[line style] (E1) -- (E3);
-\draw[line style] (E2) -- (E4);
+\draw[{Circle[open, fill=white]}-, line style]  ($(C2) - (2pt, 0)$) --  ($(E1) + (2pt, 0)$);
+\draw[{Circle[open, fill=white]}-, line style] ($(D2) - (2pt, 0)$) --  ($(E2) + (2pt, 0)$);
 
 \ifnum#1=\activeIndex
     \draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\Delta z$};
