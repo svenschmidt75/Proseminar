@@ -117,17 +117,18 @@ sich als induzierte Gegenspannung bemerkbar macht.
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \input{../graphics/MagnetischeFeldlinien/document}
-        \caption{Zweidrahtleiter im Querschnitt mit induziertem Magnetfeld $H$ und magnetischem Fluss $\Phi$.}
+        \caption{Zweidrahtleiter mit induziertem Magnetfeld $H$ und magnetischem Fluss $\Phi$.}
         \label{Felder1}
     \end{subfigure}%
     \hfill
     \begin{subfigure}[t]{0.49\textwidth}
         \centering
         \input{../graphics/ElektrischeFeldlinien/document}
-        \caption{Zweidrahtleiter im Querschnitt mit induziertem elektrischen Feld $E$.}
+        \caption{Zweidrahtleiter mit induziertem elektrischen Feld $E$.}
         \label{Felder2}
     \end{subfigure}
-    \caption{Schematische Darstellung der elektrischen und magnetischen Felder um einen Zweidrahtleiter.}
+    \caption{Schematische Darstellung der elektrischen und magnetischen Felder um einen Zweidrahtleiter im Querschnitt
+    .}
 \end{figure}
 Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld einher (Abbildung~\ref{Felder2}).
 Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
@@ -166,7 +167,7 @@ dargestellt.
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild2/document}
-        \caption{Model eines Paralleldrahtleiters, zusammengesetzt aus kleinen Leiterelementen mit diskreten
+        \caption{Model eines Paralleldrahtleiters zusammengesetzt aus kleinen Leiterelementen mit diskreten
         Komponenten für Widerstand, Induktivität, Kapazität und Querleitwert.}
         \label{Leitung2}
     \end{center}
@@ -197,12 +198,12 @@ Rechnung tragen und bildet die Grundlage zur Herleitung der Gleichungen des elek
 
 \chapter{Die Telegraphenleitungen}
 Abbildung~\ref{Leitung4} zeigt nochmals ein kleines Leitersegment $\Delta z$ eines verlustbehafteten Leiters. Am
-Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \mathrm{d} i$} und
-\mbox{$u + \mathrm{d} u$}.
+Leitungseingang liegen Strom $i$ und Spannung $u$ an, am Ende \mbox{$i + \Delta i$} und
+\mbox{$u + \Delta u$}.
 \begin{figure}[!htb]
     \begin{center}
         \input{../graphics/ErsatzSchaltbild4/document}
-        \caption{Einschaltbild eines kleinen Leiterelements mit anteiligem Widerstand, Kapazität, Querleitwert und
+        \caption{Ersatzschaltbild eines kleinen Leiterelements mit anteiligem Widerstand, Kapazität, Querleitwert und
         Induktivität zur Herleitung der Gleichungen des elektrischen Leiters.}
         \label{Leitung4}
     \end{center}
@@ -229,7 +230,7 @@ Anteilig für ein Leiterelement der Länge $\Delta z$ definieren wir
 
 Der Widerstand $\Delta R$ und die Induktivität $\Delta L$ verursachen einen Spannungsabfall von
 \[
-i \, \Delta R + \frac{\partial i}{\partial t} \, \Delta L
+\Delta u = i \, \Delta R + \frac{\partial i}{\partial t} \, \Delta L
 \]
 entlang von $\Delta z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
 \begin{equation*}
@@ -237,25 +238,30 @@ u(z, t) = \Delta R \, i(z, t) + \Delta L \, \frac{\partial i(z, t)}{\partial t} 
 \end{equation*}
 Durch Querleitwert $\Delta G$ und Querkapazität $\Delta C$ fließt der Strom
 \[
-u \, \Delta G + \frac{\partial u}{\partial t} \, \Delta C.
+\Delta i = u \, \Delta G + \frac{\partial u}{\partial t} \, \Delta C.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
     i(z, t) = \Delta G \, u(z, t) + \Delta C \, \frac{\partial u(z + \Delta z, t)}{\partial t} + i(z + \Delta z, t).
 \end{equation*}
 Wir formen nun beide Gleichungen um,
-\begin{align*}
-\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= - \frac{\Delta R}{\Delta z} \, i(z, t) - \frac{\Delta L}{\Delta z}
-\,
-\frac{\partial i(z, t)}{\partial t} \\
-\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &= - \frac{\Delta G}{\Delta z} \, u(z, t) - \frac{\Delta C}{\Delta z}
-\, \frac{\partial u(z + \Delta z, t)}{\partial t}.
-\end{align*}
+\begin{alignat*}{2}
+\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= - \frac{\Delta u}{\Delta z} &&= - \frac{\Delta R}{\Delta z} \, i(z, t)
+- \frac{\Delta L}{\Delta z} \, \frac{\partial i(z, t)}{\partial t} \\[1ex]
+\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &=  - \frac{\Delta i}{\Delta z} &&= - \frac{\Delta G}{\Delta z} \, u(z,
+t) - \frac{\Delta C}{\Delta z} \, \frac{\partial u(z + \Delta z, t)}{\partial t}.
+\end{alignat*}
 Mit
 \[
-\lim_{\Delta z \to 0} \frac{u(z+\Delta z, t)-u(z, t)}{\Delta z} = \frac{\partial u(z, t)}{\partial z} \quad \text{und}
-\quad \lim_{\Delta z \to 0} \frac{\Delta R}{\Delta z} = R' \quad \text{folgt}
+\lim_{\Delta z \to 0} \frac{u(z+\Delta z, t)-u(z, t)}{\Delta z} = \frac{\partial u(z, t)}{\partial z}, \quad
+\lim_{\Delta z \to 0} \frac{i(z+\Delta z, t)-i(z, t)}{\Delta z} = \frac{\partial i(z, t)}{\partial z}
 \]
+und
+\[
+\lim_{\Delta z \to 0} \frac{\Delta R}{\Delta z} = R', \quad \lim_{\Delta z \to 0} \frac{\Delta C}{\Delta z} = C',
+\quad \lim_{\Delta z \to 0} \frac{\Delta L}{\Delta z} = L', \quad \lim_{\Delta z \to 0} \frac{\Delta G}{\Delta z} = G'
+\]
+folgt
 \begin{align}
     \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
     \\[1ex]
