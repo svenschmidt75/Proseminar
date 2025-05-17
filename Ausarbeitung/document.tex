@@ -14,7 +14,6 @@
 \usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage{xcolor}
-\usepackage{hyperref}
 \usepackage{float}
 \usepackage{caption}
 \usepackage{standalone}
@@ -32,6 +31,12 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.8}
 \usepgfplotslibrary{groupplots}
+
+% should be loaded last
+\usepackage{hyperref}
+
+% markiere overfull hboxes mit einem schwarzen Balken am Ende der Zeile
+%\overfullrule=2mm
 
 
 \begin{document}
@@ -127,8 +132,7 @@ sich als induzierte Gegenspannung bemerkbar macht.
         \caption{Zweidrahtleiter mit induziertem elektrischen Feld $E$.}
         \label{Felder2}
     \end{subfigure}
-    \caption{Schematische Darstellung der elektrischen und magnetischen Felder um einen Zweidrahtleiter im Querschnitt
-    .}
+    \caption{Schematische Darstellung der elektrischen und magnetischen Felder um einen Zweidrahtleiter im Querschnitt.}
 \end{figure}
 Analog geht mit einer an den Leitern anliegende Spannung ein elektrischen Feld einher (Abbildung~\ref{Felder2}).
 Ändert sich dieses, so hat dies die Ausbildung eines magnetischen Feldes zur Folge, welches mit dem des Stroms
@@ -142,7 +146,7 @@ modelliert werden~\cite{LeiterTheorie}. Statt dessen stellen wir uns den Leiter 
 Leiterelementen vor, auf die die Parameter homogen verteilt werden, um die lokale Natur der Signalausbreitung zu
 modellieren.
 
-Klassische elektromagnetische Phänomene werden allgemein mit Hilfe der Maxwell-Gleichungen~\cite{MaxwellGleichungen}
+Klassische elektromagnetische Phänomene werden allgemein mit Hilfe der Maxwell"=Gleichungen~\cite{MaxwellGleichungen}
 beschrieben. Hierbei handelt es um ein System partieller Differentialgleichungen erster Ordnung, deren Lösung oftmals
 nur numerisch gelingt. Mit Hilfe der sogenannten Ersatzschaltbilder gelingt die Ableitung der Gleichungen des
 elektrischen Leiters zur Beschreibung von Strom und Spannung ohne explizite Betrachtung der elektrischen und
@@ -230,7 +234,7 @@ Anteilig für ein Leiterelement der Länge $\Delta z$ definieren wir
 
 Der Widerstand $\Delta R$ und die Induktivität $\Delta L$ verursachen einen Spannungsabfall von
 \[
-\Delta u = i \, \Delta R + \frac{\partial i}{\partial t} \, \Delta L
+- \Delta u = i \, \Delta R + \frac{\partial i}{\partial t} \, \Delta L
 \]
 entlang von $\Delta z$. Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt für die Spannung
 \begin{equation*}
@@ -238,7 +242,7 @@ u(z, t) = \Delta R \, i(z, t) + \Delta L \, \frac{\partial i(z, t)}{\partial t} 
 \end{equation*}
 Durch Querleitwert $\Delta G$ und Querkapazität $\Delta C$ fließt der Strom
 \[
-\Delta i = u \, \Delta G + \frac{\partial u}{\partial t} \, \Delta C.
+- \Delta i = u \, \Delta G + \frac{\partial u}{\partial t} \, \Delta C.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
@@ -246,9 +250,9 @@ Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \end{equation*}
 Wir formen nun beide Gleichungen um,
 \begin{alignat*}{2}
-\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= - \frac{\Delta u}{\Delta z} &&= - \frac{\Delta R}{\Delta z} \, i(z, t)
+\frac{u(z + \Delta z, t) - u(z, t)}{\Delta z} &= \frac{\Delta u}{\Delta z} &&= - \frac{\Delta R}{\Delta z} \, i(z, t)
 - \frac{\Delta L}{\Delta z} \, \frac{\partial i(z, t)}{\partial t} \\[1ex]
-\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &=  - \frac{\Delta i}{\Delta z} &&= - \frac{\Delta G}{\Delta z} \, u(z,
+\frac{i(z + \Delta z, t) - i(z, t)}{\Delta z} &=  \frac{\Delta i}{\Delta z} &&= - \frac{\Delta G}{\Delta z} \, u(z,
 t) - \frac{\Delta C}{\Delta z} \, \frac{\partial u(z + \Delta z, t)}{\partial t}.
 \end{alignat*}
 Mit
@@ -933,10 +937,9 @@ ist die Amplitude der rücklaufenden Welle kleiner, sofern der Wellenwiderstand 
 \appendix
 
 \chapter{Wellenausbreitung für den verlustlosen Fall}
-Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
+Die folgende Abbildung zeigt die Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
 $r$ entlang eines verlustlosen zylindrischen Leiters (\mbox{$R^{\prime} = G^{\prime} = 0$}). Die schwarzen Hüllkurven
-sind
-jeweils durch \[
+sind jeweils durch \[
 \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] bzw. \[
 - \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
@@ -974,10 +977,10 @@ jeweils durch \[
 
 
 \chapter{Wellenausbreitung für den verlustbehafteten Fall}
-Die folgende Abbildung zeigt die zeitliche Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten
-$r$ entlang eines zylindrischen, verlustbehafteten Leiters (\mbox{$R^{\prime} \neq 0$}, $G^{\prime} \neq 0$). Die
-schwarzen
-Hüllkurven sind jeweils durch \[
+Die folgende Abbildung zeigt die Wellenausbreitung für verschiedene Zeiten $t$ und Reflexionskoeffizienten $r$ entlang
+eines zylindrischen, verlustbehafteten Leiters (\mbox{$R^{\prime} \neq 0$}, $G^{\prime} \neq 0$). Die schwarzen
+Hüllkurven sind jeweils durch
+\[
 \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
 \] bzw. \[
 - \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
