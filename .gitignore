@@ -24,3 +24,11 @@
 *.bcf-SAVE-ERROR
 
 *.bbl-SAVE-ERROR
+
+*.nav
+
+*.out
+
+*.snm
+
+*.toc
