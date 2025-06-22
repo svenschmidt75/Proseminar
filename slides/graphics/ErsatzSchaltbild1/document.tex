@@ -21,7 +21,7 @@
 \def\componentWidth{9}
 
 \tikzset{line style/.style={solid, black}}
-\tikzset{resistor label/.style={l=$R_{z}$}}
+\tikzset{resistor label/.style={l=$R_{s}$}}
 
 \coordinate (A1) at (\componentWidth + 1, 3);
 \coordinate (A2) at (\componentWidth + 3, 3);
@@ -36,17 +36,17 @@
 \coordinate (F2) at ($(E2) - (0, 2ex)$);
 
 % resistor
-\draw[line style] (A2) to[R, l=$\Delta R$, fill=black] (C1);
+\draw[line style] (A2) to[R, l=$R_{s}$, fill=black] (C1);
 
 % inductor
 \ctikzset{inductor=american}
-\draw[line style] (C1) to[L, l=$\Delta L$] (C2);
+\draw[line style] (C1) to[L, l=$L_{s}$] (C2);
 
 % capacitor
-\draw[line style] ($(A2) - (2pt, 0)$) to[C, l=$\Delta C$] ($(B2) - (2pt, 0)$);
+\draw[line style] ($(A2) - (2pt, 0)$) to[C, l=$C_{s}$] ($(B2) - (2pt, 0)$);
 
 % G
-\draw[line style] (C2) to[R, l=$\Delta G$] (D2);
+\draw[line style] (C2) to[R, l=$G_{s}$] (D2);
 
 \draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, fieldline, arrow=0.5, line style] (A1) -- (A2)
 node[pos=0.5, above] {$i$} node[pos=0.2] (A3) {};
@@ -54,15 +54,12 @@ node[pos=0.5, above] {$i$} node[pos=0.2] (A3) {};
 \draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] ($(A1) + (2pt, 0)$) -- ($(B1) + (2pt, 0)$) node[pos=0.5,
 left] {$u$};
 
-\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) -- (E1) node[pos=0.75,
-above] {$i + \Delta i$};
-\draw[-Stealth, shorten <= 1ex, shorten >= 1ex, line style] ($(E1) + (-2pt, 0)$) -- ($(E2) + (-2pt, 0)$) node[pos=0.5,
-right] {$u + \Delta u$};
+\draw[{Circle[open, fill=white]}-{Circle[open, fill=white]}, line style]  ($(C2) - (2pt, 0)$) -- (E1);
 
 \draw[-{Circle[open, fill=white]}, line style] (D2) -- (E2);
 \draw[-{Circle[open, fill=white]}, line style] (B2) -- ($(D2) + (2pt, 0)$);
 
-\draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$\Delta z$};
+\draw[Stealth-Stealth] (F1) -- (F2) node[pos=0.5, circle, fill=white, below] {$s$};
 
 \end{circuitikz}
 

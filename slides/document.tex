@@ -1,10 +1,8 @@
 \documentclass{beamer}
 %\documentclass[handout]{beamer}
-\usepackage{graphicx}
-\usepackage{tikz}
 
 \usetheme{Copenhagen}
-\usecolortheme{beaver}
+\usecolortheme{seahorse}
 
 
 % for handouts, use with
@@ -17,10 +15,20 @@
 \setbeamertemplate{navigation symbols}{}
 
 %hide navigation at top
-\setbeamertemplate{adline}{}
+\setbeamertemplate{headline}{}
 
 \setbeamercovered{transparent}
 
+
+\usepackage[ngerman]{babel}
+\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+
+\usepackage{csquotes}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{../Ausarbeitung/Proseminar.bib}
+
+\usepackage{graphicx}
+\usepackage{tikz}
 
 \title{Übertragung von Signalen auf elektrischen Leitungen}
 \author{Sven Schmidt}
@@ -75,19 +83,90 @@ Wir betrachten ausschließlich Paralleldrahtleiter.
 
 
 \begin{frame}{Leitungsbeläge}
-
-Ein Leitungsstück der Länge $s$:
+Auf einem Leitungsstück der Länge $s$ mit Widerstand $R_{s}$ erzeugen elektrische und magnetische Felder
 \begin{figure}[!htb]
     \begin{center}
-        \includegraphics[width=0.5\textwidth]{graphics/Ersatzschaltbild4/document}
+        \includegraphics[width=0.5\textwidth]{graphics/Ersatzschaltbild1/document}
     \end{center}
 \end{figure}
-
-
-
-
+\begin{itemize}
+    \item Induktion $L_{s}$
+    \item Kapazität $C_{s}$ und
+    \item Querleitwert $G_{s}$
+\end{itemize}
 
 \end{frame}
 
+
+\begin{frame}{Leitungsbeläge}
+Definiere Induktionsbelag $L^{\prime} = \frac{L_{s}}{s}$ als Längsinduktivität pro Längeneinheit.
+Analog definieren wir
+\begin{itemize}
+    \item Kapazitätbelag $C^{\prime} = \frac{C_{s}}{s}$
+    \item Leitwertsbelag $G^{\prime} = \frac{G_{s}}{s}$
+    \item Widerstandsbelag $R^{\prime} = \frac{R_{s}}{s}$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Spannung auf infinitesimalem Leitungsstück}
+Wir stellen uns ein infinitesimales Leitungsstück der Länge $\mathrm{d}z$ vor:
+\begin{figure}[!htb]
+    \begin{center}
+        \includegraphics[width=0.5\textwidth]{graphics/Ersatzschaltbild2/document}
+    \end{center}
+\end{figure}
+Widerstand $R^{\prime} \, \mathrm{d}z$ und Induktivität $L^{\prime} \, \mathrm{d}z$ verursachen einen Spannungsabfall
+von
+\[
+i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z.
+\]
+Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
+\begin{equation*}
+    u = i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z +
+    \frac{\partial u}{\partial z} \mathrm{d}{z}.
+\end{equation*}
+
+\end{frame}
+
+
+\begin{frame}{Strom auf infinitesimalem Leitungsstück}
+Durch Querleitwert $G^{\prime} \, \mathrm{d}z$ und Querkapazität $C^{\prime} \, \mathrm{d}z$ fließt der Strom
+\[
+u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z.
+\]
+Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
+\begin{equation*}
+    i = u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z + i +
+    \frac{\partial i}{\partial z} \mathrm{d}z.
+\end{equation*}
+
+\end{frame}
+
+
+\begin{frame}{Differentialgleichungen der elektrischen Leitung}
+Durch teilen beider Gleichungen durch $\mathrm{d}z$ erhalten wir die \alert{Gleichungen des elektrischen Leiters}
+\begin{align}
+    \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
+    \\[1ex]
+    \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u. \label{eq:Dgl2}
+\end{align}
+Äquivalent hierzu sind die \alert{Telegraphenleitungen}
+\begin{align}
+    \frac{\partial^{2} u}{\partial z^{2}} &= R^{\prime} G^{\prime} u(z,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial u(z, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(z,t)}{\partial t^{2}}
+    \label{eq:Tele1} \\[1.5ex]
+    \frac{\partial^{2} i}{\partial z^{2}} &= R^{\prime} G^{\prime} i(z,t) + (R^{\prime} C^{\prime} + L^{\prime}
+    G^{\prime}) \frac{\partial i(z, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} i(z, t)}{\partial t^{2}}.
+\end{align}
+
+\end{frame}
+
+
+
+\begin{frame}{Literaturverzeichnis}
+\printbibliography
+\end{frame}
 
 \end{document}
