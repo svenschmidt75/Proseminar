@@ -214,20 +214,23 @@ Dies sind jeweils Wellengleichungen, deren Lösung sich aus zwei Partiallösunge
     i(z, t) &= i_{h}(v t - z) + i_{r}(v t + z) \label{eq:AllgEq2}.
 \end{align}
 $v$ ist die Wellengeschwindigkeit.
+Wir nennen $u_{h}$ \alert{vor-}, $u_{r}$ \alert{rücklaufende Welle}!
 \end{frame}
 
 
 \begin{frame}{Allgemeine Lösung}
     Lösungen haben die Form
     \begin{equation}
-        \underline{U}(z) = \underline{U}_{h} \mathrm{e}^{- \gamma z}
+        \underline{U}(z) = \underline{U}_{1} \mathrm{e}^{- \gamma z}
         +
-        \underline{U}_{r} \mathrm{e}^{\gamma z} \label{eq:VerlustU}
+        \underline{U}_{2} \mathrm{e}^{\gamma z}
+        = \underline{U}_{h} + \underline{U}_{r} \label{eq:VerlustU}
     \end{equation}
     und
     \begin{equation}
         \underline{I}(z) = \frac{1}{Z_{w}} \left( \vphantom{\sqrt{1}{Z}}
-        \underline{U}_{h} \mathrm{e}^{- \gamma z} - \underline{U}_{r} \mathrm{e}^{\gamma z} \right), \label{eq:VerlustI}
+        \underline{U}_{1} \mathrm{e}^{- \gamma z} - \underline{U}_{2} \mathrm{e}^{\gamma z} \right)
+        = \underline{I}_{h} + \underline{I}_{r}, \label{eq:VerlustI}
     \end{equation}
     wobei
     \begin{equation}
@@ -235,6 +238,24 @@ $v$ ist die Wellengeschwindigkeit.
         \label{eq:Zw}
     \end{equation}
     der Wellenwiderstand oder Wellenimpedanz genannt wird.
+
+\end{frame}
+
+
+\begin{frame}{Wellenwiderstand}
+Es gilt
+\begin{equation*}
+    \frac{\underline{U}}{\underline{I}} =
+     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}} \ne const.
+\end{equation*}
+entlang des Leiters, aber
+\[ \frac{\underline{U}_{h}}{\underline{I}_{h}} = \frac{\underline{U}_{r}}{- \underline{I}_{r}} = Z_{w}! \]
+
+\end{frame}
+
+
+
+\begin{frame}{Randbedingungen}
 
 \end{frame}
 
