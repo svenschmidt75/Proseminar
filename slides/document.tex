@@ -164,6 +164,82 @@ Durch teilen beider Gleichungen durch $\mathrm{d}z$ erhalten wir die \alert{Glei
 \end{frame}
 
 
+\section{Lösung der Telegraphenleitung}
+
+
+\begin{frame}{Eingeschwungener Zustand}
+Wir machen folgende Annahmen:
+\begin{itemize}
+    \item<1-> ignoriere Einschwungvorgang
+    \item<2-> zeitlich sinusförmiger Verlauf
+    \item<3-> nur eine Schwingung mit Kreisfrequenz $\omega$
+\end{itemize}
+
+\vspace*{1em}
+\onslide<4->{
+Dann lassen sich Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ darstellen:
+\begin{align}
+    u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
+    i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
+\end{align}
+}
+
+\end{frame}
+
+
+\begin{frame}{Differentialgleichungssystem}
+Wir erhalten
+\begin{align}
+    \frac{\text{d}^{2} \underline{U}}{\text{d} z^{2}} &= \gamma^{2} \underline{U} \label{eq:VerlustDgl1} \\[1ex]
+    \frac{\text{d}^{2} \underline{I}}{\text{d} z^{2}} &= \gamma^{2} \underline{I} \label{eq:VerlustDgl2} \\[1ex]
+    \gamma^{2} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right) \left( G^{\prime} + \mathrm{j} \omega
+    C^{\prime} \right) \label{eq:Gamma}.
+\end{align}
+Man nennt $\gamma$ die Wellenausbreitungsgeschwindigkeit.
+
+\end{frame}
+
+
+\begin{frame}{Verlustlose Leitung}
+Verlustlosen Fall ist gegeben durch \mbox{$R^{\prime} = G^{\prime} = 0$}.
+
+Die Gleichungen vereinfachen sich zu
+\begin{align}
+    \frac{\partial u}{\partial z} &= - L^{\prime} \, \frac{\partial i}{\partial t} \label{eq:Dgl7} \\[1ex]
+    \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} \label{eq:Dgl8} .
+\end{align}
+Dies sind jeweils Wellengleichungen, deren Lösung sich aus zwei Partiallösungen zusammensetzt,
+\begin{align}
+    u(z, t) &= u_{h}(v t - z) + u_{r}(v t + z) \label{eq:AllgEq1} \\[1ex]
+    i(z, t) &= i_{h}(v t - z) + i_{r}(v t + z) \label{eq:AllgEq2}.
+\end{align}
+$v$ ist die Wellengeschwindigkeit.
+\end{frame}
+
+
+\begin{frame}{Allgemeine Lösung}
+    Lösungen haben die Form
+    \begin{equation}
+        \underline{U}(z) = \underline{U}_{h} \mathrm{e}^{- \gamma z}
+        +
+        \underline{U}_{r} \mathrm{e}^{\gamma z} \label{eq:VerlustU}
+    \end{equation}
+    und
+    \begin{equation}
+        \underline{I}(z) = \frac{1}{Z_{w}} \left( \vphantom{\sqrt{1}{Z}}
+        \underline{U}_{h} \mathrm{e}^{- \gamma z} - \underline{U}_{r} \mathrm{e}^{\gamma z} \right), \label{eq:VerlustI}
+    \end{equation}
+    wobei
+    \begin{equation}
+        Z_{w} = \sqrt{\frac{R^{\prime} + \mathrm{j} \omega L^{\prime}}{G^{\prime} + \mathrm{j} \omega C^{\prime}}}
+        \label{eq:Zw}
+    \end{equation}
+    der Wellenwiderstand oder Wellenimpedanz genannt wird.
+
+\end{frame}
+
+
+
 
 \begin{frame}{Literaturverzeichnis}
 \printbibliography
