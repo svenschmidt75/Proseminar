@@ -28,7 +28,19 @@
 \addbibresource{../Ausarbeitung/Proseminar.bib}
 
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{standalone}
+
 \usepackage{tikz}
+\usepackage[europeanresistors]{circuitikz}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{calc}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
 
 \title{Übertragung von Signalen auf elektrischen Leitungen}
 \author{Sven Schmidt}
@@ -177,7 +189,7 @@ Wir machen folgende Annahmen:
 
 \vspace*{1em}
 \onslide<4->{
-Dann lassen sich Strom und Spannung mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ darstellen:
+Dann lassen sich Strom $i$ und Spannung $u$ mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ darstellen:
 \begin{align}
     u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
     i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
@@ -188,33 +200,15 @@ Dann lassen sich Strom und Spannung mittels sogenannter Phasoren $\underline{I}$
 
 
 \begin{frame}{Differentialgleichungssystem}
-Wir erhalten
+Wir erhalten Wellengleichungen für $\underline{U}$ und $\underline{I}$:
 \begin{align}
     \frac{\text{d}^{2} \underline{U}}{\text{d} z^{2}} &= \gamma^{2} \underline{U} \label{eq:VerlustDgl1} \\[1ex]
     \frac{\text{d}^{2} \underline{I}}{\text{d} z^{2}} &= \gamma^{2} \underline{I} \label{eq:VerlustDgl2} \\[1ex]
     \gamma^{2} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right) \left( G^{\prime} + \mathrm{j} \omega
     C^{\prime} \right) \label{eq:Gamma}.
 \end{align}
-Man nennt $\gamma$ die Wellenausbreitungsgeschwindigkeit.
+Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindigkeit.
 
-\end{frame}
-
-
-\begin{frame}{Verlustlose Leitung}
-Verlustlosen Fall ist gegeben durch \mbox{$R^{\prime} = G^{\prime} = 0$}.
-
-Die Gleichungen vereinfachen sich zu
-\begin{align}
-    \frac{\partial u}{\partial z} &= - L^{\prime} \, \frac{\partial i}{\partial t} \label{eq:Dgl7} \\[1ex]
-    \frac{\partial i}{\partial z} &= - C^{\prime} \, \frac{\partial u}{\partial t} \label{eq:Dgl8} .
-\end{align}
-Dies sind jeweils Wellengleichungen, deren Lösung sich aus zwei Partiallösungen zusammensetzt,
-\begin{align}
-    u(z, t) &= u_{h}(v t - z) + u_{r}(v t + z) \label{eq:AllgEq1} \\[1ex]
-    i(z, t) &= i_{h}(v t - z) + i_{r}(v t + z) \label{eq:AllgEq2}.
-\end{align}
-$v$ ist die Wellengeschwindigkeit.
-Wir nennen $u_{h}$ \alert{vor-}, $u_{r}$ \alert{rücklaufende Welle}!
 \end{frame}
 
 
@@ -239,6 +233,9 @@ Wir nennen $u_{h}$ \alert{vor-}, $u_{r}$ \alert{rücklaufende Welle}!
     \end{equation}
     der Wellenwiderstand oder Wellenimpedanz genannt wird.
 
+
+    Wir bezeichnen mit $\underline{U}_{h}$/$\underline{I}_{h}$ die \alert{vorlaufende}, mit
+    $\underline{U}_{r}$/$\underline{I}_{r}$ die \alert{rücklaufende} Welle.
 \end{frame}
 
 
@@ -255,10 +252,119 @@ entlang des Leiters, aber
 
 
 
-\begin{frame}{Randbedingungen}
+\begin{frame}{Verlustlose Leitung}
+Verlustlosen Fall ist gegeben durch \mbox{$R^{\prime} = G^{\prime} = 0$}.
+Es folgt
+\[
+Z_{w} = \sqrt{\frac{L^{\prime}}{C^{\prime}}}
+\]
+und
+\[
+\gamma = \mathrm{j} \beta = \mathrm{j} \omega \sqrt{L^{\prime} C^{\prime}}.
+\]
+\end{frame}
+
+
+
+\begin{frame}{Randbedingungen am Leiteranfang}
+Sei
+\begin{align*}
+    \underline{U}(0) &= \underline{U}_{a} = \underline{U}_{1} + \underline{U}_{2} \\[1ex]
+    \underline{I}(0) &= \underline{I}_{a} = \frac{1}{Z_{w}}
+    \left(
+    \vphantom{\sqrt{1}{Z_{w}}}
+    \underline{U}_{1} - \underline{U}_{2} \right).
+\end{align*}
+Da folgt für die Integrationskonstanten $\underline{U}_{1}$ und $\underline{U}_{2}$
+\[ \underline{U}_{1} = \frac{\underline{U}_{a} + Z_{w} \underline{I}_{a}}{2} \quad \text{und} \quad \underline{U}_{2} =
+\frac{\underline{U}_{a} - Z_{w} \underline{I}_{a}}{2}. \]
+Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
+\begin{align}
+    \underline{U}(z) &=
+    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
+    +
+    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:UxA} \\[1ex]
+    \underline{I}(z) &=
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
+    -
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:IxA}
+    .
+\end{align}
 
 \end{frame}
 
+
+
+\begin{frame}{Randbedingungen am Leiterende}
+Für $z=l$ sei
+\begin{align*}
+    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    +
+    \underline{U}_{2} \mathrm{e}^{ \gamma l} \\[1ex]
+    \underline{I}(l) &= \underline{I}_{e} = \frac{1}{Z_{w}}
+    \left(
+    \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    -
+    \underline{U}_{2} \mathrm{e}^{ \gamma l}
+    \right).
+\end{align*}
+In diesem Fall gilt für die Integrationskonstanten
+\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma l} \quad \text{und}
+\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma l}. \]
+Die Gleichungen für Spannung und Strom lauten damit
+\begin{align}
+    \underline{U}(z) &=
+    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
+    +
+    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)} \label{eq:UxE}
+    \\[1ex]
+    \underline{I}(z) &=
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
+    -
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)}
+    \label{eq:IxE} .
+\end{align}
+
+\end{frame}
+
+
+\begin{frame}{Reflexionsfaktor}
+\begin{figure}[!htb]
+    \begin{center}
+        \input{../graphics/AbschlussMitWiderstand/document}
+    \end{center}
+\end{figure}
+
+Das Verhältnis beider Teilspannungen entlang der Leitung ist
+\[
+r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
+       \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathrm{e}^{-2 \gamma (l-z)}.
+\]
+Ausgewertet am Leiterende $z = l$, wird Reflexionsfaktor genannt,
+\begin{equation}
+    r(l) = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
+\end{equation}
+
+\end{frame}
+
+
+
+
+
+
+
+
+
+% spaeter
+\begin{frame}{Reflexionsfaktor}
+Für den verlustlosen Fall folgt wegen $\gamma = \mathrm{j} \beta$
+\[
+r(z) = r(l) \, \mathrm{e}^{-\mathrm{j} 2 \beta (l-z)}.
+\]
+
+$r$ ändert seine Phase, nicht aber seinen Betrag.
+
+\end{frame}
 
 
 
