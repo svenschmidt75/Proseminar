@@ -243,7 +243,8 @@ Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindig
 Es gilt
 \begin{equation*}
     \frac{\underline{U}}{\underline{I}} =
-     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}} \ne const.
+     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}} =
+     Z \ne const.
 \end{equation*}
 entlang des Leiters, aber
 \[ \frac{\underline{U}_{h}}{\underline{I}_{h}} = \frac{\underline{U}_{r}}{- \underline{I}_{r}} = Z_{w}! \]
@@ -328,6 +329,9 @@ Die Gleichungen für Spannung und Strom lauten damit
 \end{frame}
 
 
+\section{Reflexionsfaktor}
+
+
 \begin{frame}{Reflexionsfaktor}
 \begin{figure}[!htb]
     \begin{center}
@@ -340,7 +344,7 @@ Das Verhältnis beider Teilspannungen entlang der Leitung ist
 r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
        \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathrm{e}^{-2 \gamma (l-z)}.
 \]
-Ausgewertet am Leiterende $z = l$, wird Reflexionsfaktor genannt,
+$r$ ausgewertet am Leiterende $z = l$ wird Reflexionsfaktor genannt,
 \begin{equation}
     r(l) = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
 \end{equation}
@@ -348,24 +352,68 @@ Ausgewertet am Leiterende $z = l$, wird Reflexionsfaktor genannt,
 \end{frame}
 
 
+\begin{frame}{Reflexion am Leitungsende}
 
-
-
-
-
-
-
-% spaeter
-\begin{frame}{Reflexionsfaktor}
-Für den verlustlosen Fall folgt wegen $\gamma = \mathrm{j} \beta$
-\[
-r(z) = r(l) \, \mathrm{e}^{-\mathrm{j} 2 \beta (l-z)}.
-\]
-
-$r$ ändert seine Phase, nicht aber seinen Betrag.
+\begin{figure}[!htb]
+    \begin{center}
+        \input{../graphics/ReflektierteWelle/document}
+    \end{center}
+\end{figure}
 
 \end{frame}
 
+
+\begin{frame}{Kurzschluss am Leitungsende}
+Gilt am Leiterende $Z_{e} = 0$, so folgt $r = -1$ und somit
+\[
+\underline{U}_{r}(z) = - \underline{U}_{h}(z).
+\]
+
+\begin{itemize}
+    \item<2-> es gilt $\underline{U}(l) = \underline{U}_{e} = 0$
+    \item<3-> hinlaufende Welle wird am Leitungsende vollkommen reflektiert
+    \item<4-> hin- und rücklaufende Welle sind um $\pi$ phasenverschoben
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Offene Leitung}
+Eine offene Leitung ist durch $Z_{e} \gg 1$ gekennzeichnet. Es folgt $r = 1$ und somit
+\[
+\underline{U}_{r}(z) = \underline{U}_{h}(z).
+\]
+
+\begin{itemize}
+    \item<2-> es gilt $\underline{I}(l) = \underline{I}_{e} = 0$
+    \item<3-> hinlaufende Welle wird am Leitungsende ebenfalls vollkommen reflektiert
+    \item<4-> hin- und rücklaufende Welle sind in Phase
+\end{itemize}
+
+\end{frame}
+
+
+
+\begin{frame}{Transformation der Impedanz}
+Im verlustloses Fall betrachten wir nochmals
+\[
+r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
+\frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \, \mathrm{e}^{-\mathrm{j} 2 \beta (l-z)}.
+\]
+$r$ ändert seine Phase, nicht aber seinen Betrag.
+
+\onslide<2->{
+Setzen wir
+\[
+\frac{\underline{U}(z)}{\underline{I}(z)} = Z(z),
+\]
+so folgt mit $Z_{e} = Z(l)$
+\[
+Z = \frac{1 + r}{1 - r} Z_{w}.
+\]
+}
+
+\end{frame}
 
 
 \begin{frame}{Literaturverzeichnis}
