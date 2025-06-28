@@ -96,17 +96,16 @@ Wir betrachten ausschließlich Paralleldrahtleiter.
 
 \begin{frame}{Leitungsbeläge}
 Auf einem Leitungsstück der Länge $s$ mit Widerstand $R_{s}$ erzeugen elektrische und magnetische Felder
+\begin{itemize}
+    \item<1-> Induktion $L_{s}$
+    \item<2-> Kapazität $C_{s}$ und
+    \item<3-> Querleitwert $G_{s}$
+\end{itemize}
 \begin{figure}[!htb]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{graphics/Ersatzschaltbild1/document}
     \end{center}
 \end{figure}
-\begin{itemize}
-    \item Induktion $L_{s}$
-    \item Kapazität $C_{s}$ und
-    \item Querleitwert $G_{s}$
-\end{itemize}
-
 \end{frame}
 
 
@@ -137,7 +136,7 @@ i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, 
 Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
 \begin{equation*}
     u = i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z +
-    \frac{\partial u}{\partial z} \mathrm{d}{z}.
+    u + \frac{\partial u}{\partial z} \mathrm{d}{z}.
 \end{equation*}
 
 \end{frame}
@@ -158,7 +157,7 @@ Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 
 
 \begin{frame}{Differentialgleichungen der elektrischen Leitung}
-Durch teilen beider Gleichungen durch $\mathrm{d}z$ erhalten wir die \alert{Gleichungen des elektrischen Leiters}
+Durch Teilen beider Gleichungen durch $\mathrm{d}z$ erhalten wir die \alert{Gleichungen des elektrischen Leiters}
 \begin{align}
     \frac{\partial u}{\partial z} &= -\left(R^{\prime} + L^{\prime}\frac{\partial}{\partial t}\right)i \label{eq:Dgl1}
     \\[1ex]
@@ -207,7 +206,7 @@ Wir erhalten Wellengleichungen für $\underline{U}$ und $\underline{I}$:
     \gamma^{2} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right) \left( G^{\prime} + \mathrm{j} \omega
     C^{\prime} \right) \label{eq:Gamma}.
 \end{align}
-Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindigkeit.
+Man nennt $\gamma = \alpha + \mathbf{j} \beta$ die Wellenausbreitungskonstante.
 
 \end{frame}
 
@@ -215,15 +214,15 @@ Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindig
 \begin{frame}{Allgemeine Lösung}
     Lösungen haben die Form
     \begin{equation}
-        \underline{U}(z) = \underline{U}_{1} \mathrm{e}^{- \gamma z}
+        \underline{U}(z) = \underline{U}_{1} \mathbf{e}^{- \gamma z}
         +
-        \underline{U}_{2} \mathrm{e}^{\gamma z}
+        \underline{U}_{2} \mathbf{e}^{\gamma z}
         = \underline{U}_{h} + \underline{U}_{r} \label{eq:VerlustU}
     \end{equation}
     und
     \begin{equation}
         \underline{I}(z) = \frac{1}{Z_{w}} \left( \vphantom{\sqrt{1}{Z}}
-        \underline{U}_{1} \mathrm{e}^{- \gamma z} - \underline{U}_{2} \mathrm{e}^{\gamma z} \right)
+        \underline{U}_{1} \mathbf{e}^{- \gamma z} - \underline{U}_{2} \mathbf{e}^{\gamma z} \right)
         = \underline{I}_{h} + \underline{I}_{r}, \label{eq:VerlustI}
     \end{equation}
     wobei
@@ -231,7 +230,7 @@ Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindig
         Z_{w} = \sqrt{\frac{R^{\prime} + \mathrm{j} \omega L^{\prime}}{G^{\prime} + \mathrm{j} \omega C^{\prime}}}
         \label{eq:Zw}
     \end{equation}
-    der Wellenwiderstand oder Wellenimpedanz genannt wird.
+    Wellenwiderstand genannt wird.
 
 
     Wir bezeichnen mit $\underline{U}_{h}$/$\underline{I}_{h}$ die \alert{vorlaufende}, mit
@@ -240,11 +239,11 @@ Man nennt $\gamma = \alpha + \mathrm{j} \beta$ die Wellenausbreitungsgeschwindig
 
 
 \begin{frame}{Wellenwiderstand}
-Es gilt
+Für die Wellenimpedanz gilt
 \begin{equation*}
-    \frac{\underline{U}}{\underline{I}} =
-     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}} =
-     Z \ne const.
+    Z = \frac{\underline{U}}{\underline{I}} =
+     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}}
+     \ne const.
 \end{equation*}
 entlang des Leiters, aber
 \[ \frac{\underline{U}_{h}}{\underline{I}_{h}} = \frac{\underline{U}_{r}}{- \underline{I}_{r}} = Z_{w}! \]
@@ -254,14 +253,14 @@ entlang des Leiters, aber
 
 
 \begin{frame}{Verlustlose Leitung}
-Verlustlosen Fall ist gegeben durch \mbox{$R^{\prime} = G^{\prime} = 0$}.
+Der verlustlose Fall ist gegeben durch \mbox{$R^{\prime} = G^{\prime} = 0$}.
 Es folgt
 \[
 Z_{w} = \sqrt{\frac{L^{\prime}}{C^{\prime}}}
 \]
 und
 \[
-\gamma = \mathrm{j} \beta = \mathrm{j} \omega \sqrt{L^{\prime} C^{\prime}}.
+\gamma = \mathbf{j} \beta = \mathbf{j} \omega \sqrt{L^{\prime} C^{\prime}}.
 \]
 \end{frame}
 
@@ -282,13 +281,13 @@ Da folgt für die Integrationskonstanten $\underline{U}_{1}$ und $\underline{U}_
 Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
 \begin{align}
     \underline{U}(z) &=
-    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
+    \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathbf{e}^{- \gamma z}
     +
-    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:UxA} \\[1ex]
+    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathbf{e}^{\gamma z} \label{eq:UxA} \\[1ex]
     \underline{I}(z) &=
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathrm{e}^{- \gamma z}
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathbf{e}^{- \gamma z}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathrm{e}^{\gamma z} \label{eq:IxA}
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathbf{e}^{\gamma z} \label{eq:IxA}
     .
 \end{align}
 
@@ -299,30 +298,30 @@ Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
 \begin{frame}{Randbedingungen am Leiterende}
 Für $z=l$ sei
 \begin{align*}
-    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathbf{e}^{- \gamma l}
     +
-    \underline{U}_{2} \mathrm{e}^{ \gamma l} \\[1ex]
+    \underline{U}_{2} \mathbf{e}^{ \gamma l} \\[1ex]
     \underline{I}(l) &= \underline{I}_{e} = \frac{1}{Z_{w}}
     \left(
-    \underline{U}_{1} \mathrm{e}^{- \gamma l}
+    \underline{U}_{1} \mathbf{e}^{- \gamma l}
     -
-    \underline{U}_{2} \mathrm{e}^{ \gamma l}
+    \underline{U}_{2} \mathbf{e}^{ \gamma l}
     \right).
 \end{align*}
 In diesem Fall gilt für die Integrationskonstanten
-\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{\gamma l} \quad \text{und}
-\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathrm{e}^{- \gamma l}. \]
+\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{\gamma l} \quad \text{und}
+\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{- \gamma l}. \]
 Die Gleichungen für Spannung und Strom lauten damit
 \begin{align}
     \underline{U}(z) &=
-    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
+    \frac{1}{2} \left( \underline{U}_{e} + Z_{w} \underline{I}_{e} \right) \mathbf{e}^{\gamma (l - z)}
     +
-    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)} \label{eq:UxE}
+    \frac{1}{2} \left( \underline{U}_{e} - Z_{w} \underline{I}_{e} \right) \mathbf{e}^{- \gamma (l - z)} \label{eq:UxE}
     \\[1ex]
     \underline{I}(z) &=
-    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathrm{e}^{\gamma (l - z)}
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} + \underline{I}_{e} \right) \mathbf{e}^{\gamma (l - z)}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathrm{e}^{- \gamma (l - z)}
+    \frac{1}{2} \left( \frac{\underline{U}_{e}}{Z_{w}} - \underline{I}_{e} \right) \mathbf{e}^{- \gamma (l - z)}
     \label{eq:IxE} .
 \end{align}
 
@@ -342,13 +341,25 @@ Die Gleichungen für Spannung und Strom lauten damit
 Das Verhältnis beider Teilspannungen entlang der Leitung ist
 \[
 r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
-       \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathrm{e}^{-2 \gamma (l-z)}.
+       \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathbf{e}^{-2 \gamma (l-z)}.
 \]
 $r$ ausgewertet am Leiterende $z = l$ wird Reflexionsfaktor genannt,
 \begin{equation}
     r(l) = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
 \end{equation}
 
+\end{frame}
+
+
+\begin{frame}{Transformation der Impedanz}
+Setzen wir
+\[
+\frac{\underline{U}(z)}{\underline{I}(z)} = Z(z),
+\]
+so folgt mit $Z_{e} = Z(l)$
+\[
+Z = \frac{1 + r}{1 - r} Z_{w}.
+\]
 \end{frame}
 
 
@@ -360,6 +371,16 @@ $r$ ausgewertet am Leiterende $z = l$ wird Reflexionsfaktor genannt,
     \end{center}
 \end{figure}
 
+\end{frame}
+
+
+\begin{frame}{Anpassung}
+Im Falle der Anpassung gilt $Z_{e} = Z_{w}$.
+\begin{itemize}
+    \item <1-> $r = 0$, d.\,h. es findet keine Reflexion statt
+    \item <2-> einlaufende Welle wird am Leitungsende vollkommen absorbiert!
+    \item <3-> wichtiger Fall in der Praxis da keine unerwünschten Interferenzen auftreten
+\end{itemize}
 \end{frame}
 
 
@@ -393,26 +414,17 @@ Eine offene Leitung ist durch $Z_{e} \gg 1$ gekennzeichnet. Es folgt $r = 1$ und
 \end{frame}
 
 
-
-\begin{frame}{Transformation der Impedanz}
+\begin{frame}{Kurzschluss/Offene Leitung im verlustlosen Fall}
 Im verlustloses Fall betrachten wir nochmals
 \[
 r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
-\frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \, \mathrm{e}^{-\mathrm{j} 2 \beta (l-z)}.
+\frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \, \mathbf{e}^{-\mathbf{j} 2 \beta (l-z)}.
 \]
 $r$ ändert seine Phase, nicht aber seinen Betrag.
+\vspace{1ex}
 
-\onslide<2->{
-Setzen wir
-\[
-\frac{\underline{U}(z)}{\underline{I}(z)} = Z(z),
-\]
-so folgt mit $Z_{e} = Z(l)$
-\[
-Z = \frac{1 + r}{1 - r} Z_{w}.
-\]
-}
-
+Für den Kurzschluss ist $r=-1$. Wegen $|r|=1$ wird somit ein Kurzschluss in einen Leerlauf und
+umgekehrt transformiert!
 \end{frame}
 
 
