@@ -31,6 +31,7 @@
 \usepackage{float}
 \usepackage{caption}
 \usepackage{standalone}
+\usepackage{nicefrac}
 
 \usepackage{tikz}
 \usepackage[europeanresistors]{circuitikz}
@@ -95,7 +96,7 @@ Wir betrachten ausschließlich Paralleldrahtleiter.
 
 
 \begin{frame}{Leitungsbeläge}
-Auf einem Leitungsstück der Länge $s$ mit Widerstand $R_{s}$ erzeugen elektrische und magnetische Felder
+Auf einem Leitungsstück der Länge $s$ mit Widerstand $R_{s}$ sehen elektrische und magnetische Felder
 \begin{itemize}
     \item<1-> Induktion $L_{s}$
     \item<2-> Kapazität $C_{s}$ und
@@ -121,17 +122,28 @@ Analog definieren wir
 \end{frame}
 
 
-\begin{frame}{Spannung auf infinitesimalem Leitungsstück}
+\begin{frame}{Ersatzschaltbild eines infinitesimalem Leitungsstücks}
 Wir stellen uns ein infinitesimales Leitungsstück der Länge $\mathrm{d}z$ vor:
 \begin{figure}[!htb]
     \begin{center}
         \includegraphics[width=0.5\textwidth]{graphics/Ersatzschaltbild2/document}
     \end{center}
 \end{figure}
-Widerstand $R^{\prime} \, \mathrm{d}z$ und Induktivität $L^{\prime} \, \mathrm{d}z$ verursachen einen Spannungsabfall
-von
+Am Ende des Leiterstücks liegen Spannung
 \[
-i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z.
+u(z + \mathrm{d}z) \approx u(z) + \frac{\partial u}{\partial z}(z) \, \mathrm{d}z
+\] und Strom
+\[
+i(z + \mathrm{d}z) \approx i(z) + \frac{\partial i}{\partial z}(z) \, \mathrm{d}z
+\] an.
+\end{frame}
+
+
+\begin{frame}{Spannung auf infinitesimalem Leitungsstück}
+Entlang des Leitungsstücks verursachen Widerstand $R^{\prime} \, \mathrm{d}z$ und Induktivität
+$L^{\prime} \, \mathrm{d}z$ einen Spannungsabfall von
+\[
+\Delta u = i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z.
 \]
 Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
 \begin{equation*}
@@ -145,7 +157,7 @@ Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
 \begin{frame}{Strom auf infinitesimalem Leitungsstück}
 Durch Querleitwert $G^{\prime} \, \mathrm{d}z$ und Querkapazität $C^{\prime} \, \mathrm{d}z$ fließt der Strom
 \[
-u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z.
+\Delta i = u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
@@ -163,7 +175,7 @@ Durch Teilen beider Gleichungen durch $\mathrm{d}z$ erhalten wir die \alert{Glei
     \\[1ex]
     \frac{\partial i}{\partial z} &= -\left(G^{\prime} + C^{\prime}\frac{\partial}{\partial t}\right)u. \label{eq:Dgl2}
 \end{align}
-Äquivalent hierzu sind die \alert{Telegraphenleitungen}
+Hieraus lassen sich die folgenden \alert{Telegraphenleitungen} herleiten:
 \begin{align}
     \frac{\partial^{2} u}{\partial z^{2}} &= R^{\prime} G^{\prime} u(z,t) + (R^{\prime} C^{\prime} + L^{\prime}
     G^{\prime}) \frac{\partial u(z, t)}{\partial t} + L^{\prime} C^{\prime} \frac{\partial^{2} u(z,t)}{\partial t^{2}}
@@ -214,16 +226,16 @@ Man nennt $\gamma = \alpha + \mathbf{j} \beta$ die Wellenausbreitungskonstante.
 \begin{frame}{Allgemeine Lösung}
     Lösungen haben die Form
     \begin{equation}
-        \underline{U}(z) = \underline{U}_{1} \mathbf{e}^{- \gamma z}
+        \underline{U}(z) = \underline{U}_{h_{0}} \mathbf{e}^{- \gamma z}
         +
-        \underline{U}_{2} \mathbf{e}^{\gamma z}
-        = \underline{U}_{h} + \underline{U}_{r} \label{eq:VerlustU}
+        \underline{U}_{r_{0}} \mathbf{e}^{\gamma z}
+        = \underline{U}_{h}(z) + \underline{U}_{r}(z) \label{eq:VerlustU}
     \end{equation}
     und
     \begin{equation}
         \underline{I}(z) = \frac{1}{Z_{w}} \left( \vphantom{\sqrt{1}{Z}}
-        \underline{U}_{1} \mathbf{e}^{- \gamma z} - \underline{U}_{2} \mathbf{e}^{\gamma z} \right)
-        = \underline{I}_{h} + \underline{I}_{r}, \label{eq:VerlustI}
+        \underline{U}_{h_{0}} \mathbf{e}^{- \gamma z} - \underline{U}_{r_{0}} \mathbf{e}^{\gamma z} \right)
+        = \underline{I}_{h}(z) + \underline{I}_{r}(z), \label{eq:VerlustI}
     \end{equation}
     wobei
     \begin{equation}
@@ -233,23 +245,10 @@ Man nennt $\gamma = \alpha + \mathbf{j} \beta$ die Wellenausbreitungskonstante.
     Wellenwiderstand genannt wird.
 
 
-    Wir bezeichnen mit $\underline{U}_{h}$/$\underline{I}_{h}$ die \alert{vorlaufende}, mit
-    $\underline{U}_{r}$/$\underline{I}_{r}$ die \alert{rücklaufende} Welle.
-\end{frame}
-
-
-\begin{frame}{Wellenwiderstand}
-Für die Wellenimpedanz gilt
-\begin{equation*}
-    Z = \frac{\underline{U}}{\underline{I}} =
-     Z_{w} \frac{\underline{U}_{h} + \underline{U}_{r}}{\underline{I}_{h} + \underline{I}_{r}}
-     \ne const.
-\end{equation*}
-entlang des Leiters, aber
-\[ \frac{\underline{U}_{h}}{\underline{I}_{h}} = \frac{\underline{U}_{r}}{- \underline{I}_{r}} = Z_{w}! \]
+    Wir bezeichnen mit $\underline{U}_{h}$ die \alert{hinlaufende}, mit $\underline{U}_{r}$ die
+    \alert{rücklaufende} Welle. Für $\underline{I}_{h}$ und $\underline{I}_{r}$ gilt analoges.
 
 \end{frame}
-
 
 
 \begin{frame}{Verlustlose Leitung}
@@ -258,59 +257,169 @@ Es folgt
 \[
 Z_{w} = \sqrt{\frac{L^{\prime}}{C^{\prime}}}
 \]
-und
+und da $\alpha = 0$ gilt
 \[
 \gamma = \mathbf{j} \beta = \mathbf{j} \omega \sqrt{L^{\prime} C^{\prime}}.
+\]
+Somit ist der Wellenwiderstand \alert{reell}, die Wellenausbreitungskonstante hingegen
+\alert{imaginär}.
+\end{frame}
+
+
+\begin{frame}{Wellenlänge}
+Die Wellenlänge $\lambda$ erfüllt
+\begin{equation}
+\underline{U}(\lambda) =
+\underline{U}_{h_{0}} \mathbf{e}^{- \beta \lambda}
++
+\underline{U}_{r_{0}} \mathbf{e}^{\beta \lambda}
+= \underline{U}_{h_{0}} + \underline{U}_{r_{0}}
+= \underline{U}(0)
+\end{equation}
+und somit
+\[
+\mathbf{e}^{- \beta \lambda} = \mathbf{e}^{\beta \lambda} = 1.
+\]
+Es folgt
+\[
+\lambda = \frac{2 \pi}{\beta}.
 \]
 \end{frame}
 
 
+\begin{frame}{Impedanz vs. Wellenwiderstand}
+Für die Impedanz gilt
+\begin{equation*}
+    Z(z) = \frac{\underline{U}(z)}{\underline{I}(z)} =
+     \frac{\underline{U}_{h}(z) + \underline{U}_{r}(z)}{\underline{I}_{h}(z) +
+     \underline{I}_{r}(z)} \ne const.
+\end{equation*}
+entlang des Leiters, aber
+\[ \frac{\underline{U}_{h}(z)}{\underline{I}_{h}(z)}
+= \frac{\underline{U}_{r}(z)}{- \underline{I}_{r}(z)} = Z_{w}! \]
+
+\end{frame}
+
+
+\begin{frame}{Wellenausbreitung entlang einer verlustbehafteten Leitung}
+
+    \begin{figure}[!htb]
+        \begin{center}
+            \input{../graphics/ReflektierteWelle/document}
+        \end{center}
+    \end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Wellenausbreitung für den verlustlosen Fall}
+    Die schwarzen Hüllkurven sind jeweils durch
+    \[
+    \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
+    \quad \text{bzw.}
+    - \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
+    \] gegeben. Die Maxima der Amplituden laufen auf der oberen, die Minima auf der unteren Hüllkurve für alle $t$.
+    \begin{figure}[H]
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R0}
+            \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R1}
+            \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.28$ (grün)}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R-1}
+            \caption*{$r=-1$, $t=0.05$ (blau), $t=0.1$ (orange) und $t=0.15$ (grün)}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
+
+\begin{frame}{Wellenausbreitung für den verlustbehafteten Fall}
+    \begin{figure}[H]
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R0}
+            \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R1}
+            \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+        \end{minipage}
+        \hfill
+        \begin{minipage}{0.32\textwidth}
+            \centering
+            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R-1}
+            \caption*{$r=-1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.5$ (grün)}
+        \end{minipage}
+    \end{figure}
+\end{frame}
+
 
 \begin{frame}{Randbedingungen am Leiteranfang}
+Bei den Wellengleichungen \eqref{eq:VerlustDgl1} und \eqref{eq:VerlustDgl2} handelt es sich um
+gewöhnliche Differentialgleichungen 2.~Ordnung. Wir müssen daher jeweils zwei Randbedingungen für
+eine eindeutige Lösung festlegen.
+
+\vspace{1ex}
 Sei
 \begin{align*}
-    \underline{U}(0) &= \underline{U}_{a} = \underline{U}_{1} + \underline{U}_{2} \\[1ex]
+    \underline{U}(0) &= \underline{U}_{a} = \underline{U}_{h_{0}} + \underline{U}_{r_{0}} \\[1ex]
     \underline{I}(0) &= \underline{I}_{a} = \frac{1}{Z_{w}}
     \left(
     \vphantom{\sqrt{1}{Z_{w}}}
-    \underline{U}_{1} - \underline{U}_{2} \right).
+    \underline{U}_{h_{0}} - \underline{U}_{r_{0}} \right).
 \end{align*}
-Da folgt für die Integrationskonstanten $\underline{U}_{1}$ und $\underline{U}_{2}$
-\[ \underline{U}_{1} = \frac{\underline{U}_{a} + Z_{w} \underline{I}_{a}}{2} \quad \text{und} \quad \underline{U}_{2} =
-\frac{\underline{U}_{a} - Z_{w} \underline{I}_{a}}{2}. \]
+Es folgt für die Integrationskonstanten $\underline{U}_{h_{0}}$ und $\underline{U}_{r_{0}}$
+\[ \underline{U}_{h_{0}} = \frac{\underline{U}_{a} + Z_{w} \underline{I}_{a}}{2}
+\quad \text{und} \quad
+\underline{U}_{h_{0}} = \frac{\underline{U}_{a} - Z_{w} \underline{I}_{a}}{2}. \]
+\end{frame}
+
+
+\begin{frame}{Randbedingungen am Leiteranfang}
 Damit lauten die Gleichungen für Spannung und Strom entlang der Leitung
 \begin{align}
     \underline{U}(z) &=
     \frac{1}{2} \left( \underline{U}_{a} + Z_{w} \underline{I}_{a} \right) \mathbf{e}^{- \gamma z}
     +
-    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathbf{e}^{\gamma z} \label{eq:UxA} \\[1ex]
+    \frac{1}{2} \left( \underline{U}_{a} - Z_{w} \underline{I}_{a} \right) \mathbf{e}^{\gamma z} \label{eq:UxA}
+    \\[1ex]
     \underline{I}(z) &=
     \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} + \underline{I}_{a} \right) \mathbf{e}^{- \gamma z}
     -
-    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathbf{e}^{\gamma z} \label{eq:IxA}
+    \frac{1}{2} \left( \frac{\underline{U}_{a}}{Z_{w}} - \underline{I}_{a} \right) \mathbf{e}^{\gamma z}
+    \label{eq:IxA}
     .
 \end{align}
-
 \end{frame}
-
 
 
 \begin{frame}{Randbedingungen am Leiterende}
 Für $z=l$ sei
 \begin{align*}
-    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{1} \mathbf{e}^{- \gamma l}
+    \underline{U}(l) &= \underline{U}_{e} = \underline{U}_{h_{0}} \mathbf{e}^{- \gamma l}
     +
-    \underline{U}_{2} \mathbf{e}^{ \gamma l} \\[1ex]
+    \underline{U}_{r_{0}} \mathbf{e}^{ \gamma l} \\[1ex]
     \underline{I}(l) &= \underline{I}_{e} = \frac{1}{Z_{w}}
     \left(
-    \underline{U}_{1} \mathbf{e}^{- \gamma l}
+    \underline{U}_{h_{0}} \mathbf{e}^{- \gamma l}
     -
-    \underline{U}_{2} \mathbf{e}^{ \gamma l}
+    \underline{U}_{r_{0}} \mathbf{e}^{ \gamma l}
     \right).
 \end{align*}
 In diesem Fall gilt für die Integrationskonstanten
-\[ \underline{U}_{1} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{\gamma l} \quad \text{und}
-\quad \underline{U}_{2} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{- \gamma l}. \]
+\[ \underline{U}_{h_{0}} = \frac{\underline{U}_{e} + Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{\gamma l}
+\quad \text{und} \quad
+\underline{U}_{r_{0}} = \frac{\underline{U}_{e} - Z_{w} \underline{I}_{e}}{2} \mathbf{e}^{- \gamma l}. \]
 Die Gleichungen für Spannung und Strom lauten damit
 \begin{align}
     \underline{U}(z) &=
@@ -343,9 +452,12 @@ Das Verhältnis beider Teilspannungen entlang der Leitung ist
 r(z) = \frac{\underline{U}_{r}(z)}{\underline{U}_{h}(z)} =
        \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \mathbf{e}^{-2 \gamma (l-z)}.
 \]
-$r$ ausgewertet am Leiterende $z = l$ wird Reflexionsfaktor genannt,
+$r$ wird Reflexionsfaktor genannt. Am Leiterende gilt
 \begin{equation}
-    r(l) = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)} = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
+    r(l)
+    = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)}
+    = \frac{\underline{I}_{r}(l)}{- \underline{I}_{h}(l)}
+    = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
 \end{equation}
 
 \end{frame}
@@ -354,23 +466,15 @@ $r$ ausgewertet am Leiterende $z = l$ wird Reflexionsfaktor genannt,
 \begin{frame}{Transformation der Impedanz}
 Setzen wir
 \[
-\frac{\underline{U}(z)}{\underline{I}(z)} = Z(z),
+\frac{\underline{U}(z)}{\underline{I}(z)}
+= \frac{\underline{U}_{h}(z) +
+\underline{U}_{r}(z)}{\underline{I}_{h}(z) +
+    \underline{I}_{r}(z)} = Z(z),
 \]
-so folgt mit $Z_{e} = Z(l)$
+so folgt mit~\eqref{eq:RFactor}
 \[
-Z = \frac{1 + r}{1 - r} Z_{w}.
+Z(z) = \frac{1 + r(z)}{1 - r(z)} Z_{w}.
 \]
-\end{frame}
-
-
-\begin{frame}{Reflexion am Leitungsende}
-
-\begin{figure}[!htb]
-    \begin{center}
-        \input{../graphics/ReflektierteWelle/document}
-    \end{center}
-\end{figure}
-
 \end{frame}
 
 
@@ -380,6 +484,7 @@ Im Falle der Anpassung gilt $Z_{e} = Z_{w}$.
     \item <1-> $r = 0$, d.\,h. es findet keine Reflexion statt
     \item <2-> einlaufende Welle wird am Leitungsende vollkommen absorbiert!
     \item <3-> wichtiger Fall in der Praxis da keine unerwünschten Interferenzen auftreten
+    \item <4-> das Signal wird ungestört übertragen
 \end{itemize}
 \end{frame}
 
@@ -393,7 +498,7 @@ Gilt am Leiterende $Z_{e} = 0$, so folgt $r = -1$ und somit
 \begin{itemize}
     \item<2-> es gilt $\underline{U}(l) = \underline{U}_{e} = 0$
     \item<3-> hinlaufende Welle wird am Leitungsende vollkommen reflektiert
-    \item<4-> hin- und rücklaufende Welle sind um $\pi$ phasenverschoben
+    \item<4-> hin- und rücklaufende Welle sind am Leiterende um $\pi$ phasenverschoben
 \end{itemize}
 
 \end{frame}
@@ -408,7 +513,7 @@ Eine offene Leitung ist durch $Z_{e} \gg 1$ gekennzeichnet. Es folgt $r = 1$ und
 \begin{itemize}
     \item<2-> es gilt $\underline{I}(l) = \underline{I}_{e} = 0$
     \item<3-> hinlaufende Welle wird am Leitungsende ebenfalls vollkommen reflektiert
-    \item<4-> hin- und rücklaufende Welle sind in Phase
+    \item<4-> hin- und rücklaufende Welle sind am Leiterende in Phase
 \end{itemize}
 
 \end{frame}
@@ -425,6 +530,14 @@ $r$ ändert seine Phase, nicht aber seinen Betrag.
 
 Für den Kurzschluss ist $r=-1$. Wegen $|r|=1$ wird somit ein Kurzschluss in einen Leerlauf und
 umgekehrt transformiert!
+
+\vspace{1ex}
+Dies passiert im Abstand $\nicefrac{\lambda}{4}$, denn es gilt mit $l - z = \Delta z$
+\[
+\mathbf{e}^{- \mathbf{j} \, 2 \beta \frac{\lambda}{4}} =
+\mathbf{e}^{- \mathbf{j} \, 2 \frac{2 \pi}{\lambda} \frac{\lambda}{4}} =
+\mathbf{e}^{- \mathbf{j} \, \pi} = -1.
+\]
 \end{frame}
 
 
