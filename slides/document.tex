@@ -47,6 +47,17 @@
 \author{Sven Schmidt}
 
 
+%Display page with section title at the beginning of each section
+\AtBeginSection[]{
+    \begin{frame}
+        \centering
+        \vfill
+        \huge \insertsectionhead
+        \vfill
+    \end{frame}
+}
+
+
 \begin{document}
 
 % Title page with image at the top
@@ -187,7 +198,7 @@ Hieraus lassen sich die folgenden \alert{Telegraphenleitungen} herleiten:
 \end{frame}
 
 
-\section{Lösung der Telegraphenleitung}
+\section{Lösung der Gleichungen des elektrischen Leiters}
 
 
 \begin{frame}{Eingeschwungener Zustand}
@@ -301,7 +312,7 @@ entlang des Leiters, aber
 \end{frame}
 
 
-\begin{frame}{Wellenausbreitung entlang einer verlustbehafteten Leitung}
+\begin{frame}{Prinzip der Wellenausbreitung entlang eines Leiters}
 
     \begin{figure}[!htb]
         \begin{center}
@@ -313,54 +324,55 @@ entlang des Leiters, aber
 
 
 \begin{frame}{Wellenausbreitung für den verlustlosen Fall}
-    Die schwarzen Hüllkurven sind jeweils durch
-    \[
-    \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
-    \quad \text{bzw.}
-    - \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
-    \] gegeben. Die Maxima der Amplituden laufen auf der oberen, die Minima auf der unteren Hüllkurve für alle $t$.
-    \begin{figure}[H]
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R0}
-            \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R1}
-            \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.28$ (grün)}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R-1}
-            \caption*{$r=-1$, $t=0.05$ (blau), $t=0.1$ (orange) und $t=0.15$ (grün)}
-        \end{minipage}
-    \end{figure}
+Die schwarzen Hüllkurven sind jeweils durch
+\[
+\mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
+\quad \text{bzw.}
+- \mathrm{Re} ( \left| \underline{U}_{h}(z) + \underline{U}_{r}(z) \right| )
+\] gegeben. Die Maxima der Amplituden laufen auf der oberen, die Minima auf der unteren Hüllkurve
+für alle $t$.
+\begin{figure}[H]
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R0}
+        \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R-1}
+        \caption*{$r=-1$, $t=0.05$ (blau), $t=0.1$ (orange) und $t=0.15$ (grün)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustlos/R1}
+        \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.28$ (grün)}
+    \end{minipage}
+\end{figure}
 \end{frame}
 
 
 \begin{frame}{Wellenausbreitung für den verlustbehafteten Fall}
     \begin{figure}[H]
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R0}
-            \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R1}
-            \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
-        \end{minipage}
-        \hfill
-        \begin{minipage}{0.32\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R-1}
-            \caption*{$r=-1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.5$ (grün)}
-        \end{minipage}
-    \end{figure}
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R0}
+        \caption*{$r=0$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R-1}
+        \caption*{$r=-1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.5$ (grün)}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.32\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{../graphics/Enveloppe/verlustbehaftet/R1}
+        \caption*{$r=1$, $t=0.1$ (blau), $t=0.2$ (orange) und $t=0.3$ (grün)}
+    \end{minipage}
+\end{figure}
 \end{frame}
 
 
