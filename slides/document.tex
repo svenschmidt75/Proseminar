@@ -281,15 +281,15 @@ Somit ist der Wellenwiderstand \alert{reell}, die Wellenausbreitungskonstante hi
 Die Wellenlänge $\lambda$ erfüllt
 \begin{equation}
 \underline{U}(\lambda) =
-\underline{U}_{h_{0}} \mathbf{e}^{- \beta \lambda}
+\underline{U}_{h_{0}} \mathbf{e}^{- \mathrm{j} \beta \lambda}
 +
-\underline{U}_{r_{0}} \mathbf{e}^{\beta \lambda}
+\underline{U}_{r_{0}} \mathbf{e}^{\mathrm{j} \beta \lambda}
 = \underline{U}_{h_{0}} + \underline{U}_{r_{0}}
 = \underline{U}(0)
 \end{equation}
 und somit
 \[
-\mathbf{e}^{- \beta \lambda} = \mathbf{e}^{\beta \lambda} = 1.
+\mathbf{e}^{- \mathrm{j} \beta \lambda} = \mathbf{e}^{\mathrm{j} \beta \lambda} = 1.
 \]
 Es folgt
 \[
@@ -468,7 +468,7 @@ $r$ wird Reflexionsfaktor genannt. Am Leiterende gilt
 \begin{equation}
     r(l)
     = \frac{\underline{U}_{r}(l)}{\underline{U}_{h}(l)}
-    = \frac{\underline{I}_{r}(l)}{- \underline{I}_{h}(l)}
+    = \frac{- \underline{I}_{r}(l)}{\underline{I}_{h}(l)}
     = \frac{Z_{e}-Z_{w}}{Z_{e}+Z_{w}} \label{eq:RFactor}.
 \end{equation}
 
@@ -504,11 +504,11 @@ Im Falle der Anpassung gilt $Z_{e} = Z_{w}$.
 \begin{frame}{Kurzschluss am Leitungsende}
 Gilt am Leiterende $Z_{e} = 0$, so folgt $r = -1$ und somit
 \[
-\underline{U}_{r}(z) = - \underline{U}_{h}(z).
+\underline{U}_{r}(l) = - \underline{U}_{h}(l).
 \]
 
 \begin{itemize}
-    \item<2-> es gilt $\underline{U}(l) = \underline{U}_{e} = 0$
+    \item<2-> aus \eqref{eq:IxE} folgt $\underline{U}(l) = \underline{U}_{e} = 0$
     \item<3-> hinlaufende Welle wird am Leitungsende vollkommen reflektiert
     \item<4-> hin- und rücklaufende Welle sind am Leiterende um $\pi$ phasenverschoben
 \end{itemize}
@@ -519,11 +519,11 @@ Gilt am Leiterende $Z_{e} = 0$, so folgt $r = -1$ und somit
 \begin{frame}{Offene Leitung}
 Eine offene Leitung ist durch $Z_{e} \gg 1$ gekennzeichnet. Es folgt $r = 1$ und somit
 \[
-\underline{U}_{r}(z) = \underline{U}_{h}(z).
+\underline{I}_{r}(l) = - \underline{I}_{h}(l).
 \]
 
 \begin{itemize}
-    \item<2-> es gilt $\underline{I}(l) = \underline{I}_{e} = 0$
+    \item<2-> aus \eqref{eq:IxE} folgt $\underline{I}(l) = \underline{I}_{e} = 0$
     \item<3-> hinlaufende Welle wird am Leitungsende ebenfalls vollkommen reflektiert
     \item<4-> hin- und rücklaufende Welle sind am Leiterende in Phase
 \end{itemize}
@@ -548,7 +548,7 @@ Dies passiert im Abstand $\nicefrac{\lambda}{4}$, denn es gilt mit $l - z = \Del
 \[
 \mathbf{e}^{- \mathbf{j} \, 2 \beta \frac{\lambda}{4}} =
 \mathbf{e}^{- \mathbf{j} \, 2 \frac{2 \pi}{\lambda} \frac{\lambda}{4}} =
-\mathbf{e}^{- \mathbf{j} \, \pi} = -1.
+\mathbf{e}^{- \mathbf{j} \pi} = -1.
 \]
 \end{frame}
 
