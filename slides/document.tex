@@ -221,8 +221,8 @@ Wir machen folgende Annahmen:
 \onslide<4->{
 Dann lassen sich Strom $i$ und Spannung $u$ mittels sogenannter Phasoren $\underline{I}$ und $\underline{U}$ darstellen:
 \begin{align}
-    u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathrm{j} \omega t) \right] \label{eq:Spannung} \\
-    i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathrm{j} \omega t) \right]
+    u(z, t) &= \mathrm{Re} \left[ \underline{U}(z) \exp(\mathbf{j} \omega t) \right] \label{eq:Spannung} \\
+    i(z, t) &= \mathrm{Re} \left[ \underline{I}(z) \exp(\mathbf{j} \omega t) \right]
 \end{align}
 }
 
@@ -234,8 +234,8 @@ Wir erhalten Wellengleichungen für $\underline{U}$ und $\underline{I}$:
 \begin{align}
     \frac{\text{d}^{2} \underline{U}}{\text{d} z^{2}} &= \gamma^{2} \underline{U} \label{eq:VerlustDgl1} \\[1ex]
     \frac{\text{d}^{2} \underline{I}}{\text{d} z^{2}} &= \gamma^{2} \underline{I} \label{eq:VerlustDgl2} \\[1ex]
-    \gamma^{2} &= \left( R^{\prime} + \mathrm{j} \omega L^{\prime} \right) \left( G^{\prime} + \mathrm{j} \omega
-    C^{\prime} \right) \label{eq:Gamma}.
+    \gamma^{2} &= \left( R^{\prime} + \mathbf{j} \omega L^{\prime} \right) \left( G^{\prime}
+    + \mathbf{j} \omega C^{\prime} \right) \label{eq:Gamma}.
 \end{align}
 Man nennt $\gamma = \alpha + \mathbf{j} \beta$ die Wellenausbreitungskonstante.
 
@@ -258,7 +258,7 @@ Man nennt $\gamma = \alpha + \mathbf{j} \beta$ die Wellenausbreitungskonstante.
     \end{equation}
     wobei
     \begin{equation}
-        Z_{w} = \sqrt{\frac{R^{\prime} + \mathrm{j} \omega L^{\prime}}{G^{\prime} + \mathrm{j} \omega C^{\prime}}}
+        Z_{w} = \sqrt{\frac{R^{\prime} + \mathbf{j} \omega L^{\prime}}{G^{\prime} + \mathbf{j} \omega C^{\prime}}}
         \label{eq:Zw}
     \end{equation}
     Wellenwiderstand genannt wird.
@@ -289,15 +289,15 @@ Somit ist der Wellenwiderstand \alert{reell}, die Wellenausbreitungskonstante hi
 Die Spannungen im Abstand einer Wellenlänge $\lambda$ erfüllen
 \begin{equation}
 \underline{U}(\lambda) =
-\underline{U}_{h_{0}} \mathbf{e}^{- \mathrm{j} \beta \lambda}
+\underline{U}_{h_{0}} \mathbf{e}^{- \mathbf{j} \beta \lambda}
 +
-\underline{U}_{r_{0}} \mathbf{e}^{\mathrm{j} \beta \lambda}
+\underline{U}_{r_{0}} \mathbf{e}^{\mathbf{j} \beta \lambda}
 = \underline{U}_{h_{0}} + \underline{U}_{r_{0}}
 = \underline{U}(0)
 \end{equation}
 und somit
 \[
-\mathbf{e}^{- \mathrm{j} \beta \lambda} = \mathbf{e}^{\mathrm{j} \beta \lambda} = 1.
+\mathbf{e}^{- \mathbf{j} \beta \lambda} = \mathbf{e}^{\mathbf{j} \beta \lambda} = 1.
 \]
 Es folgt
 \[
