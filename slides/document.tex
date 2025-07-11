@@ -573,14 +573,43 @@ Z = \frac{1 + r}{1 - r} Z_{w} =
 \[
 Z = \mathbf{j} \frac{r_{0} \sin \varphi}{1 - r_{0} \cos \varphi} Z_{w}.
 \]
-Für $\varphi \ne n \pi$ bzw. $\Delta z \ne n \frac{\pi}{4}$, $n \in - \mathbb{N}$, ist $Z$ eine
+Für $\varphi \ne n \pi$ bzw. $\Delta z \ne n \frac{\lambda}{4}$, $n \in - \mathbb{N}$, ist $Z$ eine
 rein imaginäre Größe.
 
 Ist insbesondere die Leiterlänge $l$ kein Vielfaches von $\nicefrac{\lambda}{4}$, dann ist die Impedanz am
 Anfang des Leiters imaginär!
 \end{frame}
 
+\begin{frame}{Imaginäre Impedanzen}
+\begin{figure}[H]
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{graphics/ImpedanzLeerlauf}
+        \caption*{$r_{0}=1$}
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{graphics/ImpedanzKurzschluss}
+        \caption*{$r_{0}=-1$}
+    \end{minipage}
+\end{figure}
+\end{frame}
 
+
+\begin{frame}{Beliebige Kapazitäten und Induktivitäten}
+Es folgt für
+\begin{itemize}
+    \item $0 < \Delta z < \frac{\lambda}{4} \Rightarrow \mathrm{Im}(Z) > 0$: die Leitung verhält
+    sich wie eine Induktivität
+    \item $\frac{\lambda}{4} < \Delta z < \frac{\lambda}{2} \Rightarrow \mathrm{Im}(Z) < 0$: die
+    Leitung verhält sich wie eine Kapazität
+\end{itemize}
+
+Ein solcher Leiter speichert nahezu verlustfrei dies gesamte elektrische Energie
+im elektrischen Feld (Kapazität) bzw. im magnetischen Feld (Induktivität).
+
+\end{frame}
 
 
 \begin{frame}{Literaturverzeichnis}
