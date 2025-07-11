@@ -154,12 +154,16 @@ i(z + \mathrm{d}z) \approx i(z) + \frac{\partial i}{\partial z}(z) \, \mathrm{d}
 Entlang des Leitungsstücks verursachen Widerstand $R^{\prime} \, \mathrm{d}z$ und Induktivität
 $L^{\prime} \, \mathrm{d}z$ einen Spannungsabfall von
 \[
-\Delta u = i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z.
+i(z, t) \, R^{\prime} \, \mathrm{d}z
++
+\frac{\partial i(z, t)}{\partial t} \, L^{\prime} \, \mathrm{d}z.
 \]
 Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
 \begin{equation*}
-    u = i \, R^{\prime} \, \mathrm{d}z + \frac{\partial i}{\partial t} \, L^{\prime} \, \mathrm{d}z +
-    u + \frac{\partial u}{\partial z} \mathrm{d}{z}.
+    u(z, t) = i(z, t) \, R^{\prime} \, \mathrm{d}z
+    +
+    \frac{\partial i(z, t)}{\partial t} \, L^{\prime} \, \mathrm{d}z
+    + u(z + \mathrm{d}z, t).
 \end{equation*}
 
 \end{frame}
@@ -168,12 +172,16 @@ Mit der Kirchhoffschen Maschengleichung~\cite{Kirchhoff} folgt
 \begin{frame}{Strom auf infinitesimalem Leitungsstück}
 Durch Querleitwert $G^{\prime} \, \mathrm{d}z$ und Querkapazität $C^{\prime} \, \mathrm{d}z$ fließt der Strom
 \[
-\Delta i = u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z.
+u(z + \mathrm{d}z, t) \, G^{\prime} \, \mathrm{d}z
++
+\frac{\partial u(z + \mathrm{d}z, t)}{\partial t} \, C^{\prime} \, \mathrm{d}z.
 \]
 Mit der Kirchhoffschen Knotenregel~\cite{Kirchhoff} folgt
 \begin{equation*}
-    i = u \, G^{\prime} \, \mathrm{d}z + \frac{\partial u}{\partial t} \, C^{\prime} \, \mathrm{d}z + i +
-    \frac{\partial i}{\partial z} \mathrm{d}z.
+    i(z, t) = u(z + \mathrm{d}z, t) \, G^{\prime} \, \mathrm{d}z
+    +
+    \frac{\partial u(z + \mathrm{d}z, t)}{\partial t} \, C^{\prime} \, \mathrm{d}z
+    + i(z + \mathrm{d}z, t).
 \end{equation*}
 
 \end{frame}
@@ -278,7 +286,7 @@ Somit ist der Wellenwiderstand \alert{reell}, die Wellenausbreitungskonstante hi
 
 
 \begin{frame}{Wellenlänge}
-Die Wellenlänge $\lambda$ erfüllt
+Die Spannungen im Abstand einer Wellenlänge $\lambda$ erfüllen
 \begin{equation}
 \underline{U}(\lambda) =
 \underline{U}_{h_{0}} \mathbf{e}^{- \mathrm{j} \beta \lambda}
@@ -494,9 +502,10 @@ Z(z) = \frac{1 + r(z)}{1 - r(z)} Z_{w}.
 Im Falle der Anpassung gilt $Z_{e} = Z_{w}$.
 \begin{itemize}
     \item <1-> $r = 0$, d.\,h. es findet keine Reflexion statt
-    \item <2-> einlaufende Welle wird am Leitungsende vollkommen absorbiert!
-    \item <3-> wichtiger Fall in der Praxis da keine unerwünschten Interferenzen auftreten
-    \item <4-> das Signal wird ungestört übertragen
+    \item <2-> es folgt $\underline{U}_{r}(z) = 0$ (für \alert{alle} $z$!)
+    \item <3-> einlaufende Welle wird am Leitungsende vollkommen absorbiert!
+    \item <4-> wichtiger Fall in der Praxis da keine unerwünschten Interferenzen auftreten
+    \item <5-> das Signal wird ungestört übertragen
 \end{itemize}
 \end{frame}
 
@@ -546,11 +555,32 @@ umgekehrt transformiert!
 \vspace{1ex}
 Dies passiert im Abstand $\nicefrac{\lambda}{4}$, denn es gilt mit $l - z = \Delta z$
 \[
-\mathbf{e}^{- \mathbf{j} \, 2 \beta \frac{\lambda}{4}} =
-\mathbf{e}^{- \mathbf{j} \, 2 \frac{2 \pi}{\lambda} \frac{\lambda}{4}} =
+\mathbf{e}^{- \mathbf{j} 2 \beta \frac{\lambda}{4}} =
+\mathbf{e}^{- \mathbf{j} 2 \frac{2 \pi}{\lambda} \frac{\lambda}{4}} =
 \mathbf{e}^{- \mathbf{j} \pi} = -1.
 \]
 \end{frame}
+
+
+\begin{frame}{Kurzschluss/Offene Leitung im verlustlosen Fall}
+Sei $r(l) = r_{0}$ mit $r_{0} = \pm 1$ und
+$\varphi = - 2 \beta \Delta z = - \frac{4 \pi}{\lambda} \Delta z$.
+Es folgt
+\[
+Z = \frac{1 + r}{1 - r} Z_{w} =
+\frac{1 + r_{0} \mathbf{e}^{\mathbf{j} \varphi}}{1 - r_{0} \mathbf{e}^{\mathbf{j} \varphi}} Z_{w}.
+\] Mit der Eulerschen Formel folgt
+\[
+Z = \mathbf{j} \frac{r_{0} \sin \varphi}{1 - r_{0} \cos \varphi} Z_{w}.
+\]
+Für $\varphi \ne n \pi$ bzw. $\Delta z \ne n \frac{\pi}{4}$, $n \in - \mathbb{N}$, ist $Z$ eine
+rein imaginäre Größe.
+
+Ist insbesondere die Leiterlänge $l$ kein Vielfaches von $\nicefrac{\lambda}{4}$, dann ist die Impedanz am
+Anfang des Leiters imaginär!
+\end{frame}
+
+
 
 
 \begin{frame}{Literaturverzeichnis}
